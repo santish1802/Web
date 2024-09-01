@@ -41,10 +41,21 @@
           $(".mobile-navar").toggleClass("active");
           return false;
         });
-        $(".has-children").on("click", function () {
-          $(this).children("ul").slideToggle("slow", "swing");
-          $(".icon-arrow").toggleClass("open");
+        $(document).on("click", function (event) {
+          if (!$(event.target).closest(".has-children").length) {
+            $(".has-children").children("ul").hide();
+            $(".icon-arrow").removeClass("open");
+          }
         });
+        
+        $(".has-children").on("click", function (event) {
+          event.stopPropagation();
+          $(".has-children").not(this).children("ul").hide();
+          $(this).children("ul").slideToggle(300, "swing");
+          $(this).find(".icon-arrow").toggleClass("open");
+          $(".has-children").not(this).find(".icon-arrow").removeClass("open");
+        });
+        
       }
     }
 

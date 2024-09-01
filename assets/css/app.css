@@ -2188,15 +2188,14 @@ textarea {
   color: var(--main-color);
 }
 
-/*-------------------------
-  DISEÑO
--------------------------*/
+/*---------------------
+    @c-red MENU NAVBAR 
+----------------------*/
 header {
   width: 100%;
   background: transparent;
-  /*---------------------
-      MENU HAMBURGER 
-  ----------------------*/
+
+  /* @c-blue NAVBAR 1 */
 }
 header.large-screens {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -2272,28 +2271,51 @@ header nav .navbar-collapse .navbar-nav .has-children a.active {
 header nav .navbar-collapse .navbar-nav .has-children a:hover {
   color: var(--main-color);
 }
+/* @c-green NAVBAR SUBMENU */
 header nav .navbar-collapse .navbar-nav .has-children .submenu {
   position: absolute;
   top: 27px;
   left: 0;
   z-index: 999999;
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0; */
+  /* visibility: hidden; */
   min-width: max-content;
   padding: 10px 32px;
   border-radius: 12px;
   background: #1B1B1B;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  list-style: none;
   margin: 0;
+  list-style: none;
+}
+
+/* @c-blue NAVBAR BOOTSTRAP 5 ANIMATION */
+.nav-2{
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.dropdown-menu {
+  border-radius: 12px;
+  background: #1B1B1B;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.397);
+  border: none;
+  display: block;
+  max-height: 0padx;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+
+ /* Ajusta la duración y el efecto de la transición */
+}
+
+.dropdown-menu.show { 
+  padding: 0.5rem 0; 
+  max-height: 300px; /* Ajusta según la altura máxima que esperas */
+  opacity: 1;
+  transition: padding 0.3s ease, max-height 1.3s ease, opacity 0.5s ease /* Incluye padding en la transición */
 }
 
 header nav .navbar-collapse .navbar-nav .has-children .submenu li {
   margin: 0;
-  opacity: 0;
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
 }
 header nav .navbar-collapse .navbar-nav .has-children .submenu li a {
   position: relative;
@@ -2324,7 +2346,6 @@ header nav .navbar-collapse .navbar-nav .has-children:hover .submenu {
   }
 }
 header nav .navbar-collapse .navbar-nav .has-children:hover .submenu li {
-  opacity: 1;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);

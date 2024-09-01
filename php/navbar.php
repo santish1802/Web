@@ -23,13 +23,13 @@
                     <li class="menu-item"><a href="anime-listing.php" >Listado</a></li>
                     <li class="has-children">
                         <a href="javascript:void(0);">Detalle</a>
-                        <ul class="submenu">
+                        <ul class="submenu" style="display: none;">
                             <li><a href="anime-detail.php">Detalle de anime</a></li>
                         </ul>
                     </li>
                     <li class="has-children">
                         <a href="javascript:void(0);">Paginas</a>
-                        <ul class="submenu">
+                        <ul class="submenu" style="display: none;">
                             
                             
                             <li><a href="login.php">Inicia Sesion</a></li>
@@ -49,7 +49,7 @@
                     <ul class="navbar-nav m-0">
                         <li class="has-children">
                             <a href="javascript:void(0);"><img src="assets/media/author/profile.png" alt=""></a>
-                            <ul class="submenu">
+                            <ul class="submenu" style="display: none;">
                                 <li><a href="sign-up.php">Registrate</a></li>
                                 <li><a href="login.php">Inicia Sesion</a></li>
                             </ul>
