@@ -9,7 +9,7 @@
     <meta name="description" content="Anime web">
 
     <title>Anime web</title>
-
+    <link rel="stylesheet" href="slide.css">
     <?php include 'php/head.php'; ?>
 </head>
 
@@ -17,79 +17,82 @@
     <!--Área de encabezado Inicio-->
     <?php include 'php/navbar2.php'; ?>
     <!--Fin del área de encabezado-->
+
     <!--Inicio del contenedor principal-->
     <div class="main-wrapper overflow-hidden" id="main-wrapper">
-        <!--Inicio del estandarte del héroe-->
-        <div class="hero-banner-1 p-40">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xxl-8 mb-30 mb-xxl-0">
-                        <div class="anime-card">
-                            <div class="content">
-                                <img alt="" class="logo" src="assets/media/logo/logo-1.png" />
-                                <h2 class="h-40 bold color-white mb-16">Demon Slayer: <br /> Kimetsu no Yaiba</h2>
-                                <ul class="tag unstyled mb-16">
-                                    <li>18+</li>
-                                    <li>Alta definición</li>
-                                    <li>2029</li>
-                                    <li>Anime</li>
-                                    <li>1 hora 45 minutos</li>
-                                </ul>
-                                <p class="color-white mb-32"><b class="color-medium-gray">A partir de:</b>Natsuki Hanae, Akari Kito, Hiro Shimono</p>
-                                <div class="btn-block">
-                                    <a class="cus-btn primary" data-bs-target="#videoModal" data-bs-toggle="modal" href="#">
-                                        <i class="fa fa-play"></i>Play</a>
-                                    <a class="cus-btn sec" href="anime-detail.php">
-                                        <i class="fal fa-info-circle"></i>Más información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-4">
-                        <div class="row">
-                            <div class="col-xxl-12 col-xl-6 col-12">
-                                <div class="anime-sm-card mb-30">
-                                    <img alt="" class="br-12" src="assets/media/anime-card/img-1.png" />
-                                    <div class="content">
-                                        <h4 class="h-30 color-white mb-8">My Hero Academia</h4>
-                                        <ul class="tag unstyled mb-16">
-                                            <li>2019</li>
-                                            <li class="sec">18+</li>
-                                            <li>4 estaciones</li>
-                                            <li>Anime</li>
-                                        </ul>
-                                        <p class="sm color-medium-gray">Condenado a muerte, el ninja Gabimaru se siente apático.</p>
-                                        <a class="cus-btn primary space" data-bs-target="#videoModal" data-bs-toggle="modal" href="#">
-                                            <i class="fa fa-play"></i>
-                                            Play
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xxl-12 col-xl-6 col-12">
-                                <div class="anime-sm-card">
-                                    <img alt="" class="br-12" src="assets/media/anime-card/img-2.png" />
-                                    <div class="content">
-                                        <h4 class="h-30 color-white mb-8">Hell’s Paradise</h4>
-                                        <ul class="tag unstyled mb-16">
-                                            <li>2019</li>
-                                            <li class="sec">18+</li>
-                                            <li>4 estaciones</li>
-                                            <li>Anime</li>
-                                        </ul>
-                                        <p class="sm color-medium-gray">Condenado a muerte, el ninja Gabimaru se siente apático.</p>
-                                        <a class="cus-btn primary space" data-bs-target="#videoModal" data-bs-toggle="modal" href="#">
-                                            <i class="fa fa-play"></i>
-                                            Play
-                                        </a>
+
+        <!-- @c-blue Inicio del slider-->
+        <section id="bannerCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="500000">
+            <div class="carousel-inner">
+                <?php
+                require "php/config.php";
+                $sql = "SELECT * FROM anime WHERE portada = 1";
+                $result = $conn->query($sql);
+                $animes = [];
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $animes[] = $row;
+                    }
+                }
+
+                $conn->close();
+
+                // Verificar si hay animes recientes
+                if (!empty($animes)) {
+                    $first = true; // Variable para marcar el primer item como activo
+
+                    foreach ($animes as $anime) {
+                        $activeClass = $first ? 'active' : '';
+                        $first = false; // Después del primer item, todos los demás no serán activos
+                ?>
+                        <div class="carousel-item <?php echo $activeClass; ?>">
+                            <div class="bg-anime" style="background: url(<?php echo htmlspecialchars($anime['imagen_portada_vertical']); ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                            <div class="container">
+                                <div class="slider-cont">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-12 m">
+                                            <h2 class="pb-4 title-anime"><?php echo htmlspecialchars($anime['nombre']); ?></h2>
+                                            <p class="anime-temporada pb-3">TEMPORADA <?php echo htmlspecialchars($anime['temporada']); ?></p>
+                                            <div class="pb-3">
+                                                <!-- Aquí puedes agregar botones dinámicos si tienes más datos para ellos -->
+                                                <?php
+                                                // Obtener y mostrar las etiquetas como botones
+                                                $etiquetas = explode(',', $anime['etiquetas']); // Separar etiquetas por coma
+                                                foreach ($etiquetas as $etiqueta) {
+                                                    $etiqueta = trim($etiqueta); // Quitar espacios alrededor
+                                                    echo '<a href="streaming-season.html" class="btn bg-primary  fw-bold">' . htmlspecialchars($etiqueta) . '</a> ';
+                                                }
+                                                ?>
+                                            </div>
+
+                                            <p class="anime-descrip"><?php echo htmlspecialchars($anime['descripcion_breve']); ?></p>
+                                            <a class="anime-play btn bg-primary mt-5 d-block" href="streaming-season.html">VER AHORA</a>
+                                        </div>
+                                        <div class="col-lg-7 col-12 image-anime">
+                                            <img src="<?php echo htmlspecialchars($anime['imagen_portada_vertical']); ?>" class="d-block w-100" alt="">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                <?php
+                    }
+                } else {
+                    echo "<p>No hay animes recientes.</p>";
+                }
+                ?>
             </div>
-        </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
+        <!-- Fin del slider -->
+
         <!--Contenido principal Inicio-->
         <div class="page-content">
             <!--Categorías Área Inicio-->

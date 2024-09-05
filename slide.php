@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="bannerCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="5000">
+    <section id="bannerCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="500000">
         <div class="carousel-inner">
             <?php
             // Incluir el script PHP para obtener los datos
@@ -39,15 +39,15 @@
                                             $etiquetas = explode(',', $anime['etiquetas']); // Separar etiquetas por coma
                                             foreach ($etiquetas as $etiqueta) {
                                                 $etiqueta = trim($etiqueta); // Quitar espacios alrededor
-                                                echo '<a href="streaming-season.html" class="btn bg-primary">' . htmlspecialchars($etiqueta) . '</a> ';
+                                                echo '<a href="streaming-season.html" class="btn bg-primary  fw-bold">' . htmlspecialchars($etiqueta) . '</a> ';
                                             }
                                             ?>
                                         </div>
                                         
                                         <p class="anime-descrip"><?php echo htmlspecialchars($anime['descripcion_breve']); ?></p>
-                                        <a class="anime-play btn bg-primary mt-5" href="streaming-season.html">VER AHORA</a>
+                                        <a class="anime-play btn bg-primary mt-5 d-block" href="streaming-season.html">VER AHORA</a>
                                     </div>
-                                    <div class="col-lg-7 col-12">
+                                    <div class="col-lg-7 col-12 image-anime">
                                         <img src="<?php echo htmlspecialchars($anime['imagen_portada_vertical']); ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </section>
     <?php include "php/scripts.php" ?>
 </body>
 
