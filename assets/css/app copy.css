@@ -4087,37 +4087,37 @@ footer .copyright {
   }
 }
 
-.movie-detail .name-rating {
+.anime-detail .name-rating {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 @media (max-width: 575px) {
-  .movie-detail .name-rating {
+  .anime-detail .name-rating {
     align-items: flex-start;
   }
 }
-.movie-detail .name-rating .rating {
+.anime-detail .name-rating .rating {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-.movie-detail .name-rating .rating span {
+.anime-detail .name-rating .rating span {
   display: flex;
   align-items: center;
   gap: 9px;
   line-height: 150%;
   font-family: "Open Sans", sans-serif;
 }
-.movie-detail h5.h-24 {
+.anime-detail h5.h-24 {
   line-height: 120%;
 }
-.movie-detail .tag {
+.anime-detail .tag {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.movie-detail .tag li {
+.anime-detail .tag li {
   padding: 4px 8px;
   border-radius: 8px;
   border: 1px solid #FFF;
@@ -4128,7 +4128,7 @@ footer .copyright {
   font-weight: 600;
   line-height: 150%;
 }
-.movie-detail .about .categorie {
+.anime-detail .about .categorie {
   padding: 16px 0;
   border: 1px solid #212020;
   border-left: none;
@@ -4137,7 +4137,7 @@ footer .copyright {
   align-items: flex-start;
   gap: 20px;
 }
-.movie-detail .about .categorie .categorie-list {
+.anime-detail .about .categorie .categorie-list {
   display: flex;
   align-items: center;
   align-content: center;
@@ -4145,11 +4145,11 @@ footer .copyright {
   flex-wrap: wrap;
 }
 @media (max-width: 1199px) {
-  .movie-detail .about .categorie .categorie-list {
+  .anime-detail .about .categorie .categorie-list {
     gap: 8px 6px;
   }
 }
-.movie-detail .about .categorie .categorie-list li a {
+.anime-detail .about .categorie .categorie-list li a {
   color: #F8F8FF;
   text-align: center;
   font-family: "Open Sans", sans-serif;
@@ -4161,10 +4161,10 @@ footer .copyright {
   border: 1px solid #35373A;
   background: #1B1B1B;
 }
-.movie-detail .about .categorie .categorie-list li a:hover {
+.anime-detail .about .categorie .categorie-list li a:hover {
   color: #58DDA3;
 }
-.movie-detail .line {
+.anime-detail .line {
   width: 100%;
   margin-top: 50px;
   height: 1px;

@@ -55,7 +55,7 @@
     $(".has-children").on("click", function (event) {
       event.stopPropagation();
       $(".has-children").not(this).children("ul").hide();
-      $(this).children("ul").slideToggle(300, "swing");
+      $(this).children("ul").slideToggle(400, "swing");
       $(this).find(".icon-arrow").toggleClass("open");
       $(".has-children").not(this).find(".icon-arrow").removeClass("open");
     });

@@ -27,7 +27,7 @@
             <section class="signup text-center">
                 <div class="container-fluid">
                     <div class="signup-block">
-                        <h1 class="color-white mb-32">Registrate</h1>
+                        <h1 class="text-white mb-32">Registrate</h1>
                         <form action="">
                             <div class="mb-32">
                                 <input class="form-control mb-32" name="email" placeholder="Tu correo electrónico" type="email" />
@@ -44,7 +44,7 @@
                         </form>
                         <div class="text-center">
                             <p class="sec color-gray mb-32">Al continuar, acepta los Términos de uso y la Política de privacidad de VIVID.</p>
-                            <h6>¿Ya tienes una cuenta?<a class="color-primary" href="login.php">Acceso</a></h6>
+                            <h6>¿Ya tienes una cuenta?<a class="text-primary" href="login.php">Acceso</a></h6>
                         </div>
                     </div>
                 </div>

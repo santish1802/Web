@@ -25,7 +25,7 @@
                 <div class="content">
                     <div class="login-block">
                         <div class="login-content">
-                            <h1 class="color-white mb-32">Inicia sesión</h1>
+                            <h1 class="text-white mb-32">Inicia sesión</h1>
                             <a class="google hide-link mb-24" href="#"><img alt="" src="assets/media/icons/google.php" />Continuar con Google</a>
                             <a class="facebook hide-link mb-24" href="#"><img alt="" src="assets/media/icons/facebook-2.php" />Continuar con Facebook</a>
                             <button class="mail hide-link mb-32" id="continue-email"><img alt="" src="assets/media/icons/mail.php" />Continuar con correo</button>
@@ -41,10 +41,10 @@
                                         <button class="cus-btn primary mb-32">Acceso</button>
                                     </div>
                                 </form>
-                                <h6 class="color-primary mb-16" id="backtologin">Volver</h6>
+                                <h6 class="text-primary mb-16" id="backtologin">Volver</h6>
                             </div>
                             <div class="text-center">
-                                <h6>¿Crear una cuenta?<a class="color-primary" href="sign-up.php">Inscribirse</a> </h6>
+                                <h6>¿Crear una cuenta?<a class="text-primary" href="sign-up.php">Inscribirse</a> </h6>
                             </div>
                         </div>
                     </div>

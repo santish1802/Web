@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
 
     <title>Anime web</title>
-    <link rel="stylesheet" href="slide.css">
     <?php include 'php/head.php'; ?>
 </head>
 
@@ -103,7 +101,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-1.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Shonen</h2>
+                                    <h2 class="h-36 mb-1 text-white">Shonen</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -112,7 +110,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-2.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Acción</h2>
+                                    <h2 class="h-36 mb-1 text-white">Acción</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -121,7 +119,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-3.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Fantasía</h2>
+                                    <h2 class="h-36 mb-1 text-white">Fantasía</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -130,7 +128,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-4.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Romántico</h2>
+                                    <h2 class="h-36 mb-1 text-white">Romántico</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -139,7 +137,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-5.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Comedia</h2>
+                                    <h2 class="h-36 mb-1 text-white">Comedia</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -148,7 +146,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-6.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Drama</h2>
+                                    <h2 class="h-36 mb-1 text-white">Drama</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -157,7 +155,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-7.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Ciencia ficción</h2>
+                                    <h2 class="h-36 mb-1 text-white">Ciencia ficción</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -166,7 +164,7 @@
                             <a class="categorie-item" href="anime-listing.php">
                                 <img alt="" src="assets/media/categories/Img-8.png" />
                                 <div class="content">
-                                    <h2 class="h-36 mb-1 color-white">Aventura</h2>
+                                    <h2 class="h-36 mb-1 text-white">Aventura</h2>
                                     <span class="h-20 color-medium-gray">Más de 850 animes</span>
                                 </div>
                             </a>
@@ -187,13 +185,13 @@
                             <div class="card">
                                 <div class="img-block mb-30">
                                     <img alt="" src="assets/media/anime-card/img-3.png" />
-                                    <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="list">1</div>
                                     <div class="name">
-                                        <h4 class="h-24 color-white bold">Hell’s Paradise</h4>
+                                        <h4 class="h-24 text-white bold">Hell’s Paradise</h4>
                                         <h6 class="h-20 color-medium-gray">Acción</h6>
                                     </div>
                                 </div>
@@ -203,13 +201,13 @@
                             <div class="card">
                                 <div class="img-block mb-30">
                                     <img alt="" src="assets/media/anime-card/img-4.png" />
-                                    <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="list">2</div>
                                     <div class="name">
-                                        <h4 class="h-24 color-white bold">One Piece</h4>
+                                        <h4 class="h-24 text-white bold">One Piece</h4>
                                         <h6 class="h-20 color-medium-gray">Comedia</h6>
                                     </div>
                                 </div>
@@ -219,13 +217,13 @@
                             <div class="card">
                                 <div class="img-block mb-30">
                                     <img alt="" src="assets/media/anime-card/img-5.png" />
-                                    <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="list">3</div>
                                     <div class="name">
-                                        <h4 class="h-24 color-white bold">86 Eighty Six</h4>
+                                        <h4 class="h-24 text-white bold">86 Eighty Six</h4>
                                         <h6 class="h-20 color-medium-gray">romance</h6>
                                     </div>
                                 </div>
@@ -235,13 +233,13 @@
                             <div class="card">
                                 <div class="img-block mb-30">
                                     <img alt="" src="assets/media/anime-card/img-6.png" />
-                                    <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="list">4</div>
                                     <div class="name">
-                                        <h4 class="h-24 color-white bold">Darling In The Franxx</h4>
+                                        <h4 class="h-24 text-white bold">Darling In The Franxx</h4>
                                         <h6 class="h-20 color-medium-gray">Fantasía</h6>
                                     </div>
                                 </div>
@@ -263,7 +261,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-7.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Hell’s Paradise</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Hell’s Paradise</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -273,11 +271,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -288,7 +286,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-8.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Fate Stay Night </h4>
+                                    <h4 class="h-24 text-white bold mb-12">Fate Stay Night </h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -298,11 +296,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -313,7 +311,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-9.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Steins Gate</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Steins Gate</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -323,11 +321,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -338,7 +336,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-10.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Black Bullet</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Black Bullet</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -348,11 +346,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -363,7 +361,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-11.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Chainsawman</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Chainsawman</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -373,11 +371,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -388,7 +386,7 @@
                             <div class="item mb-40">
                                 <img alt="" src="assets/media/anime-card/img-12.png" />
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">My Hero Academia</h4>
+                                    <h4 class="h-24 text-white bold mb-12">My Hero Academia</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">Temporada 02</p>
@@ -398,11 +396,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a class="cus-btn primary space" href="movie-detail.php">
+                                        <a class="cus-btn primary space" href="anime-detail.php">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>24:30
                                         </div>
                                     </div>
@@ -421,11 +419,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-22.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Demon Slayer</h4>
+                                <h4 class="h-24 text-white bold">Demon Slayer</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -438,11 +436,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-3.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Hells Paradise</h4>
+                                <h4 class="h-24 text-white bold">Hells Paradise</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -455,11 +453,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-8.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Fate Stay Night</h4>
+                                <h4 class="h-24 text-white bold">Fate Stay Night</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -472,11 +470,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-9.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Steins Gate</h4>
+                                <h4 class="h-24 text-white bold">Steins Gate</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -489,11 +487,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-19.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Arcane</h4>
+                                <h4 class="h-24 text-white bold">Arcane</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -513,14 +511,14 @@
                     <div class="content">
                         <img alt="" src="assets/media/comming-soon/image.png" />
                         <div class="details">
-                            <h4 class="h-20 bold color-primary mb-8">¡Muy pronto!</h4>
+                            <h4 class="h-20 bold text-primary mb-8">¡Muy pronto!</h4>
                             <ul class="timer countdown unstyled data-timer1">
                                 <li>365<small>Días</small></li>
                                 <li>24<small>Horas</small></li>
                                 <li>60<small>Mínimo</small></li>
                                 <li>60<small>Segundo</small></li>
                             </ul>
-                            <h2 class="h-40 bold color-white mb-12">Chainsawman</h2>
+                            <h2 class="h-40 bold text-white mb-12">Chainsawman</h2>
                             <p class="color-medium-gray mb-24">El cliente está muy contento de que lo sigan. Un poco más que un ullamcorper<br />almohada Los tintoreros del gato son también dos ollas para gatos. La decoración de la vida en la cama grande.</p>
                             <ul class="tag unstyled mb-24">
                                 <li>Acción</li>
@@ -529,7 +527,7 @@
                                 <li class="icon"><i class="fas fa-star"></i></li>
                                 <li>8.5</li>
                             </ul>
-                            <h4 class="h-20 bold color-white mb-16">Personajes</h4>
+                            <h4 class="h-20 bold text-white mb-16">Personajes</h4>
                             <ul class="name unstyled mb-40">
                                 <li>huyendo</li>
                                 <li>Valioso</li>
@@ -554,7 +552,7 @@
                             <div class="anime-card">
                                 <img alt="" class="br-20" src="assets/media/anime-card/img-13.png" />
                                 <div class="name">
-                                    <h1 class="h-30 bold color-white">Otro</h1>
+                                    <h1 class="h-30 bold text-white">Otro</h1>
                                     <ul class="tag unstyled">
                                         <li>Acción</li>
                                         <li>2021</li>
@@ -579,7 +577,7 @@
                                     <div class="anime-card st-2 mb-30">
                                         <img alt="" src="assets/media/anime-card/img-14.png" />
                                         <div class="name">
-                                            <h1 class="h-30 bold color-white">Ataque a los titanes</h1>
+                                            <h1 class="h-30 bold text-white">Ataque a los titanes</h1>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -599,7 +597,7 @@
                                     <div class="anime-card st-2">
                                         <img alt="" src="assets/media/anime-card/img-15.png" />
                                         <div class="name">
-                                            <h1 class="h-30 bold color-white">Bala negra</h1>
+                                            <h1 class="h-30 bold text-white">Bala negra</h1>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -623,7 +621,7 @@
                                     <div class="anime-card st-2 mb-30 mb-none">
                                         <img alt="" src="assets/media/anime-card/img-16.png" />
                                         <div class="name">
-                                            <h1 class="h-30 bold color-white">Palabras de jardín</h1>
+                                            <h1 class="h-30 bold text-white">Palabras de jardín</h1>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -643,7 +641,7 @@
                                     <div class="anime-card st-2">
                                         <img alt="" src="assets/media/anime-card/img-17.png" />
                                         <div class="name">
-                                            <h1 class="h-30 bold color-white">Una pieza</h1>
+                                            <h1 class="h-30 bold text-white">Una pieza</h1>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -673,11 +671,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-9.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Steins Gate</h4>
+                                <h4 class="h-24 text-white bold">Steins Gate</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -690,11 +688,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-3.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Hells Paradise</h4>
+                                <h4 class="h-24 text-white bold">Hells Paradise</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -707,11 +705,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-18.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Demon Slayer</h4>
+                                <h4 class="h-24 text-white bold">Demon Slayer</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -724,11 +722,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-19.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Arcane</h4>
+                                <h4 class="h-24 text-white bold">Arcane</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -741,11 +739,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-8.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Fate Stay Night</h4>
+                                <h4 class="h-24 text-white bold">Fate Stay Night</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -767,11 +765,11 @@
                         <div class="card st-2 bold">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-10.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Black Bullet</h4>
+                                <h4 class="h-24 text-white bold">Black Bullet</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -784,11 +782,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-23.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Your Lie in April</h4>
+                                <h4 class="h-24 text-white bold">Your Lie in April</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -801,11 +799,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-24.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Your Name</h4>
+                                <h4 class="h-24 text-white bold">Your Name</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -818,11 +816,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-25.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Jujutsu Kaisen</h4>
+                                <h4 class="h-24 text-white bold">Jujutsu Kaisen</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -835,11 +833,11 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img alt="" src="assets/media/anime-card/img-12.png" />
-                                <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">My Hero Academia</h4>
+                                <h4 class="h-24 text-white bold">My Hero Academia</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>

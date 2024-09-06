@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-xxl-12 col-xl-4">
                                     <div class="filter mb-32">
-                                        <h2 class="h-30 bold color-white mb-32">Filtrar</h2>
+                                        <h2 class="h-30 bold text-white mb-32">Filtrar</h2>
                                         <ul class="unstyled alphabetic-filter mb-32">
                                             <li><a class="active" href="#">All</a></li>
                                             <li><a href="#">A</a></li>
@@ -572,15 +572,15 @@
                                 </div>
                                 <div class="col-xxl-12 col-xl-8">
                                     <div class="top-anime mb-12">
-                                        <h2 class="h-30 bold color-white mb-12">Animes con calificación superior</h2>
+                                        <h2 class="h-30 bold text-white mb-12">Animes con calificación superior</h2>
                                         <p class="sec sm mb-24">Basado en tu filtro</p>
                                         <div class="row">
                                             <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="movie-detail.php">
+                                                <a class="anime-card mb-12" href="anime-detail.php">
                                                     <img alt="" src="assets/media/anime-card/img-27.png" />
                                                     <div class="text-block">
                                                         <div class="sm-title">
-                                                            <h6 class="color-white">The Daily Life of the Immortal King</h6>
+                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
                                                             <p class="color-medium-gray sm sec">Temporada 3</p>
                                                         </div>
                                                         <ul class="tag unstyled">
@@ -594,11 +594,11 @@
                                                 </a>
                                             </div>
                                             <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="movie-detail.php">
+                                                <a class="anime-card mb-12" href="anime-detail.php">
                                                     <img alt="" src="assets/media/anime-card/img-28.png" />
                                                     <div class="text-block">
                                                         <div class="sm-title">
-                                                            <h6 class="color-white">The Daily Life of the Immortal King</h6>
+                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
                                                             <p class="color-medium-gray sm sec">Temporada 3</p>
                                                         </div>
                                                         <ul class="tag unstyled">
@@ -612,11 +612,11 @@
                                                 </a>
                                             </div>
                                             <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="movie-detail.php">
+                                                <a class="anime-card mb-12" href="anime-detail.php">
                                                     <img alt="" src="assets/media/anime-card/img-27.png" />
                                                     <div class="text-block">
                                                         <div class="sm-title">
-                                                            <h6 class="color-white">The Daily Life of the Immortal King</h6>
+                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
                                                             <p class="color-medium-gray sm sec">Temporada 3</p>
                                                         </div>
                                                         <ul class="tag unstyled">
@@ -630,11 +630,11 @@
                                                 </a>
                                             </div>
                                             <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="movie-detail.php">
+                                                <a class="anime-card mb-12" href="anime-detail.php">
                                                     <img alt="" src="assets/media/anime-card/img-29.png" />
                                                     <div class="text-block">
                                                         <div class="sm-title">
-                                                            <h6 class="color-white">The Daily Life of the Immortal King</h6>
+                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
                                                             <p class="color-medium-gray sm sec">Temporada 3</p>
                                                         </div>
                                                         <ul class="tag unstyled">
@@ -648,11 +648,11 @@
                                                 </a>
                                             </div>
                                             <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="movie-detail.php">
+                                                <a class="anime-card mb-12" href="anime-detail.php">
                                                     <img alt="" src="assets/media/anime-card/img-30.png" />
                                                     <div class="text-block">
                                                         <div class="sm-title">
-                                                            <h6 class="color-white">The Daily Life of the Immortal King</h6>
+                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
                                                             <p class="color-medium-gray sm sec">Temporada 3</p>
                                                         </div>
                                                         <ul class="tag unstyled">
@@ -677,11 +677,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-22.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Demon Slayer</h4>
+                                            <h4 class="h-24 text-white bold">Demon Slayer</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -696,11 +696,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-3.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Hells Paradise</h4>
+                                            <h4 class="h-24 text-white bold">Hells Paradise</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -715,11 +715,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-8.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Fate Stay Night</h4>
+                                            <h4 class="h-24 text-white bold">Fate Stay Night</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -734,11 +734,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-9.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Steins Gate</h4>
+                                            <h4 class="h-24 text-white bold">Steins Gate</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -753,11 +753,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-19.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -772,11 +772,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-12.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -791,11 +791,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-8.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -810,11 +810,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-22.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -829,11 +829,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-23.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -848,11 +848,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-24.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -867,11 +867,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-25.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -886,11 +886,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-11.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -905,11 +905,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-4.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -924,11 +924,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-5.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>
@@ -943,11 +943,11 @@
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
                                             <img alt="" src="assets/media/anime-card/img-6.png" />
-                                            <a class="cus-btn light" href="movie-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 color-white bold">Arcane</h4>
+                                            <h4 class="h-24 text-white bold">Arcane</h4>
                                             <ul class="tag unstyled">
                                                 <li>Acción</li>
                                                 <li>2021</li>

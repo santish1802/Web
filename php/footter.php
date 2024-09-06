@@ -3,12 +3,12 @@
         <div class="footer-main">
             <div class="footer-info">
                 <div class="footer-about">
-                    <div class="logo mb-40 color-white fw-bold fs-1">
+                    <div class="logo mb-40 text-white fw-bold fs-1">
                         <a href="index-2.php">
                             LOGO
                         </a>
                     </div>
-                    <p class="light-gray h-20 light mb-32">
+                    <p class="h-20 light mb-32">
                         Mantente conectado con nosotros y conoce más historias sobre nuevas películas y <br> explora más para descubrirlo.
                     </p>
                     <ul class="unstyled social-icons">
@@ -32,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="list">
-                    <h5 class="h-24 bold color-white mb-24">Enlaces Principales</h5>
+                    <h5 class="h-24 bold text-white mb-24">Enlaces Principales</h5>
                     <ul class="link unstyled">
                         <li><a href="index-2.php">Inicio</a></li>
                         <li><a href="anime-listing.php">Animes</a></li>
@@ -40,7 +40,7 @@
                     </ul>
                 </div>
                 <div class="list">
-                    <h5 class="h-24 bold color-white mb-24">Información</h5>
+                    <h5 class="h-24 bold text-white mb-24">Información</h5>
                     <ul class="link unstyled">
                         <li><a href="sign-up.php">Registrarse</a></li>
                         <li><a href="login.php">Iniciar sesión</a></li>
@@ -48,15 +48,15 @@
                     </ul>
                 </div>
                 <div class="list">
-                    <h5 class="h-24 bold color-white mb-24">Servicios</h5>
+                    <h5 class="h-24 bold text-white mb-24">Servicios</h5>
                     <ul class="link unstyled">
-                        <li><a href="movie-detail.php">Películas</a></li>
+                        <li><a href="anime-detail.php">Películas</a></li>
                         <li><a href="#">Boletín</a></li>
                         <li><a href="blog.php">Blog</a></li>
                     </ul>
                 </div>
                 <div class="list">
-                    <h5 class="h-24 bold color-white mb-24">Seguridad</h5>
+                    <h5 class="h-24 bold text-white mb-24">Seguridad</h5>
                     <ul class="link unstyled">
                         <li>Términos y Condiciones</li>
                         <li>Política de Privacidad</li>
@@ -65,6 +65,6 @@
                 </div>
             </div>
         </div>
-        <p class="color-white text-center copyright">Todos los derechos reservados ©2024.</p>
+        <p class="text-white text-center copyright">Todos los derechos reservados ©2024.</p>
     </div>
 </footer>

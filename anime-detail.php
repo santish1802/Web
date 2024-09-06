@@ -61,7 +61,7 @@
                                         <a href="anime-detail.php" class="cus-btn light sm-light">Reproduciendo Ahora</a>
                                     </div>
                                     <div class="detail-list">
-                                        <h5 class="color-white">E1 - Flame Hashira Kyojuro Rengoku</h5>
+                                        <h5 class="text-white">E1 - Flame Hashira Kyojuro Rengoku</h5>
                                         <p><span>Género:</span> Drama, Comedia</p>
                                         <p><span>Idioma:</span> Inglés, Chino</p>
                                         <div class="time-view">
@@ -80,7 +80,7 @@
                                         <a href="anime-detail.php" class="cus-btn light sm-light">Reproduciendo Ahora</a>
                                     </div>
                                     <div class="detail-list">
-                                        <h5 class="color-white">E2 - Flame Hashira Kyojuro Rengoku</h5>
+                                        <h5 class="text-white">E2 - Flame Hashira Kyojuro Rengoku</h5>
                                         <p><span>Género:</span> Drama, Comedia</p>
                                         <p><span>Idioma:</span> Inglés, Chino</p>
                                         <div class="time-view">
@@ -99,7 +99,7 @@
                                         <a href="anime-detail.php" class="cus-btn light sm-light">Reproduciendo Ahora</a>
                                     </div>
                                     <div class="detail-list">
-                                        <h5 class="color-white">E3 - Flame Hashira Kyojuro Rengoku</h5>
+                                        <h5 class="text-white">E3 - Flame Hashira Kyojuro Rengoku</h5>
                                         <p><span>Género:</span> Drama, Comedia</p>
                                         <p><span>Idioma:</span> Inglés, Chino</p>
                                         <div class="time-view">
@@ -118,7 +118,7 @@
                                         <a href="anime-detail.php" class="cus-btn light sm-light">Reproduciendo Ahora</a>
                                     </div>
                                     <div class="detail-list">
-                                        <h5 class="color-white">E4 - Flame Hashira Kyojuro Rengoku</h5>
+                                        <h5 class="text-white">E4 - Flame Hashira Kyojuro Rengoku</h5>
                                         <p><span>Género:</span> Drama, Comedia</p>
                                         <p><span>Idioma:</span> Inglés, Chino</p>
                                         <div class="time-view">
@@ -148,18 +148,18 @@
         <div class="page-content">
 
             <!-- Área de inicio de detalle de la película -->
-            <section class="movie-detail p-40">
+            <section class="anime-detail p-40">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xxl-8 col-xl-8 col-lg-9 mb-lg-0 mb-24">
                             <div class="name-rating mb-24">
-                                <h2 class="h-30 bold color-white">Demon Slayer: Kimetsu no Yaiba : Temporada 1</h2>
+                                <h2 class="h-30 bold text-white">Demon Slayer: Kimetsu no Yaiba : Temporada 1</h2>
                                 <div class="rating">
-                                    <span class="h-24 color-white">
+                                    <span class="h-24 text-white">
                                         4.9
                                         <i class="fa-solid fa-star" style="color: #EEAA0F;"></i>
                                     </span>
-                                    <span class="h-24 color-white">(22.6k)</span>
+                                    <span class="h-24 text-white">(22.6k)</span>
                                 </div>
                             </div>
                             <ul class="tag unstyled mb-24">
@@ -169,14 +169,14 @@
                                 <li>Anime</li>
                                 <li>1hr 45m</li>
                             </ul>
-                            <h5 class="h-24 color-white mb-16 bold">Acerca de la Historia</h5>
-                            <p class="sec color-white mb-24">Flame Hashira Kyojuro Rengoku recibe nuevas órdenes: Viajar al Mugen Train, donde más de cuarenta personas han <br>
+                            <h5 class="h-24 text-white mb-16 bold">Acerca de la Historia</h5>
+                            <p class="sec text-white mb-24">Flame Hashira Kyojuro Rengoku recibe nuevas órdenes: Viajar al Mugen Train, donde más de cuarenta personas han <br>
                                 desaparecido, y realizar una investigación. Dejando la sede de Demon Slayer Corps, parte en esta <br> nueva misión.
                             </p>
 
-                            <p class="sec color-white mb-16"><span class="color-medium-gray">Protagonistas:</span> Natsuki Hanae, Akari Kito, Hiro Shimono</p>
-                            <p class="sec color-white mb-16"><span class="color-medium-gray">Idioma:</span> Japonés, Inglés, Inglés (India), Español (América Latina)</p>
-                            <p class="sec color-white mb-30"><span class="color-medium-gray">Subtítulos:</span> Japonés, Inglés</p>
+                            <p class="sec text-white mb-16"><span class="color-medium-gray">Protagonistas:</span> Natsuki Hanae, Akari Kito, Hiro Shimono</p>
+                            <p class="sec text-white mb-16"><span class="color-medium-gray">Idioma:</span> Japonés, Inglés, Inglés (India), Español (América Latina)</p>
+                            <p class="sec text-white mb-30"><span class="color-medium-gray">Subtítulos:</span> Japonés, Inglés</p>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal" class="cus-btn primary">
                                 <i class="fa fa-play"></i>
                                 Play
@@ -184,14 +184,14 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-lg-3">
                             <div class="about">
-                                <h3 class="h-30 bold color-white mb-24">Acerca de</h3>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">Tipo:</span>Película</p>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">Director:</span> Bones</p>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">Fecha de emisión:</span> 15 de enero, 2022</p>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">Estado:</span> Completado</p>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">País:</span> Japón</p>
-                                <p class="sec color-white mb-8"><span class="color-medium-gray">Estreno:</span> Invierno 2022</p>
-                                <p class="sec color-white mb-24"><span class="color-medium-gray">Duración:</span> 120 min</p>
+                                <h3 class="h-30 bold text-white mb-24">Acerca de</h3>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">Tipo:</span>Película</p>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">Director:</span> Bones</p>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">Fecha de emisión:</span> 15 de enero, 2022</p>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">Estado:</span> Completado</p>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">País:</span> Japón</p>
+                                <p class="sec text-white mb-8"><span class="color-medium-gray">Estreno:</span> Invierno 2022</p>
+                                <p class="sec text-white mb-24"><span class="color-medium-gray">Duración:</span> 120 min</p>
                                 <div class="categorie">
                                     <p class="sec color-medium-gray">Género:</p>
                                     <ul class="categorie-list unstyled">
@@ -219,13 +219,13 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img src="assets/media/anime-card/img-22.png" alt="">
-                                <a href="movie-detail.php" class="cus-btn light">
+                                <a href="anime-detail.php" class="cus-btn light">
                                     Ver Ahora
                                     <i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Demon Slayer</h4>
+                                <h4 class="h-24 text-white bold">Demon Slayer</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -238,13 +238,13 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img src="assets/media/anime-card/img-3.png" alt="">
-                                <a href="movie-detail.php" class="cus-btn light">
+                                <a href="anime-detail.php" class="cus-btn light">
                                     Ver Ahora
                                     <i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Hells Paradise</h4>
+                                <h4 class="h-24 text-white bold">Hells Paradise</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -257,13 +257,13 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img src="assets/media/anime-card/img-8.png" alt="">
-                                <a href="movie-detail.php" class="cus-btn light">
+                                <a href="anime-detail.php" class="cus-btn light">
                                     Ver Ahora
                                     <i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Fate Stay Night</h4>
+                                <h4 class="h-24 text-white bold">Fate Stay Night</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -276,13 +276,13 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img src="assets/media/anime-card/img-9.png" alt="">
-                                <a href="movie-detail.php" class="cus-btn light">
+                                <a href="anime-detail.php" class="cus-btn light">
                                     Ver Ahora
                                     <i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Steins Gate</h4>
+                                <h4 class="h-24 text-white bold">Steins Gate</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -295,13 +295,13 @@
                         <div class="card st-2">
                             <div class="img-block mb-20">
                                 <img src="assets/media/anime-card/img-19.png" alt="">
-                                <a href="movie-detail.php" class="cus-btn light">
+                                <a href="anime-detail.php" class="cus-btn light">
                                     Ver Ahora
                                     <i class="fa fa-play"></i>
                                 </a>
                             </div>
                             <div class="content">
-                                <h4 class="h-24 color-white bold">Arcane</h4>
+                                <h4 class="h-24 text-white bold">Arcane</h4>
                                 <ul class="tag unstyled">
                                     <li>Acción</li>
                                     <li>2021</li>
@@ -328,7 +328,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-7.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Hell’s Paradise</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Hell’s Paradise</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -342,11 +342,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -358,7 +358,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-8.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Fate Stay Night </h4>
+                                    <h4 class="h-24 text-white bold mb-12">Fate Stay Night </h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -372,11 +372,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -388,7 +388,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-9.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Steins Gate</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Steins Gate</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -402,11 +402,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -418,7 +418,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-10.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Black Bullet</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Black Bullet</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -432,11 +432,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -448,7 +448,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-11.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">Chainsawman</h4>
+                                    <h4 class="h-24 text-white bold mb-12">Chainsawman</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -462,11 +462,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -478,7 +478,7 @@
                             <div class="item mb-40">
                                 <img src="assets/media/anime-card/img-12.png" alt="">
                                 <div class="content">
-                                    <h4 class="h-24 color-white bold mb-12">My Hero Academia</h4>
+                                    <h4 class="h-24 text-white bold mb-12">My Hero Academia</h4>
                                     <ul class="tag unstyled">
                                         <li>
                                             <p class="color-medium-gray">
@@ -492,11 +492,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn-block">
-                                        <a href="movie-detail.php" class="cus-btn primary space">
+                                        <a href="anime-detail.php" class="cus-btn primary space">
                                             <i class="fa fa-play"></i>
                                             Play
                                         </a>
-                                        <div class="h-20 color-white">
+                                        <div class="h-20 text-white">
                                             <i class="fa-regular fa-clock"></i>
                                             24:30
                                         </div>
@@ -516,7 +516,7 @@
                         <div class="col-xl-8 mb-40">
                             <div class="heading-block mb-32">
                                 <div class="title">
-                                    <h3 class="h-36 color-white">Comentarios</h3>
+                                    <h3 class="h-36 text-white">Comentarios</h3>
                                     <div class="list">50</div>
                                 </div>
                                 <div class="title sec">
@@ -527,7 +527,7 @@
                                 <img src="assets/media/author/profile-1.png" alt="">
                                 <div class="text-block">
                                     <div class="top-line mb-8">
-                                        <h5 class="h-20 bold color-white">@otaku_obsessed</h5>
+                                        <h5 class="h-20 bold text-white">@otaku_obsessed</h5>
                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                     </div>
                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus elit. Lect diamn on leo volutpat nulla. Aliquet a at iaculis imperdiet diam tincidunt venenatis eget. Urna elementum rhoncus eu tristique lorem.</p>
@@ -565,7 +565,7 @@
                                                 <img src="assets/media/author/profile-3.png" alt="">
                                                 <div class="text-block">
                                                     <div class="top-line mb-8">
-                                                        <h5 class="h-20 bold color-white">@otaku_obsessed</h5>
+                                                        <h5 class="h-20 bold text-white">@otaku_obsessed</h5>
                                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                                     </div>
                                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus eli. Lectur diam non leo volutpat nulla. Aliquet a at iaculis imperdiet diam.</p>
@@ -602,7 +602,7 @@
                                                 <img src="assets/media/author/profile-3.png" alt="">
                                                 <div class="text-block">
                                                     <div class="top-line mb-8">
-                                                        <h5 class="h-20 bold color-white">@otaku_obsessed</h5>
+                                                        <h5 class="h-20 bold text-white">@otaku_obsessed</h5>
                                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                                     </div>
                                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus eli. Lectur diam non leo volutpat nulla. Aliquet a at iaculis imperdiet diam.</p>
@@ -643,7 +643,7 @@
                                 <img src="assets/media/author/profile-2.png" alt="">
                                 <div class="text-block">
                                     <div class="top-line mb-8">
-                                        <h5 class="h-20 bold color-white">@kawaii_kat</h5>
+                                        <h5 class="h-20 bold text-white">@kawaii_kat</h5>
                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                     </div>
                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus elit. Lect diamn on leo volutpat nulla. Aliquet a at iaculis imperdiet diam tincidunt venenatis eget. Urna elementum rhoncus eu tristique lorem.</p>
@@ -680,7 +680,7 @@
                                                 <img src="assets/media/author/profile-3.png" alt="">
                                                 <div class="text-block">
                                                     <div class="top-line mb-8">
-                                                        <h5 class="h-20 bold color-white">@otaku_obsessed</h5>
+                                                        <h5 class="h-20 bold text-white">@otaku_obsessed</h5>
                                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                                     </div>
                                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus eli. Lectur diam non leo volutpat nulla. Aliquet a at iaculis imperdiet diam.</p>
@@ -717,7 +717,7 @@
                                                 <img src="assets/media/author/profile-3.png" alt="">
                                                 <div class="text-block">
                                                     <div class="top-line mb-8">
-                                                        <h5 class="h-20 bold color-white">@cosplayqueen</h5>
+                                                        <h5 class="h-20 bold text-white">@cosplayqueen</h5>
                                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                                     </div>
                                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus eli. Lectur diam non leo volutpat nulla. Aliquet a at iaculis imperdiet diam.</p>
@@ -758,7 +758,7 @@
                                 <img src="assets/media/author/profile-2.png" alt="">
                                 <div class="text-block">
                                     <div class="top-line mb-8">
-                                        <h5 class="h-20 bold color-white">@kawaii_kat</h5>
+                                        <h5 class="h-20 bold text-white">@kawaii_kat</h5>
                                         <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                     </div>
                                     <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus elit. Lect diamn on leo volutpat nulla. Aliquet a at iaculis imperdiet diam tincidunt venenatis eget. Urna elementum rhoncus eu tristique lorem.</p>
@@ -802,7 +802,7 @@
                                         <img src="assets/media/author/profile-1.png" alt="">
                                         <div class="text-block">
                                             <div class="top-line mb-8">
-                                                <h5 class="h-20 bold color-white">@kawaii_kat</h5>
+                                                <h5 class="h-20 bold text-white">@kawaii_kat</h5>
                                                 <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                             </div>
                                             <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus elit. Lect diamn on leo volutpat nulla. Aliquet a at iaculis imperdiet diam tincidunt venenatis eget. Urna elementum rhoncus eu tristique lorem.</p>
@@ -838,7 +838,7 @@
                                         <img src="assets/media/author/profile-2.png" alt="">
                                         <div class="text-block">
                                             <div class="top-line mb-8">
-                                                <h5 class="h-20 bold color-white">@kawaii_kat</h5>
+                                                <h5 class="h-20 bold text-white">@kawaii_kat</h5>
                                                 <h6 class="color-medium-gray">Hace 5 minutos</h6>
                                             </div>
                                             <p class="color-medium-gray sec sm mb-24">Lorem ipsum dolor sit amet consectetur. Blandit luctus nunc nulla ut etiam penatibus gravida fusce. Id viverra erat nisl tincidunt risus elit. Lect diamn on leo volutpat nulla. Aliquet a at iaculis imperdiet diam tincidunt venenatis eget. Urna elementum rhoncus eu tristique lorem.</p>
@@ -877,14 +877,14 @@
                             <div class="trailer">
                                 <img src="assets/media/anime-card/img-26.png" alt="">
                                 <div class="detail">
-                                    <h4 class="h-20 bold color-primary mb-8">Muy pronto!</h4>
+                                    <h4 class="h-20 bold text-primary mb-8">Muy pronto!</h4>
                                     <ul class="timer countdown unstyled data-timer1">
                                         <li>20 <small>Días</small></li>
                                         <li>23 <small>Hrs</small></li>
                                         <li>50 <small>Min</small></li>
                                         <li>34 <small>Seg</small></li>
                                     </ul>
-                                    <h2 class="h-40 bold color-white mb-12">Chainsawman</h2>
+                                    <h2 class="h-40 bold text-white mb-12">Chainsawman</h2>
                                     <p class="color-medium-gray sec mb-40">Lorem ipsum dolor sit amet consectetur. Ligula <br> quam enim ullamcorper pulvinar. Tincidunt felis</p>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal" class="cus-btn primary">
                                         <i class="fa fa-play"></i>
@@ -893,7 +893,7 @@
                                 </div>
                             </div>
                             <div class="notification">
-                                <h4 class="h-36 bold color-white mb-8">Notificaciones</h4>
+                                <h4 class="h-36 bold text-white mb-8">Notificaciones</h4>
                                 <p class="sec color-medium-gray mb-32">¡Suscríbete a nuestras notificaciones para que te avisemos sobre nuevos episodios!</p>
                                 <form action="">
                                     <input type="email" id="email" class="form-control mb-32" placeholder="Tu correo electrónico">
@@ -903,7 +903,7 @@
                         </div>
                         <div class="col-xl-8">
                             <div class="comment-block p-40 pb-0">
-                                <h4 class="h-36 bold color-white mb-8">Comentar</h4>
+                                <h4 class="h-36 bold text-white mb-8">Comentar</h4>
                                 <p class="sec color-medium-gray mb-24">Su correo electrónico se mantendrá privado.</p>
                                 <form action="">
                                     <div class="row">

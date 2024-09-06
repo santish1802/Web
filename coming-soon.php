@@ -25,7 +25,7 @@
                     <div class="container-fluid">
                         <div class="content">
                             <img src="assets/media/logo.png" alt="" class="mb-32 logo" >
-                            <h4 class="h-27 sec color-white mb-32">Estamos en construccion</h4>
+                            <h4 class="h-27 sec text-white mb-32">Estamos en construccion</h4>
                             <img src="assets/media/coming-soon%21.png" alt="" class="mb-32">
                             <ul class="timer countdown mb-0 data-timer2">
                                 <li>365<span>Días</span></li>

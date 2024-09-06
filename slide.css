@@ -32,47 +32,47 @@ html {
 #bannerCarousel .carousel-control-next, #bannerCarousel .carousel-control-prev {
 	width: 4%;
 }
-.bg-anime {
+#bannerCarousel .bg-anime {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	z-index: -2;
 }
-.bg-anime::before {
+#bannerCarousel .bg-anime::before {
 	content: '';
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #000000d0;     /* Capa negra con opacidad */
-	pointer-events: none;     /* Permite hacer clic en los elementos debajo */
+	background-color: #000000d0;
+	pointer-events: none;
 }
-.slider-cont {
+#bannerCarousel .slider-cont {
 	display: table-cell;
 	height: 43.75rem;
 	vertical-align: middle;
 }
-.slider-cont img {
+#bannerCarousel .slider-cont img {
 	height: 600px;
 	object-fit: cover;
 	border-radius: 15px;
 }
-.title-anime {
-	font-size: 4.37rem;
+#bannerCarousel .title-anime {
+	font-size: 3.9rem;
 	font-family: 'Noir Pro' !important;
 	font-weight: 900 !important;
 }
-.anime-descrip {
-	font-size: 1.3rem;
+#bannerCarousel .anime-descrip {
+	font-size: 1.24rem;
 }
-.anime-temporada {
+#bannerCarousel .anime-temporada {
 	font-family: 'Noir Pro' !important;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	text-transform: uppercase;
 }
-.anime-play {
+#bannerCarousel .anime-play {
 	border-radius: 10px;
 	margin-top: 20px;
-	font-size: 2rem !important;
+	font-size: 1.9rem !important;
 	font-family: 'Noir Pro' !important;
 	font-weight: bold !important;
 	line-height: 48px !important;
@@ -88,7 +88,7 @@ html {
 	#bannerCarousel .image-anime {
 		display: none;
 	}
-	.anime-play {
+	#bannerCarousel .anime-play {
 		margin: auto;
 		max-width: 80%;
 	}
