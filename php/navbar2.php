@@ -1,3 +1,15 @@
+<div id="preloader" class="loader">
+    <div class="loader__container">
+        <div class="loader__film">
+            <img class="loader__film-img" src="assets/media/preloader/film.png" alt="">
+            <img class="loader__film-img" src="assets/media/preloader/film.png" alt="">
+        </div>
+        <img class="loader__camera" src="assets/media/preloader/camera.png" alt="">
+    </div>
+</div>
+<!-- Back To Top Start -->
+<a href="#main-wrapper" id="backto-top" class="back-to-top"><i class="fas fa-angle-up"></i></a>
+
 <nav class="navbar navbar-expand-lg nav-2" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand mx-4" href="#">LOGO</a>

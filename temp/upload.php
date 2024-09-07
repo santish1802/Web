@@ -24,7 +24,7 @@
     
     <label for="generos">Géneros:</label><br>
     <?php
-    require "php/config.php";
+    require "config/config.php";
     $sql = "SELECT id, nombre FROM genero";
     $result = $conn->query($sql);
 

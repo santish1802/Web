@@ -22,7 +22,7 @@
         <section id="bannerCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="500000">
             <div class="carousel-inner">
                 <?php
-                require "php/config.php";
+                require "config/config.php";
                 $sql = "SELECT * FROM anime WHERE portada = 1";
                 $result = $conn->query($sql);
                 $animes = [];
