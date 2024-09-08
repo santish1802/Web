@@ -380,3 +380,76 @@ img {
 		padding: 22px 0;
 	}
 }
+
+
+/* @c-red Conteiner anime video */
+.inner-banner {
+	background: url(../media/backgrounds/bg-2.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.inner-banner .videoplayer .aks-video-player {
+	height: 615px !important;
+	border-radius: 12px;
+}
+@media (max-width:1199px) {
+	.inner-banner .videoplayer .aks-video-player {
+		height: 454px !important;
+	}
+}
+@media (max-width:575px) {
+	.inner-banner .videoplayer .aks-video-player {
+		height: 254px !important;
+	}
+}
+.inner-banner .videoplayer .icon-block {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 12px;
+}
+.inner-banner .videoplayer .icon-block .icon {
+	display: inline-flex;
+	padding: 16px;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 10px;
+	border-radius: 50px;
+	border: 1px solid #FFF;
+	background: rgba(45, 36, 36, 0.6);
+	box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+}
+
+/* @c-red Video conetenedor detail */
+
+.inner-banner .videoplayer .icon-block .icon i {
+	font-size: 20px;
+	color: #F8F8FF;
+}
+.inner-banner .videoplayer .icon-block .time {
+	display: flex;
+	padding: 10px 13px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border-radius: 41px;
+	border: 1px solid #FFF;
+	background: #FFF;
+	box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(25px);
+}
+.inner-banner .videoplayer .icon-block .time span {
+	color: #1B1B1B;
+	text-align: center;
+	font-family: "Open Sans", sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 130%;
+}
+@media (max-width:575px) {
+	.inner-banner .videoplayer .icon-block .time span {
+		font-size: 16px;
+	}
+}
