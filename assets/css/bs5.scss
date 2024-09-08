@@ -6,7 +6,21 @@ $primary: $color-primario;
 
 
 // Add classes
+/*-------------------------
+    Reseteo
+-------------------------*/
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+.unstyled {
+	padding-left: 0;
+	list-style: none;
+	margin-bottom: 0;
+}
 
+// ESPACIOS
 .h-40 {
 	font-family: "Jost", sans-serif;
 	font-size: 40px;
