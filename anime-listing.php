@@ -16,7 +16,7 @@
 
 <body>
     <!-- Inicio del área de encabezado -->
-    <?php include 'php/navbar.php'; ?>
+    <?php include 'php/navbar2.php'; ?>
     <!-- Fin del área del encabezado -->
 
     <!-- Inicio del contenedor principal -->
