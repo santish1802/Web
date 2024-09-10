@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "purgecss": "purgecss --css ./assets/css/app.css --content ./**/*.php --output ./dist/"
+    "purgecss": "purgecss --css ./assets/css/style.css --content ./admin/* --output ./dist/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
     "purgecss": "^6.0.0"
-  }
+  },
+  "description": ""
 }

@@ -96,6 +96,13 @@ ul.list-style li::marker, ol.list-style li::marker {
 	list-style: none;
 	margin-bottom: 0;
 }
+#mensaje {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	z-index: 9999999;
+	transform: translateX(-50%);
+}
 @media (min-width:1440px) {
 
 	/*@c-red .container, */
@@ -1581,7 +1588,7 @@ label.error {
 	color: #bc0f0f;
 	margin-top: 10px;
 }
-input[type=checkbox] {
+/* input[type=checkbox] {
 	height: auto;
 	width: auto;
 	background-color: #9EA2A8;
@@ -1593,7 +1600,7 @@ input[type=checkbox]:checked {
 	accent-color: var(--main-color);
 	background-color: var(--main-color);
 	border-radius: 10px;
-}
+} */
 input[type=range]::-webkit-slider-thumb {
 	background: var(--main-color);
 }
