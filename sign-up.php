@@ -1,3 +1,4 @@
+<?php require 'php/head.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,10 +9,10 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
-
     <title>Anime web</title>
+    <?php echo $css ?>
+    <?php echo $css2 ?>
 
-    <?php include 'php/head.php'; ?>
 </head>
 
 <body>

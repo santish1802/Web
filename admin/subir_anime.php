@@ -1,3 +1,4 @@
+<?php require "../php/head.php" ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,10 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir Anime</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/bs5.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <?php echo $css ?>
+    <?php echo $css2 ?>
+    <?php echo $js ?>
 </head>
 
 <body>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="col-12">
-                <input type="submit" value="Subir Anime" class="btn btn-primary">
+                <input type="submit" value="Subir Anime" class="btn btn-primary mb-5">
             </div>
         </form>
     </div>

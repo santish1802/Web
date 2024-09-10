@@ -1,25 +1,11 @@
-<?php
-$style = '
-<link href="../assets/css/bs5.css?v=' . time() . '" rel="stylesheet">
-<link href="../assets/css/style.css?v=' . time() . '" rel="stylesheet">
-';
-
-$js = '<script src="../assets/js/jquery-3.7.1.js" type="text/javascript"></script>
-<script src="../assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>';
-$jsdt = '<script src="../assets/js/dataTables.js" type="text/javascript"></script>
-<script src="../assets/js/dataTables.bootstrap5.js" type="text/javascript"></script>
-<script src="../assets/js/dataTables.responsive.js" type="text/javascript"></script>
-<script src="../assets/js/responsive.bootstrap5.js" type="text/javascript"></script>';
-?>
+<?php require "../php/head.php" ?>
 <!DOCTYPE html>
 <html lang="es">
-<link href="../assets/css/dataTables.bootstrap5.css" rel="stylesheet">
-<link href="../assets/css/responsive.bootstrap5.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de anime</title>
-    <?php echo $style; ?>
+    <?php echo $cssdt; ?>
     <style>
         td>* {
             color: black;

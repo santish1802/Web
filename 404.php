@@ -1,6 +1,6 @@
+<?php require 'php/head.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
-
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
-
+    <?php echo $css ?>
+    <?php echo $css2 ?>
     <title>Anime web</title>
 
-    <?php include 'php/head.php'; ?>
+    
+    
 </head>
 
 <body>
