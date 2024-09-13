@@ -1,6 +1,8 @@
 <?php
-require "../php/head.php" ;
+require "../php/head.php";
 require('../config/config.php');
+
+// Verificar si el ID de anime es válido
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("ID de anime no válido");
 }
@@ -13,31 +15,33 @@ function cargarDatosAnime($conn, $anime_id)
 {
     $sql = "SELECT * FROM anime WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $anime_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt->execute([$anime_id]);
+    $anime = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result->num_rows === 0) {
+    if (!$anime) {
         die("Anime no encontrado");
     }
 
-    return $result->fetch_assoc();
+    return $anime;
 }
 
 // Cargar datos iniciales del anime
 $anime = cargarDatosAnime($conn, $anime_id);
 
 // Obtener géneros para el formulario
-$generos_result = $conn->query("SELECT * FROM genero");
-$todos_generos = $generos_result->fetch_all(MYSQLI_ASSOC);
+$stmt_generos = $conn->query("SELECT * FROM genero");
+$todos_generos = $stmt_generos->fetchAll(PDO::FETCH_ASSOC);
 
 // Obtener géneros actuales del anime
-$generos_anime_result = $conn->query("SELECT genero_id FROM anime_genero WHERE anime_id = $anime_id");
-$generos_anime = $generos_anime_result->fetch_all(MYSQLI_ASSOC);
+$stmt_generos_anime = $conn->prepare("SELECT genero_id FROM anime_genero WHERE anime_id = ?");
+$stmt_generos_anime->execute([$anime_id]);
+$generos_anime = $stmt_generos_anime->fetchAll(PDO::FETCH_ASSOC);
 $generos_actuales = array_column($generos_anime, 'genero_id');
 
-$conn->close();
+// Cerrar la conexión
+$conn = null;
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -79,7 +83,7 @@ $conn->close();
                 <textarea class="form-control" id="descripcion_breve" name="descripcion_breve" rows="2"><?php echo htmlspecialchars($anime['descripcion_breve']); ?></textarea>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <label for="etiquetas" class="form-label">Etiquetas:</label>
                 <input type="text" class="form-control" id="etiquetas" name="etiquetas" value="<?php echo htmlspecialchars($anime['etiquetas']); ?>">
             </div>
@@ -154,9 +158,7 @@ $conn->close();
                     success: function(response) {
                         $('#nombre_h').val($('#nombre').val());
                         $('#mensaje').html(response);
-                        $('#mensaje').css('display', 'block'); // Mostrar la alerta
-
-                        // Ocultar la alerta después de 3 segundos (3000 ms)
+                        $('#mensaje').css('display', 'block');
                         setTimeout(function() {
                             $('#mensaje').css('display', 'none');
                         }, 3000);

@@ -14,6 +14,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Subir Información de Anime</h1>
+        <div id="mensaje" class="alert alert-info" style="display: none;" role="alert"></div>
 
         <form id="subirAnimeForm" enctype="multipart/form-data" class="row g-3">
             <div class="col-md-6">
@@ -46,24 +47,31 @@
                 <div class="form-check">
                     <?php
                     require "../config/config.php";
-                    $sql = "SELECT id, nombre FROM genero";
-                    $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<div class="form-check">';
-                            echo '<input class="form-check-input" type="checkbox" name="generos[]" value="' . $row['id'] . '">';
-                            echo '<label class="form-check-label" for="genero_' . $row['id'] . '">' . $row['nombre'] . '</label><br>';
-                            echo '</div>';
+                    $sql = "SELECT id, nombre FROM genero";
+                    try {
+                        $stmt = $conn->query($sql);
+                        $generos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if ($generos) {
+                            foreach ($generos as $row) {
+                                echo '<div class="form-check">';
+                                echo '<input class="form-check-input" type="checkbox" name="generos[]" value="' . htmlspecialchars($row['id']) . '">';
+                                echo '<label class="form-check-label" for="genero_' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['nombre']) . '</label><br>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo '<p>No hay géneros disponibles.</p>';
                         }
-                    } else {
-                        echo '<p>No hay géneros disponibles.</p>';
+                    } catch (PDOException $e) {
+                        echo '<p>Error al obtener géneros: ' . htmlspecialchars($e->getMessage()) . '</p>';
                     }
 
-                    $conn->close();
+                    $conn = null;
                     ?>
                 </div>
             </div>
+
 
             <div class="col-md-6">
                 <label for="imagen_portada_vertical" class="form-label">Imagen Portada Vertical:</label>
@@ -114,10 +122,12 @@
                     type: 'POST',
                     data: formData,
                     success: function(response) {
+                        $('#nombre_h').val($('#nombre').val());
                         $('#mensaje').html(response);
-                        if (response.success) {
-                            // Actualizar la página con los nuevos datos si es necesario
-                        }
+                        $('#mensaje').css('display', 'block');
+                        setTimeout(function() {
+                            $('#mensaje').css('display', 'none');
+                        }, 3000);
                     },
                     cache: false,
                     contentType: false,

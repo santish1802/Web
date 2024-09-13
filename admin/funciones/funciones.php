@@ -3,20 +3,17 @@ function obtenerNumeroRegistros($consulta)
 {
     require "../../config/config.php";
 
-    // Conectarse a la base de datos (suponiendo que ya tienes una conexión establecida)
-    // Ejecutar la consulta para contar el número de registros
-    $resultado = $conn->query($consulta);
-    // Verificar si hubo algún error en la consulta
-    if (!$resultado) {
-        die("Error en la consulta: " . $conn->error);
+    try {
+        $stmt = $conn->query($consulta);
+        $numero_registros = $stmt->rowCount();
+        return $numero_registros;
+    } catch (PDOException $e) {
+        die("Error en la consulta: " . $e->getMessage());
+    } finally {
+        $conn = null;
     }
-    // Obtener el número de filas en el resultado
-    $numero_registros = $resultado->num_rows;
-    // Cerrar la conexión
-    $conn->close();
-    // Devolver el número de registros
-    return $numero_registros;
 }
+
 function generarConsulta($query, $where, $otro_orden, $fila)
 {
     $busqueda = $_POST["search"]["value"];

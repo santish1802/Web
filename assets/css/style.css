@@ -55,6 +55,12 @@ background-color: transparent !important;
 .td_gris{
     background-color: #c7c7c746 !important;
 }
+#probando img{
+    height: 250px;
+}
+#probando .td_gris{
+    width: 166px;
+}
 .modal-dialog {
     max-width: 900px !important;
 }
