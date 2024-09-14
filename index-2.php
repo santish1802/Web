@@ -216,9 +216,9 @@
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
                         ?>
-                            <div class="col-xxl-3 col-lg-6">
+                            <div class="col-xxl-2-4 col-lg-4 col-sm-6">
                                 <div class="item mb-40">
-                                <div class="card st-2">
+                                <div class="card st-2 m-0">
                                 <div class="img-block mb-20">
                                     <img alt="" src="assets/media/anime-card/img-22.png" />
                                     <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
