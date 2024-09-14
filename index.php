@@ -179,7 +179,7 @@
             <!-- Área de Categorías Fin -->
 
             <!-- Área de tendencia Inicio -->
-            <section class="trending p-40">
+            <section class="animes p-40">
                 <div class="container-fluid">
                     <div class="heading mb-32">
                         <h2 class="h-40 bold">Shows en Tendencia</h2>
@@ -264,7 +264,7 @@
             <!-- Zona de pisada final -->
 
             <!-- Área de inicio reciente -->
-            <section class="trending p-40">
+            <section class="animes p-40">
                 <div class="container-fluid">
                     <h2 class="h-40 mb-40 bold">Recientemente Lanzado</h2>
                     <div class="card-slider">
@@ -410,7 +410,7 @@
             <!-- Próximamente Área Final -->
 
             <!-- Zona de inicio superior -->
-            <section class="trending st-2 p-40">
+            <section class="animes st-2 p-40">
                 <div class="container-fluid">
                     <h2 class="h-40 mb-40 bold">Mejores Animes</h2>
                     <div class="card-slider">
@@ -515,7 +515,7 @@
             <!-- Zona de inicio superior -->
 
             <!-- Área de inicio reciente -->
-            <section class="trending p-40">
+            <section class="animes p-40">
                 <div class="container-fluid">
                     <h2 class="h-40 mb-40">Shounen</h2>
                     <div class="card-slider">

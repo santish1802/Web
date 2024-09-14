@@ -25,7 +25,7 @@
         <div class="page-content">
 
             <!-- Inicio del área de listado de anime -->
-            <section class="trending p-40">
+            <section class="animes p-40">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xxl-3">
@@ -568,104 +568,6 @@
                                         </ul>
                                         <a class="cus-btn primary mb-50" href="anime-listing.php">Filtrar<i class="fa-regular fa-filter"></i>
                                         </a>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-12 col-xl-8">
-                                    <div class="top-anime mb-12">
-                                        <h2 class="h-30 bold text-white mb-12">Animes con calificación superior</h2>
-                                        <p class="sec sm mb-24">Basado en tu filtro</p>
-                                        <div class="row">
-                                            <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="anime-detail.php">
-                                                    <img alt="" src="assets/media/anime-card/img-27.png" />
-                                                    <div class="text-block">
-                                                        <div class="sm-title">
-                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
-                                                            <p class="color-medium-gray sm sec">Temporada 3</p>
-                                                        </div>
-                                                        <ul class="tag unstyled">
-                                                            <li>Acción</li>
-                                                            <li>2021</li>
-                                                            <li>EP-24</li>
-                                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                                            <li>8.5</li>
-                                                        </ul>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="anime-detail.php">
-                                                    <img alt="" src="assets/media/anime-card/img-28.png" />
-                                                    <div class="text-block">
-                                                        <div class="sm-title">
-                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
-                                                            <p class="color-medium-gray sm sec">Temporada 3</p>
-                                                        </div>
-                                                        <ul class="tag unstyled">
-                                                            <li>Acción</li>
-                                                            <li>2021</li>
-                                                            <li>EP-24</li>
-                                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                                            <li>8.5</li>
-                                                        </ul>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="anime-detail.php">
-                                                    <img alt="" src="assets/media/anime-card/img-27.png" />
-                                                    <div class="text-block">
-                                                        <div class="sm-title">
-                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
-                                                            <p class="color-medium-gray sm sec">Temporada 3</p>
-                                                        </div>
-                                                        <ul class="tag unstyled">
-                                                            <li>Acción</li>
-                                                            <li>2021</li>
-                                                            <li>EP-24</li>
-                                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                                            <li>8.5</li>
-                                                        </ul>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="anime-detail.php">
-                                                    <img alt="" src="assets/media/anime-card/img-29.png" />
-                                                    <div class="text-block">
-                                                        <div class="sm-title">
-                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
-                                                            <p class="color-medium-gray sm sec">Temporada 3</p>
-                                                        </div>
-                                                        <ul class="tag unstyled">
-                                                            <li>Acción</li>
-                                                            <li>2021</li>
-                                                            <li>EP-24</li>
-                                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                                            <li>8.5</li>
-                                                        </ul>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-xxl-12 col-md-6">
-                                                <a class="anime-card mb-12" href="anime-detail.php">
-                                                    <img alt="" src="assets/media/anime-card/img-30.png" />
-                                                    <div class="text-block">
-                                                        <div class="sm-title">
-                                                            <h6 class="text-white">The Daily Life of the Immortal King</h6>
-                                                            <p class="color-medium-gray sm sec">Temporada 3</p>
-                                                        </div>
-                                                        <ul class="tag unstyled">
-                                                            <li>Acción</li>
-                                                            <li>2021</li>
-                                                            <li>EP-24</li>
-                                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                                            <li>8.5</li>
-                                                        </ul>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

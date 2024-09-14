@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "purgecss": "purgecss --css ./assets/css/style.css --content ./admin/* --output ./dist/"
+    "purgecss": "purgecss --css ./assets/css/app.css --content ./**/*.php --output ./dist/"
   },
   "keywords": [],
   "author": "",

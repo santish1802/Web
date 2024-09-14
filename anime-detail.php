@@ -212,7 +212,7 @@
             <!-- Fin del área de detalles de la película -->
 
             <!-- Área de inicio reciente -->
-            <section class="trending p-40">
+            <section class="animes p-40">
                 <div class="container-fluid">
                     <h2 class="h-40 mb-40 bold">Lanzado recientemente</h2>
                     <div class="card-slider ">
