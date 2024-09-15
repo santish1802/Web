@@ -3014,8 +3014,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #f5d049;
   --bs-btn-border-color: #f5d049;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #f7d764;
-  --bs-btn-hover-border-color: #f6d55b;
+  --bs-btn-hover-bg: #f5d049;
+  --bs-btn-hover-border-color: #f5d049;
   --bs-btn-focus-shadow-rgb: 208, 177, 62;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #f7d96d;
@@ -3031,8 +3031,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #6c757d;
   --bs-btn-border-color: #6c757d;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #5c636a;
-  --bs-btn-hover-border-color: #565e64;
+  --bs-btn-hover-bg: #6c757d;
+  --bs-btn-hover-border-color: #6c757d;
   --bs-btn-focus-shadow-rgb: 130, 138, 145;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #565e64;
@@ -3048,8 +3048,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #198754;
   --bs-btn-border-color: #198754;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #157347;
-  --bs-btn-hover-border-color: #146c43;
+  --bs-btn-hover-bg: #198754;
+  --bs-btn-hover-border-color: #198754;
   --bs-btn-focus-shadow-rgb: 60, 153, 110;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #146c43;
@@ -3065,8 +3065,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #0dcaf0;
   --bs-btn-border-color: #0dcaf0;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #31d2f2;
-  --bs-btn-hover-border-color: #25cff2;
+  --bs-btn-hover-bg: #0dcaf0;
+  --bs-btn-hover-border-color: #0dcaf0;
   --bs-btn-focus-shadow-rgb: 11, 172, 204;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #3dd5f3;
@@ -3082,8 +3082,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #ffc107;
   --bs-btn-border-color: #ffc107;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #ffca2c;
-  --bs-btn-hover-border-color: #ffc720;
+  --bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-border-color: #ffc107;
   --bs-btn-focus-shadow-rgb: 217, 164, 6;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #ffcd39;
@@ -3099,8 +3099,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #dc3545;
   --bs-btn-border-color: #dc3545;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #bb2d3b;
-  --bs-btn-hover-border-color: #b02a37;
+  --bs-btn-hover-bg: #dc3545;
+  --bs-btn-hover-border-color: #dc3545;
   --bs-btn-focus-shadow-rgb: 225, 83, 97;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #b02a37;
@@ -3116,8 +3116,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #f8f9fa;
   --bs-btn-border-color: #f8f9fa;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #d3d4d5;
-  --bs-btn-hover-border-color: #c6c7c8;
+  --bs-btn-hover-bg: #f8f9fa;
+  --bs-btn-hover-border-color: #f8f9fa;
   --bs-btn-focus-shadow-rgb: 211, 212, 213;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #c6c7c8;
@@ -3133,8 +3133,8 @@ textarea.form-control-lg {
   --bs-btn-bg: #212529;
   --bs-btn-border-color: #212529;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #424649;
-  --bs-btn-hover-border-color: #373b3e;
+  --bs-btn-hover-bg: #212529;
+  --bs-btn-hover-border-color: #212529;
   --bs-btn-focus-shadow-rgb: 66, 70, 73;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #4d5154;
@@ -12073,41 +12073,6 @@ img {
   color: #1B1B1B;
   box-shadow: 0px 0px 30px 5px rgba(245, 208, 73, 0.8);
 }
-.cus-btn.space {
-  padding: 12px 24px;
-}
-.cus-btn.space i {
-  font-size: 20px;
-}
-@media (max-width: 580px) {
-  .cus-btn.space {
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 6px;
-  }
-}
-@media (max-width: 492px) {
-  .cus-btn.space i {
-    font-size: 18px;
-  }
-}
-.cus-btn.sec {
-  background-color: transparent;
-  color: #F8F8FF;
-  padding: 14px 32px;
-  font-size: 18px;
-  font-weight: 600;
-}
-@media (max-width: 492px) {
-  .cus-btn.sec {
-    font-size: 14px;
-    padding: 12px 24px;
-    border-radius: 12px;
-  }
-}
-.cus-btn.sec:hover {
-  background: rgba(248, 248, 255, 0.3);
-}
 .cus-btn.light {
   padding: 14px 20px;
   background: rgba(0, 0, 0, 0.64);
@@ -12115,6 +12080,7 @@ img {
   -webkit-backdrop-filter: blur(25px);
           backdrop-filter: blur(25px);
   color: #F8F8FF;
+  font-size: 1.75rem;
   font-weight: 200;
   line-height: 130%;
   font-family: "Noir Pro";
@@ -12129,21 +12095,6 @@ img {
 }
 .cus-btn.light:hover {
   color: #f5d049;
-}
-.cus-btn.sm-light {
-  font-size: 14px;
-  padding: 4px 9px;
-  border-radius: 8px;
-  letter-spacing: 0.28px;
-}
-.cus-btn.dark {
-  background-color: #1B1B1B;
-  color: #F8F8FF;
-  transition: all 0.5s ease-in-out;
-}
-.cus-btn.dark:hover {
-  background-color: #F8F8FF;
-  color: #1B1B1B;
 }
 
 .f-12 {

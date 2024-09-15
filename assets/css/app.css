@@ -1825,6 +1825,7 @@ footer .copyright {
 }
 #bannerCarousel .anime-descrip {
 	font-size: 1.1rem;
+	overflow: overlay;
 }
 #bannerCarousel .anime-temporada {
 	font-family: 'Noir Pro' !important;
@@ -2211,7 +2212,7 @@ footer .copyright {
 }
 .animes .card .img-block img {
 	object-fit: cover;
-	aspect-ratio: 10 / 8;
+	aspect-ratio: 6 / 8;
 	width: 100%;
 }
 .animes .card .img-block .cus-btn {

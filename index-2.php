@@ -38,14 +38,14 @@
                         $first = false; ?>
 
                         <div class="carousel-item <?php echo $activeClass; ?>">
-                            <div class="bg-anime" style="background: url(<?php echo $anime['imagen_portada_vertical']; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                            <div class="bg-anime" style="background: url(<?php echo !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical']; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                             <div class="container">
                                 <div class="slider-cont">
                                     <div class="row">
                                         <div class="col-lg-5 col-12 m">
                                             <h2 class="pb-4 title-anime"><?php echo $anime['nombre']; ?></h2>
                                             <p class="anime-temporada pb-3">TEMPORADA <?php echo $anime['temporada']; ?></p>
-                                            <div class="pb-3">
+                                            <div class="pb-3 etiq">
                                                 <?php
                                                 $etiquetas = explode(',', $anime['etiquetas']);
                                                 foreach ($etiquetas as $etiqueta) {
@@ -367,8 +367,8 @@
                                 <li>himen</li>
                                 <li>Aki Hayakawa</li>
                             </ul>
-                            <!-- <a class="cus-btn primary" data-bs-target="#videoModal" data-bs-toggle="modal" href="#"><i class="fa fa-play"></i>Ver tráiler</a> -->
-                            <button class="btn bg-primary  br-12 btn-p px-4 py-2 f-24 sdw-5" data-bs-target="#videoModal" data-bs-toggle="modal"><i class="fa fa-play"></i>Ver tráiler</button>
+                            <a class="cus-btn primary" data-bs-target="#videoModal" data-bs-toggle="modal" href="#"><i class="fa fa-play"></i>Ver tráiler</a>
+                            <!-- <button class="btn btn-primary  br-12 btn-p px-4 py-2 f-24 sdw-5" data-bs-target="#videoModal" data-bs-toggle="modal"><i class="fa fa-play"></i>Ver tráiler</button> -->
                         </div>
                     </div>
                 </div>

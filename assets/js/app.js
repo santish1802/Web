@@ -1,3 +1,50 @@
+// $(document).ready(function() {
+//   function recalcularAltura() {
+//     $('#bannerCarousel .carousel-item').each(function() {
+//       // Encontrar los elementos dentro del carousel-item actual
+//       var alturaimg = $(this).find('.slider-cont img').outerHeight(true);
+//       var altura1 = $(this).find('.title-anime').outerHeight(true);
+//       var altura2 = $(this).find('.anime-temporada').outerHeight(true);
+//       var altura3 = $(this).find('.etiq').outerHeight(true);
+//       var altura4 = $(this).find('.anime-play').outerHeight(true);
+
+//       // Calcular la altura disponible para .anime-descrip
+//       var alturamax = alturaimg - altura1 - altura2 - altura3 - altura4;
+
+//       console.log('Altura incluyendo margen (carousel-item): ' + alturamax + 'px');
+
+//       // Asignar la altura calculada al .anime-descrip dentro del carousel-item actual
+//       $(this).find('.anime-descrip').css('height', alturamax + 'px');
+//     });
+//   }
+
+//   // Calcular la altura al cargar la página
+//   recalcularAltura();
+
+//   // Recalcular la altura al cambiar el tamaño de la ventana
+//   $(window).resize(function() {
+//     recalcularAltura();
+//   });
+// });
+
+$(".banner-slider").slick({
+  infinite: true,
+  arrows: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 3000,
+  // fade: true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        arrows: false,
+      },
+    },
+  ]
+});
+
 (function () {
   "use strict";
 
@@ -91,12 +138,12 @@
       if ($(".card-slider").length) {
         $(".card-slider").slick({
           infinite: true,
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 1,
           arrows: true,
           dots: false,
-          autoplay: false,
-          autoplaySpeed: 2000,
+          autoplay: true,
+          autoplaySpeed: 3000,
           responsive: [
             {
               breakpoint: 1399,
