@@ -9,6 +9,7 @@
     // $host = 'localhost';
     // $dbname = 'anime_db';
     // $username = 'root';
+    // $port = '3306';
     // $password = '';
     // $conn = new mysqli($host, $username, $password, $dbname);
 

@@ -12008,7 +12008,7 @@ textarea.form-control-lg {
     Reseteo
 -------------------------*/
 ::-webkit-scrollbar {
-  width: 14px;
+  width: 0.875rem;
   /* Ancho de la barra de desplazamiento */
 }
 
@@ -12018,7 +12018,7 @@ textarea.form-control-lg {
 
 ::-webkit-scrollbar-thumb {
   background: #f5d049;
-  border-radius: 10px; /* Color del "dedo" de la barra de desplazamiento */
+  border-radius: 20px; /* Color del "dedo" de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-thumb:hover {

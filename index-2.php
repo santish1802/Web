@@ -32,18 +32,19 @@
 
             foreach ($animes as $anime) {
                 if ($anime['portada'] == 1) {
-                    $img_vh = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                    $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                    $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
                     $first = false; ?>
                     <div class="banner-block overflow-hidden style-1 position-relative">
-                        <div class="bg-anime" style="background: url(<?php echo $img_vh ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                        <div class="bg-anime" style="background: url(<?php echo $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                         <div class="container">
                             <div class="banner-content">
                                 <div class="row ">
-                                    <div class="col-lg-5 col-12 ">
-                                        <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
+                                    <div class="col-lg-6 col-12 ">
+                                        <h2 class="title anime-nombre mb-3"><?php echo $anime['nombre']; ?></h2>
                                         <p class="text anime-temp">TEMPORADA <?php echo $anime['temporada']; ?></p>
 
-                                        <div class="pb-3 etiq">
+                                        <div class="mb-4 etiq">
                                             <?php
                                             $etiquetas = explode(',', $anime['etiquetas']);
                                             foreach ($etiquetas as $etiqueta) {
@@ -52,10 +53,10 @@
                                             }
                                             ?>
                                         </div>
-                                        <p class="anime-descrip"><?php echo $anime['descripcion_breve']; ?></p>
+                                        <div class="anime-descrip mt-1"><?php echo $anime['descripcion']; ?></div>
                                         <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
                                     </div>
-                                    <div class="col-lg-7 col-12">
+                                    <div class="col-lg-6 col-12">
                                         <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>

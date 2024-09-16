@@ -33,11 +33,6 @@
             </div>
 
             <div class="col-12">
-                <label for="descripcion_breve" class="form-label">Descripción Breve:</label>
-                <textarea class="form-control" id="descripcion_breve" name="descripcion_breve" rows="2" required></textarea>
-            </div>
-
-            <div class="col-12">
                 <label for="etiquetas" class="form-label">Etiquetas (separadas por comas):</label>
                 <input type="text" class="form-control" id="etiquetas" name="etiquetas">
             </div>

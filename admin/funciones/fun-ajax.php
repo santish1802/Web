@@ -78,11 +78,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
         if ($_FILES[$campo]['error'] === UPLOAD_ERR_OK) {
             $tmp_name = $_FILES[$campo]['tmp_name'];
             $name = basename($_FILES[$campo]['name']);
-            $ruta_destino = "$upload_dir/$name";
-
+            
+            // Generar un nombre único para evitar conflicto
+            $ext = pathinfo($name, PATHINFO_EXTENSION);
+            $unique_name = uniqid() . '.' . $ext;
+            $ruta_destino = "$upload_dir/$unique_name";
+    
+            // Primero movemos el archivo
             if (move_uploaded_file($tmp_name, $ruta_destino)) {
                 $rutas_imagenes[$tipo] = $ruta_destino;
-
+    
+                // Luego eliminamos el archivo antiguo si existe
                 if (!empty($anime[$campo]) && file_exists($anime[$campo])) {
                     unlink($anime[$campo]);
                 }

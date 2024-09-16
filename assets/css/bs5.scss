@@ -19,7 +19,7 @@ $primary: $c-primario;
     Reseteo
 -------------------------*/
 ::-webkit-scrollbar {
-	width: 14px;
+	width: .875rem;
    /* Ancho de la barra de desplazamiento */
   }
   
@@ -29,7 +29,7 @@ $primary: $c-primario;
   
   ::-webkit-scrollbar-thumb {
 	background: $c-primario;
-  border-radius: 10px; /* Color del "dedo" de la barra de desplazamiento */
+  border-radius: 20px; /* Color del "dedo" de la barra de desplazamiento */
   }
   
   ::-webkit-scrollbar-thumb:hover {
