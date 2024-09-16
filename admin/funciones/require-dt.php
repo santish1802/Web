@@ -5,15 +5,15 @@ $query = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ',
 $consulta = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime JOIN anime_genero ON anime.id = anime_genero.anime_id JOIN genero ON genero.id = anime_genero.genero_id GROUP BY anime.id;";
 $where = " WHERE anime.nombre";
 $query = generarConsulta($query, $where, "1 ASC", "1");
-// echo $query;
 $stmt = $conn->prepare($query);
 $stmt->execute();
-$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$resultado = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $filtered_rows = count($resultado);
 $resultado_paginado = array_slice($resultado, $_POST["start"], $_POST["length"]);
 
 $datos = array();
+
 foreach ($resultado_paginado as $fila) {
     $sub_array = array();
     $sub_array[] = $fila["id"];

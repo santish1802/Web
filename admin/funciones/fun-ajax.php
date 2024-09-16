@@ -12,29 +12,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
             JOIN genero ON genero.id = anime_genero.genero_id 
             WHERE anime.id = ? 
             GROUP BY anime.id;";
-    
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$id_modal]);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (count($result) > 0) {
-        // Crear una tabla para mostrar los datos del anime
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_modal);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
         echo '<table class="table pers" border="1">';
-        // Mostrar los datos del anime
-        foreach ($result as $row) {
-            echo '<tr><td class="td_gris">ID</td><td>' . htmlspecialchars($row["id"]) . '</td></tr>';
-            echo '<tr><td class="td_gris">Nombre</td><td>' . htmlspecialchars($row["nombre"]) . '</td></tr>';
-            echo '<tr><td class="td_gris">Temporada</td><td>' . htmlspecialchars($row["temporada"]) . '</td></tr>';
-            echo '<tr><td class="td_gris">Descripción</td><td>' . htmlspecialchars($row["descripcion"]) . '</td></tr>';
-            echo '<tr><td class="td_gris">Descripción Breve</td><td>' . htmlspecialchars($row["descripcion_breve"]) . '</td></tr>';
-            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="/' . htmlspecialchars($row["imagen_portada_vertical"]) . '" alt=""></td></tr>';
-            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="/' . htmlspecialchars($row["imagen_portada_horizontal"]) . '" alt=""></td></tr>';
+        while ($row = $result->fetch_assoc()) {
+            echo '<tr><td class="td_gris">ID</td><td>' . $row["id"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Nombre</td><td>' . $row["nombre"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Temporada</td><td>' . $row["temporada"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Descripción</td><td>' . $row["descripcion"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Descripción Breve</td><td>' . $row["descripcion_breve"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="/' . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
+            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="/' . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
         }
         echo '</table>';
     }
 
-    // Cerrar la conexión (PDO no necesita `close`, simplemente dejar de usarla)
-    $conn = null;
+
+    $conn->close();
 }
 // @c-red EDITAR ANIME
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
@@ -78,17 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
         if ($_FILES[$campo]['error'] === UPLOAD_ERR_OK) {
             $tmp_name = $_FILES[$campo]['tmp_name'];
             $name = basename($_FILES[$campo]['name']);
-            
-            // Generar un nombre único para evitar conflicto
+
             $ext = pathinfo($name, PATHINFO_EXTENSION);
             $unique_name = uniqid() . '.' . $ext;
             $ruta_destino = "$upload_dir/$unique_name";
-    
-            // Primero movemos el archivo
+
             if (move_uploaded_file($tmp_name, $ruta_destino)) {
                 $rutas_imagenes[$tipo] = $ruta_destino;
-    
-                // Luego eliminamos el archivo antiguo si existe
+
                 if (!empty($anime[$campo]) && file_exists($anime[$campo])) {
                     unlink($anime[$campo]);
                 }
@@ -133,11 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
         echo "Error al actualizar el anime";
     }
 
-    $conn = null;
+    $conn->close();
 }
 // @c-red CREAR ANIME
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
-    // Obtener datos del formulario
     $campos = ['nombre', 'temporada', 'descripcion', 'descripcion_breve', 'etiquetas'];
     foreach ($campos as $campo) {
         $$campo = $_POST[$campo] ?? '';
@@ -145,13 +140,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
     $opciones = $_POST['opciones'] ?? [];
     $generos = $_POST['generos'] ?? [];
 
-    // Procesar opciones
     $campos_opciones = ['portada', 'tendencia', 'reciente', 'proximo'];
     foreach ($campos_opciones as $campo) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
 
-    // Manejo de imágenes
     $upload_dir = '../../uploads/' . str_replace(' ', '-', $nombre);
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);
@@ -172,7 +165,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         }
     }
 
-    // Insertar anime en la base de datos
     $sql = "INSERT INTO anime (nombre, temporada, descripcion, descripcion_breve, etiquetas, 
             imagen_portada_vertical, imagen_portada_horizontal, portada, tendencia, reciente, proximo)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -193,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
             $proximo
         ]);
 
-        $anime_id = $conn->lastInsertId();
+        $anime_id = $conn->insert_id;
 
         // Insertar los géneros en la tabla anime_genero
         $sql_genero = "INSERT INTO anime_genero (anime_id, genero_id) VALUES (?, ?)";
@@ -207,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     } finally {
-        $conn = null; // Cerrar la conexión
+        $conn->close(); // Cerrar la conexión
     }
 }
 
@@ -216,14 +208,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_el'])) {
     $id = $_POST['id_el'];
     $nombre = $_POST['nm_el'];
     $upload_dir = '../../uploads/' . str_replace(' ', '-', $nombre);
-    
+
     $sql = "DELETE FROM anime WHERE id = ?";
-    
+
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
         echo "Registro eliminado exitosamente";
-        
+
         // Eliminar los archivos dentro de la carpeta
         if (is_dir($upload_dir)) {
             $files = scandir($upload_dir);
@@ -241,6 +233,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_el'])) {
     } catch (Exception $e) {
         echo "Error al eliminar el registro: " . $e->getMessage();
     } finally {
-        $conn = null;
+        $conn->close();
     }
 }

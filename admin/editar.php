@@ -25,21 +25,19 @@ function cargarDatosAnime($conn, $anime_id)
     return $anime;
 }
 
-// Cargar datos iniciales del anime
 $anime = cargarDatosAnime($conn, $anime_id);
 
-// Obtener géneros para el formulario
 $stmt_generos = $conn->query("SELECT * FROM genero");
-$todos_generos = $stmt_generos->fetchAll(PDO::FETCH_ASSOC);
+$todos_generos = $stmt_generos->fetch_all(MYSQLI_ASSOC);
 
-// Obtener géneros actuales del anime
 $stmt_generos_anime = $conn->prepare("SELECT genero_id FROM anime_genero WHERE anime_id = ?");
-$stmt_generos_anime->execute([$anime_id]);
-$generos_anime = $stmt_generos_anime->fetchAll(PDO::FETCH_ASSOC);
+$stmt_generos_anime->bind_param("i", $anime_id);
+$stmt_generos_anime->execute();
+$generos_anime = $stmt_generos_anime->get_result()->fetch_all(MYSQLI_ASSOC);
 $generos_actuales = array_column($generos_anime, 'genero_id');
 
-// Cerrar la conexión
-$conn = null;
+$conn->close();
+
 ?>
 
 <!DOCTYPE html>

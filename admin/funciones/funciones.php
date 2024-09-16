@@ -5,13 +5,19 @@ function obtenerNumeroRegistros($consulta)
 
     try {
         $stmt = $conn->query($consulta);
-        $numero_registros = $stmt->rowCount();
+    
+        if ($stmt === false) {
+            throw new Exception("Error en la consulta: " . $conn->error);
+        }
+    
+        $numero_registros = $stmt->num_rows;
         return $numero_registros;
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         die("Error en la consulta: " . $e->getMessage());
     } finally {
-        $conn = null;
+        $conn->close();
     }
+    
 }
 
 function generarConsulta($query, $where, $otro_orden, $fila)

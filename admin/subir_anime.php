@@ -46,7 +46,7 @@
                     $sql = "SELECT id, nombre FROM genero";
                     try {
                         $stmt = $conn->query($sql);
-                        $generos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        $generos = $stmt->fetch_all(MYSQLI_ASSOC);                        
 
                         if ($generos) {
                             foreach ($generos as $row) {

@@ -28,7 +28,7 @@
             $sql = "SELECT * FROM anime";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
-            $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $animes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
             foreach ($animes as $anime) {
                 if ($anime['portada'] == 1) {
