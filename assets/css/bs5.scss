@@ -1,4 +1,5 @@
 $c-primario: #f5d049;
+$c-primario-oscuro: mix(black, $c-primario, 10%);
 $c-primario-50: rgba($c-primario, 0.8);
 $btn-hover-bg-shade-amount:       0%;
 $btn-hover-bg-tint-amount:        0%;
@@ -17,6 +18,31 @@ $primary: $c-primario;
 /*-------------------------
     Reseteo
 -------------------------*/
+::-webkit-scrollbar {
+	width: 14px;
+   /* Ancho de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: #111111bb; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: $c-primario;
+  border-radius: 10px; /* Color del "dedo" de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background: $c-primario-oscuro;
+  cursor: pointer; /* Color del "dedo" cuando se pasa el ratón sobre él */
+  }
+  
+  /* Para ocultar las flechas de desplazamiento */
+  ::-webkit-scrollbar-button {
+	display: none;
+  }
+  
+
 .btn-p {
   display: flex;
   align-items: center;

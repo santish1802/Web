@@ -21,63 +21,51 @@
     <div class="main-wrapper overflow-hidden" id="main-wrapper">
 
         <!-- @c-blue Inicio del slider-->
-        <section id="bannerCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="500000">
-            <div class="carousel-inner">
-                <?php
-                require "config/config.php";
+        <section class="banner style-1 banner-slider">
+            <?php
+            require "config/config.php";
 
-                $sql = "SELECT * FROM anime";
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
-                $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                $first = true;
+            $sql = "SELECT * FROM anime";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($animes as $anime) {
-                    if ($anime['portada'] == 1) {
-                        $activeClass = $first ? 'active' : '';
-                        $first = false; ?>
+            foreach ($animes as $anime) {
+                if ($anime['portada'] == 1) {
+                    $img_vh = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                    $first = false; ?>
+                    <div class="banner-block overflow-hidden style-1 position-relative">
+                        <div class="bg-anime" style="background: url(<?php echo $img_vh ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                        <div class="container">
+                            <div class="banner-content">
+                                <div class="row ">
+                                    <div class="col-lg-5 col-12 ">
+                                        <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
+                                        <p class="text anime-temp">TEMPORADA <?php echo $anime['temporada']; ?></p>
 
-                        <div class="carousel-item <?php echo $activeClass; ?>">
-                            <div class="bg-anime" style="background: url(<?php echo !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical']; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
-                            <div class="container">
-                                <div class="slider-cont">
-                                    <div class="row">
-                                        <div class="col-lg-5 col-12 m">
-                                            <h2 class="pb-4 title-anime"><?php echo $anime['nombre']; ?></h2>
-                                            <p class="anime-temporada pb-3">TEMPORADA <?php echo $anime['temporada']; ?></p>
-                                            <div class="pb-3 etiq">
-                                                <?php
-                                                $etiquetas = explode(',', $anime['etiquetas']);
-                                                foreach ($etiquetas as $etiqueta) {
-                                                    $etiqueta = trim($etiqueta);
-                                                    echo '<a href="streaming-season.html" class="btn bg-primary  fw-bold">' . $etiqueta . '</a> ';
-                                                }
-                                                ?>
-                                            </div>
-
-                                            <p class="anime-descrip"><?php echo $anime['descripcion_breve']; ?></p>
-                                            <a class="anime-play btn btn-outline-primary text-white mt-5 d-block" href="streaming-season.html">VER AHORA</a>
+                                        <div class="pb-3 etiq">
+                                            <?php
+                                            $etiquetas = explode(',', $anime['etiquetas']);
+                                            foreach ($etiquetas as $etiqueta) {
+                                                $etiqueta = trim($etiqueta);
+                                                echo '<a href="streaming-season.html" class="btn bg-primary  fw-bold">' . $etiqueta . '</a> ';
+                                            }
+                                            ?>
                                         </div>
-                                        <div class="col-lg-7 col-12 image-anime">
-                                            <img src="<?php echo !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical']; ?>" class="d-block w-100" alt="">
-                                        </div>
+                                        <p class="anime-descrip"><?php echo $anime['descripcion_breve']; ?></p>
+                                        <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
+                                    </div>
+                                    <div class="col-lg-7 col-12">
+                                        <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                <?php }
-                } ?>
-            </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                    </div>
+            <?php }
+            } ?>
         </section>
+
         <!-- Fin del slider -->
 
         <!--Contenido principal Inicio-->
@@ -218,23 +206,23 @@
                         ?>
                             <div class="col-xxl-2-4 col-lg-4 col-sm-6">
                                 <div class="item mb-40">
-                                <div class="card st-2 m-0">
-                                <div class="img-block mb-20">
-                                    <img alt="" src="assets/media/anime-card/img-22.png" />
-                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
-                                    <ul class="tag unstyled">
-                                        <li><?php echo $genero; ?></li>
-                                        <li><?php echo $anio; ?></li>
-                                        <li><?php echo $episodios; ?></li>
-                                        <li class="icon"><i class="fas fa-star"></i></li>
-                                        <li><?php echo $calificacion; ?></li>
-                                    </ul>
-                                </div>
-                            </div>
+                                    <div class="card st-2 m-0">
+                                        <div class="img-block mb-20">
+                                            <img alt="" src="assets/media/anime-card/img-22.png" />
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                            <ul class="tag unstyled">
+                                                <li><?php echo $genero; ?></li>
+                                                <li><?php echo $anio; ?></li>
+                                                <li><?php echo $episodios; ?></li>
+                                                <li class="icon"><i class="fas fa-star"></i></li>
+                                                <li><?php echo $calificacion; ?></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>

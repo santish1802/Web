@@ -1,31 +1,38 @@
-// $(document).ready(function() {
-//   function recalcularAltura() {
-//     $('#bannerCarousel .carousel-item').each(function() {
-//       // Encontrar los elementos dentro del carousel-item actual
-//       var alturaimg = $(this).find('.slider-cont img').outerHeight(true);
-//       var altura1 = $(this).find('.title-anime').outerHeight(true);
-//       var altura2 = $(this).find('.anime-temporada').outerHeight(true);
-//       var altura3 = $(this).find('.etiq').outerHeight(true);
-//       var altura4 = $(this).find('.anime-play').outerHeight(true);
+$(document).ready(function() {
+  function recalcularAltura() {
+    if ($(window).width() >= 992) { // Verificar si el ancho de la ventana es al menos 992px
+      $('.banner.banner-slider .banner-block').each(function() {
+        var alturaimg = $(this).find('.banner-img').outerHeight(true);
+        var altura1 = $(this).find('.anime-nombre').outerHeight(true);
+        var altura2 = $(this).find('.anime-temp').outerHeight(true);
+        var altura3 = $(this).find('.etiq').outerHeight(true);
+        var altura4 = $(this).find('.anime-play').outerHeight(true);
 
-//       // Calcular la altura disponible para .anime-descrip
-//       var alturamax = alturaimg - altura1 - altura2 - altura3 - altura4;
+        var alturamax = alturaimg - altura1 - altura2 - altura3 - altura4;
 
-//       console.log('Altura incluyendo margen (carousel-item): ' + alturamax + 'px');
+        console.log('Altura incluyendo margen (carousel-item): ' + alturamax + 'px');
 
-//       // Asignar la altura calculada al .anime-descrip dentro del carousel-item actual
-//       $(this).find('.anime-descrip').css('height', alturamax + 'px');
-//     });
-//   }
+        $(this).find('.anime-descrip').css('height', alturamax + 'px');
+      });
+    }
+  }
 
-//   // Calcular la altura al cargar la página
-//   recalcularAltura();
+  recalcularAltura(); // Inicialmente recalcular altura al cargar la página
 
-//   // Recalcular la altura al cambiar el tamaño de la ventana
-//   $(window).resize(function() {
-//     recalcularAltura();
-//   });
-// });
+  // Usar ResizeObserver para detectar cambios en el tamaño de la ventana
+  const observer = new ResizeObserver(() => {
+    recalcularAltura();
+  });
+
+  observer.observe(document.body); // Observar cambios en el cuerpo del documento
+
+  // También puedes seguir usando el evento de resize para cubrir otros casos
+  $(window).resize(function() {
+    recalcularAltura();
+  });
+});
+
+
 
 $(".banner-slider").slick({
   infinite: true,

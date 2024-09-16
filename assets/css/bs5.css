@@ -12007,6 +12007,30 @@ textarea.form-control-lg {
 /*-------------------------
     Reseteo
 -------------------------*/
+::-webkit-scrollbar {
+  width: 14px;
+  /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.7333333333);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f5d049;
+  border-radius: 10px; /* Color del "dedo" de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ddbb42;
+  cursor: pointer; /* Color del "dedo" cuando se pasa el ratón sobre él */
+}
+
+/* Para ocultar las flechas de desplazamiento */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
 .btn-p {
   display: flex;
   align-items: center;

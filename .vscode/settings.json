@@ -1,5 +1,5 @@
 {
-    "inline-bookmarks.view.showVisibleFilesOnly": false,
+    "inline-bookmarks.view.showVisibleFilesOnly": true,
     "search.useIgnoreFiles": false,
     "search.useGlobalIgnoreFiles": true
 }

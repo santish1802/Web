@@ -80,11 +80,14 @@ STYLE SHEET INDEXING
 /*-------------------------
     Reseteo
 -------------------------*/
+
+
 img {
 	max-width: 100%;
 	height: auto;
 	vertical-align: middle;
 }
+
 .unstyled {
 	padding-left: 0;
 	list-style: none;
@@ -1787,20 +1790,14 @@ footer .copyright {
 }
 /* @c-red Slider portada */
 
-#bannerCarousel .row{
-	margin-top: 1.63rem;
-    margin-bottom: 1.63rem;
-}
-#bannerCarousel .carousel-control-next, #bannerCarousel .carousel-control-prev {
-	width: 4%;
-}
-#bannerCarousel .bg-anime {
+.banner .bg-anime {
 	height: 100%;
 	width: 100%;
 	position: absolute;
+
 	z-index: -2;
 }
-#bannerCarousel .bg-anime::before {
+.banner .bg-anime::before {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -1808,93 +1805,134 @@ footer .copyright {
 	background-color: #000000d0;
 	pointer-events: none;
 }
-#bannerCarousel .slider-cont {
-	display: table-cell;
-	height: 43.75rem;
-	vertical-align: middle;
+
+.banner.style-1 .banner-content {
+  display: table-cell;
+  height: 700px;
+  vertical-align: middle;
 }
-#bannerCarousel .slider-cont img {
-	height: 37.5rem;
-	object-fit: cover;
-	border-radius: 15px;
+
+.banner-block h2.title {
+  font-family: 'Noir Pro' !important;
+  font-size: 80px;
+  color: #ffffff;
+  margin-bottom: 0;
 }
-#bannerCarousel .title-anime {
-	font-size: 3.9rem;
-	font-family: 'Noir Pro' !important;
-	font-weight: 900 !important;
+
+.banner-block p.text {
+  font-size: 40px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
-#bannerCarousel .anime-descrip {
-	font-size: 1.1rem;
-	overflow: overlay;
+p.anime-descrip {
+    font-size: 1.125rem;
+	overflow-y: scroll;
 }
-#bannerCarousel .anime-temporada {
-	font-family: 'Noir Pro' !important;
-	font-size: 2rem;
-	text-transform: uppercase;
+
+.banner-block p {
+  color: var(--color-grey-light);
 }
-#bannerCarousel .anime-play {
-	border-radius: 10px;
-	margin-top: 20px;
-	font-size: 1.9rem !important;
-	font-family: 'Noir Pro' !important;
-	font-weight: bold !important;
-	line-height: 48px !important;
-	text-align: center;
-	padding: 0.5rem 5rem !important;
-	text-transform: uppercase;
-	max-width: max-content;
+
+.play-butn {
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 20px;
+  background: rgba(17, 17, 17, 0.5);
+  padding: 8px;
+  overflow: hidden;
+  position: relative;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  padding: 8px 100px;
+  text-transform: uppercase;
+  transition: 300ms ease;
+  border: 2px solid #F5CF49;
+  color: #ffffff;
 }
-@media (max-width:991px) {
-	html {
-		font-size: 15px;
-	}
-	#bannerCarousel .image-anime {
-		display: none;
-	}
-	#bannerCarousel .anime-play {
-		margin: auto;
-		max-width: 80%;
-	}
+
+.play-butn:hover{
+  background: transparent;
+  color: #ffffff;
 }
-@media (max-width:600px) {
-	html {
-		font-size: 13px;
-	}
-	#bannerCarousel .row > [class*=col] {
-		padding: 15px 31px !important;
-	}
+
+.banner.style-1 img {
+  height: 600px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
-@media (max-width:405px) {
-	#bannerCarousel .row > [class*=col] {
-		padding: 15px 31px !important;
-	}
+
+@media only screen and (991px <= width <= 1199px) {
+  .play-butn {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 8px 40px;
+  }
 }
-@media (min-width:1200px) {
-	#bannerCarousel .container {
-		max-width: 1140px;
-	}
+
+@media only screen and (max-width: 1250px) {
+
+  .banner-block h2.title {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+
+  .banner-block p.text {
+    font-size: 34px;
+  }
+
 }
-@media (min-width:1386px) {
-	#bannerCarousel .container {
-		max-width: 1309px;
-	}
+
+@media only screen and (max-width: 991px) {
+  .banner.style-1 .banner-content {
+    height: 600px;
+  }
+  .banner.style-1 img {
+    display: none;
+  }
+  .banner-block h2.title {
+    /* font-size: 50px; */
+    margin-bottom: 20px;
+  }
+  p.anime-descrip {
+    height: 13.125rem !important;
 }
-@media (min-width:1700px) {
-	#bannerCarousel .container {
-		max-width: 1500px;
-	}
-	#bannerCarousel .row > [class*=col] {
-		padding: 0 3.43rem !important;
-	}
 }
-@media (min-width:2380px) {
-	html{
-		font-size: 18px;
-	}
-	#bannerCarousel .container {
-		max-width: 1850px;
-	}
+
+@media only screen and (max-width: 492px) {
+
+  .banner.style-1 .banner-content {
+    height: 500px;
+  }
+
+  .banner.style-1 .banner-content {
+    padding: 0px 10px;
+  }
+
+  .banner-block h2.title {
+    font-size: 38px;
+  }
+
+  .banner-block p.text {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .banner-block p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .play-butn {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 8px 40px;
+  }
 }
+
+
+
 .inner-banner .movie-listing {
 	border-radius: 12px;
 	background: #181818;
