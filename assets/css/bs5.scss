@@ -110,9 +110,8 @@ img {
   
 	&.light {
 	  padding: 14px 20px;
-    background: rgb(0 0 0 / 64%);
-    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.3);
-	  backdrop-filter: blur(25px);
+    background: rgb(0 0 0 / 66%);
+    // backdrop-filter: blur(2px);
 	  color: #F8F8FF;
     font-size: 1.75rem;
 	  font-weight: 200;

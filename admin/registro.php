@@ -16,6 +16,7 @@
 </head>
 
 <body class="body">
+    <?php include "navbar2.php" ?>
     <div class="container-sm py-4 ">
         <div class="cont_white">
             <h1 class="text-center py-4">Registro de anime</h1>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <a href="" id="redirect" type="button" class="btn btn-black2">Editar</a>
+                    <a href="" id="redirect" type="button" class="btn btn-dark">Editar</a>
                 </div>
             </div>
         </div>
@@ -87,38 +88,64 @@
                 type: 'POST',
                 success: function(mensaje) {
                     $('#probando').html(mensaje);
-                    var urlEditar = '../editar/usuario/' + id_modal;
+                    var urlEditar = 'editar.php?id=' + id_modal;
                     $('#redirect').attr('href', urlEditar);
                 }
             });
         };
-        $(window).ready(function() {
-            var dataTable = $('#tablaUsuarios').DataTable({
-                responsive: true,
-                language: {
-                    url: '../config/Es.json',
-                },
-                "serverSide": true,
-                responsive: true,
-                autoWidth: false, //<---
-                "order": [
-                    [0, "asc"]
-                ], // Ordenar la primera columna en orden descendente
-                "ajax": {
-                    url: "./funciones/require-dt.php",
-                    type: "POST",
-                },
-                "lengthMenu": [2, 5, 10], // Define las opciones de cantidad de filas por página
-                "pageLength": 10, // Define la cantidad de filas por página inicial
-                columnDefs: [{
-                    type: 'string',
-                    targets: '_all'
-                }, ]
-            });
-            window.onresize = function() {
-                dataTable.columns.adjust().responsive.recalc();
+        $(document).ready(function() {
+    var dataTable = $('#tablaUsuarios').DataTable({
+        paging: true,
+        responsive: true,
+        language: {
+            url: '../config/Es.json',
+        },
+        "serverSide": true,
+        autoWidth: false,
+        "order": [
+            [0, "asc"]
+        ],
+        "ajax": {
+            url: "./funciones/require-dt.php",
+            type: "POST",
+        },
+        "lengthMenu": [2, 5, 10],
+        "pageLength": 10,
+        columnDefs: [{
+            type: 'string',
+            targets: '_all'
+        }]
+    });
+
+    // Evento para controlar el expandir y colapsar las filas
+    $('#tablaUsuarios').on('click', 'tr td.dtr-control', function() {
+        var tr = $(this).closest('tr');
+        var row = dataTable.row(tr);
+
+        // Cerrar todas las filas expandidas
+        dataTable.rows().every(function() {
+            if (this.child.isShown()) {
+                this.child.hide();
+                $(this.node()).removeClass('dtr-expanded');
             }
         });
+
+        // Si la fila clickeada no está expandida, expandirla
+        if (!row.child.isShown()) {
+            row.child.show();
+            tr.addClass('dtr-expanded');
+        } else {
+            // Si ya está expandida, simplemente ocultarla
+            row.child.hide();
+            tr.removeClass('dtr-expanded');
+        }
+    });
+
+    $(window).on('resize', function() {
+        dataTable.columns.adjust().responsive.recalc();
+    });
+});
+
 
         function el_anime(id, nombre) {
             var parametros = {

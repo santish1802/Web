@@ -6,12 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
     $id_modal = $_POST['id_modal'];
 
     // Consulta SQL para obtener datos del anime con su ID
-    $sql = "SELECT anime.id, anime.nombre, anime.temporada, anime.descripcion, anime.descripcion_breve, anime.imagen_portada_horizontal, anime.imagen_portada_vertical, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo 
-            FROM anime 
-            JOIN anime_genero ON anime.id = anime_genero.anime_id 
-            JOIN genero ON genero.id = anime_genero.genero_id 
-            WHERE anime.id = ? 
-            GROUP BY anime.id;";
+    $sql = "SELECT * from anime
+            WHERE anime.id = ? ";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_modal);
@@ -23,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
         while ($row = $result->fetch_assoc()) {
             echo '<tr><td class="td_gris">ID</td><td>' . $row["id"] . '</td></tr>';
             echo '<tr><td class="td_gris">Nombre</td><td>' . $row["nombre"] . '</td></tr>';
-            echo '<tr><td class="td_gris">Temporada</td><td>' . $row["temporada"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Calificacion</td><td>' . $row["calif"] . '</td></tr>';
+            echo '<tr><td class="td_gris">Fecha</td><td>' . $row["fecha"] . '</td></tr>';
             echo '<tr><td class="td_gris">Descripción</td><td>' . $row["descripcion"] . '</td></tr>';
-            echo '<tr><td class="td_gris">Descripción Breve</td><td>' . $row["descripcion_breve"] . '</td></tr>';
             echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="/' . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
             echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="/' . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
         }
@@ -39,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     $anime_id = intval($_POST['anime_id']);
 
-    $campos = ['nombre', 'nombre_h', 'temporada', 'descripcion', 'descripcion_breve', 'etiquetas'];
+    $campos = ['nombre', 'nombre_h', 'calif', 'descripcion', 'fecha'];
     foreach ($campos as $campo) {
         $$campo = $_POST[$campo] ?? '';
     }
@@ -70,8 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     $rutas_imagenes = [];
 
     $stmt = $conn->prepare("SELECT imagen_portada_vertical, imagen_portada_horizontal FROM anime WHERE id = ?");
-    $stmt->execute([$anime_id]);
-    $anime = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->bind_param("i", $anime_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $anime = $result->fetch_assoc();
 
     foreach ($imagenes as $tipo => $campo) {
         if ($_FILES[$campo]['error'] === UPLOAD_ERR_OK) {
@@ -85,26 +83,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
             if (move_uploaded_file($tmp_name, $ruta_destino)) {
                 $rutas_imagenes[$tipo] = $ruta_destino;
 
+                // Eliminar la imagen antigua si existe
                 if (!empty($anime[$campo]) && file_exists($anime[$campo])) {
                     unlink($anime[$campo]);
                 }
             }
         } else {
-            $rutas_imagenes[$tipo] = $anime[$campo];
+            // Actualizar la ruta de la imagen actual con la nueva carpeta
+            if (!empty($anime[$campo])) {
+                $nombre_archivo = basename($anime[$campo]);
+                $nueva_ruta = "$upload_dir/$nombre_archivo";
+                $rutas_imagenes[$tipo] = $nueva_ruta;
+            } else {
+                $rutas_imagenes[$tipo] = $anime[$campo]; // Mantener la imagen actual si no hay cambios
+            }
         }
     }
 
-    $sql = "UPDATE anime SET nombre = ?, temporada = ?, descripcion = ?, descripcion_breve = ?, 
-            etiquetas = ?, imagen_portada_vertical = ?, imagen_portada_horizontal = ?, 
+    $sql = "UPDATE anime SET nombre = ?, calif = ?, descripcion = ?, fecha = ?, 
+            imagen_portada_vertical = ?, imagen_portada_horizontal = ?, 
             portada = ?, tendencia = ?, reciente = ?, proximo = ? WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         $nombre,
-        $temporada,
+        $calif,
         $descripcion,
-        $descripcion_breve,
-        $etiquetas,
+        $fecha,
         $rutas_imagenes['vertical'],
         $rutas_imagenes['horizontal'],
         $portada,
@@ -133,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
 }
 // @c-red CREAR ANIME
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
-    $campos = ['nombre', 'temporada', 'descripcion', 'descripcion_breve', 'etiquetas'];
+    $campos = ['nombre', 'calif', 'descripcion', 'fecha'];
     foreach ($campos as $campo) {
         $$campo = $_POST[$campo] ?? '';
     }
@@ -165,18 +170,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         }
     }
 
-    $sql = "INSERT INTO anime (nombre, temporada, descripcion, descripcion_breve, etiquetas, 
+    $sql = "INSERT INTO anime (nombre, calif, descripcion, fecha,
             imagen_portada_vertical, imagen_portada_horizontal, portada, tendencia, reciente, proximo)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             $nombre,
-            $temporada,
+            $calif,
             $descripcion,
-            $descripcion_breve,
-            $etiquetas,
+            $fecha,
             $rutas_imagenes['vertical'],
             $rutas_imagenes['horizontal'],
             $portada,
@@ -196,8 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         }
 
         echo "Nuevo registro creado exitosamente";
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+    
     } finally {
         $conn->close(); // Cerrar la conexión
     }

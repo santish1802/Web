@@ -31,19 +31,16 @@
             $animes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
             foreach ($animes as $anime) {
-                if ($anime['portada'] == 1) {
-                    $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
-                    $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
-                    $first = false; ?>
+                $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
+                if ($anime['portada'] == 1) {; ?>
                     <div class="banner-block overflow-hidden style-1 position-relative">
                         <div class="bg-anime" style="background: url(<?php echo $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                         <div class="container">
                             <div class="banner-content">
-                                <div class="row ">
-                                    <div class="col-lg-6 col-12 ">
-                                        <h2 class="title anime-nombre mb-3"><?php echo $anime['nombre']; ?></h2>
-                                        <p class="text anime-temp">TEMPORADA <?php echo $anime['temporada']; ?></p>
-
+                                <div class="row mx-xl-4">
+                                    <div class="col-lg col-12">
+                                        <h2 class="title anime-nombre mb-4"><?php echo $anime['nombre']; ?></h2>
                                         <div class="mb-4 etiq">
                                             <?php
                                             $etiquetas = explode(',', $anime['etiquetas']);
@@ -56,7 +53,7 @@
                                         <div class="anime-descrip mt-1"><?php echo $anime['descripcion']; ?></div>
                                         <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
                                     </div>
-                                    <div class="col-lg-6 col-12">
+                                    <div class="col-lg-auto col-12">
                                         <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>
@@ -152,12 +149,15 @@
             </section>
             <!--Categorías Área Fin-->
 
-            <!--Área de tendencia Inicio-->
+            <!-- @c-red TENDENCIA -->
             <section class="animes p-40">
                 <div class="container-fluid">
                     <h2 class="h-40 mb-40 bold">Animes en tendencia</h2>
                     <div class="card-slider">
                         <?php
+                        usort($animes, function ($a, $b) {
+                            return strcmp($a['nombre'], $b['nombre']);
+                        });
                         foreach ($animes as $anime) {
                             $etiquetas = explode(',', $anime['etiquetas']);
 
@@ -165,30 +165,32 @@
                             $anio = isset($etiquetas[1]) ? trim($etiquetas[1]) : '';
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
-                        ?>
-                            <div class="card st-2">
-                                <div class="img-block mb-20">
-                                    <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
-                                    <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                    </a>
+                            if ($anime['tendencia'] == 1) {; ?>
+                                <div class="card st-2">
+                                    <div class="img-block mb-20">
+                                        <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
+                                        <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                        <ul class="tag unstyled">
+                                            <li><?php echo $genero; ?></li>
+                                            <li><?php echo $anio; ?></li>
+                                            <li><?php echo $episodios; ?></li>
+                                            <li class="icon"><i class="fas fa-star"></i></li>
+                                            <li><?php echo $calificacion; ?></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
-                                    <ul class="tag unstyled">
-                                        <li><?php echo $genero; ?></li>
-                                        <li><?php echo $anio; ?></li>
-                                        <li><?php echo $episodios; ?></li>
-                                        <li class="icon"><i class="fas fa-star"></i></li>
-                                        <li><?php echo $calificacion; ?></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        <?php } ?>
+                        <?php }
+                        } ?>
                     </div>
                 </div>
             </section>
-            <!--Zona de pisada final-->
-            <!--Continuar Área de inicio-->
+            <!-- TENDECIA FIN -->
+
+            <!-- @c-red CONTINUAR VIENDO -->
             <section class="animes p-40 pb-0">
                 <div class="container-fluid">
                     <div class="heading mb-32">
@@ -198,6 +200,9 @@
                     <div class="row">
                         <?php
                         foreach ($animes as $anime) {
+                            $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                            $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
+
                             $etiquetas = explode(',', $anime['etiquetas']);
 
                             $genero = isset($etiquetas[0]) ? trim($etiquetas[0]) : '';
@@ -209,7 +214,7 @@
                                 <div class="item mb-40">
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">
-                                            <img alt="" src="assets/media/anime-card/img-22.png" />
+                                            <img alt="" src="<?php echo $img_vh ?>" />
                                             <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>

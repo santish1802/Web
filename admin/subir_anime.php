@@ -1,4 +1,6 @@
-<?php require "../php/head.php" ?>
+<?php require "../php/head.php";
+date_default_timezone_set('America/Lima');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,8 +12,16 @@
     <?php echo $css2 ?>
     <?php echo $js ?>
 </head>
+<style>
+    .form-check.form-flex {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+</style>
 
 <body>
+<?php include "navbar2.php" ?>
     <div class="container mt-5">
         <h1 class="mb-4">Subir Información de Anime</h1>
         <div id="mensaje" class="alert alert-info" style="display: none;" role="alert"></div>
@@ -23,8 +33,13 @@
             </div>
 
             <div class="col-md-6">
-                <label for="temporada" class="form-label">Temporada:</label>
-                <input type="text" class="form-control" id="temporada" name="temporada" required>
+                <label for="calif" class="form-label">Calificacion:</label>
+                <input type="text" class="form-control" id="calif" name="calif" required>
+            </div>
+
+            <div class="col-6">
+                <label for="fecha" class="form-label">Fecha:</label>
+                <input class="form-control" type="date" id="fecha" name="fecha" value="<?php echo $fecha_actual = date('Y-m-d'); ?>">
             </div>
 
             <div class="col-12">
@@ -32,37 +47,34 @@
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
             </div>
 
-            <div class="col-12">
-                <label for="etiquetas" class="form-label">Etiquetas (separadas por comas):</label>
-                <input type="text" class="form-control" id="etiquetas" name="etiquetas">
-            </div>
 
             <div class="col-12">
                 <label for="generos" class="form-label">Géneros:</label><br>
-                <div class="form-check">
+                <div class="form-check form-flex">
                     <?php
                     require "../config/config.php";
 
-                    $sql = "SELECT id, nombre FROM genero";
+                    $sql = "SELECT id, nombre FROM genero ORDER BY `nombre` ASC";
                     try {
                         $stmt = $conn->query($sql);
-                        $generos = $stmt->fetch_all(MYSQLI_ASSOC);                        
+                        $generos = $stmt->fetch_all(MYSQLI_ASSOC);
 
                         if ($generos) {
                             foreach ($generos as $row) {
                                 echo '<div class="form-check">';
-                                echo '<input class="form-check-input" type="checkbox" name="generos[]" value="' . htmlspecialchars($row['id']) . '">';
-                                echo '<label class="form-check-label" for="genero_' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['nombre']) . '</label><br>';
+                                echo '<input class="form-check-input" type="checkbox" name="generos[]" id="' . $row['nombre'] . '" value="' . htmlspecialchars($row['id']) . '">';
+                                echo '<label class="form-check-label" for="' . $row['nombre'] . '">' . htmlspecialchars($row['nombre']) . '</label><br>';
                                 echo '</div>';
                             }
                         } else {
                             echo '<p>No hay géneros disponibles.</p>';
                         }
-                    } catch (PDOException $e) {
+                    } catch (Exception $e) {
                         echo '<p>Error al obtener géneros: ' . htmlspecialchars($e->getMessage()) . '</p>';
                     }
 
-                    $conn = null;
+                    $conn->close();
+
                     ?>
                 </div>
             </div>
@@ -70,12 +82,12 @@
 
             <div class="col-md-6">
                 <label for="imagen_portada_vertical" class="form-label">Imagen Portada Vertical:</label>
-                <input type="file" class="form-control" id="imagen_portada_vertical" name="imagen_portada_vertical" accept="image/*">
+                <input type="file" class="form-control imagen-input" id="imagen_portada_vertical" name="imagen_portada_vertical" accept="image/*">
             </div>
 
             <div class="col-md-6">
                 <label for="imagen_portada_horizontal" class="form-label">Imagen Portada Horizontal:</label>
-                <input type="file" class="form-control" id="imagen_portada_horizontal" name="imagen_portada_horizontal" accept="image/*">
+                <input type="file" class="form-control imagen-input" id="imagen_portada_horizontal" name="imagen_portada_horizontal" accept="image/*">
             </div>
 
             <div class="col-12">
@@ -107,17 +119,78 @@
     </div>
 
     <script>
+        document.querySelectorAll('input[type="file"]').forEach(function(input) {
+            input.addEventListener('change', function() {
+                if (this.files.length > 1) {
+                    alert('Solo puedes subir un archivo a la vez.');
+                    this.value = ''; // Elimina el contenido del input
+                }
+            });
+        });
         $(document).ready(function() {
+            let processedImages = {};
+            $('input[type="file"]').on('change', function(event) {
+                const inputFile = this;
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = new Image();
+                        img.src = e.target.result;
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            const maxHeight = 600;
+                            let finalImage;
+
+                            if (img.height > maxHeight) {
+                                const scaleFactor = maxHeight / img.height;
+                                canvas.height = maxHeight;
+                                canvas.width = img.width * scaleFactor;
+                            } else {
+                                canvas.height = img.height;
+                                canvas.width = img.width;
+                            }
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                            finalImage = canvas.toDataURL('image/webp', 0.5);
+                            processedImages[inputFile.name] = finalImage;
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
             $('#subirAnimeForm').on('submit', function(e) {
                 e.preventDefault();
                 var formData = new FormData(this);
                 formData.append('form_crear', 'crear');
+
+                $('.imagen-input').each(function() {
+                    const inputFile = this;
+                    if (processedImages[inputFile.name]) {
+                        const byteString = atob(processedImages[inputFile.name].split(',')[1]);
+                        const mimeString = 'image/webp'; // Siempre será WebP
+                        const buffer = new ArrayBuffer(byteString.length);
+                        const data = new Uint8Array(buffer);
+                        for (let i = 0; i < byteString.length; i++) {
+                            data[i] = byteString.charCodeAt(i);
+                        }
+                        const blob = new Blob([buffer], {
+                            type: mimeString
+                        });
+
+                        const randomName = 'imagen_' + Math.random().toString(36).substring(2, 15) + '.webp';
+
+                        formData.delete(inputFile.name);
+                        formData.append(inputFile.name, blob, randomName);
+                    }
+                });
+
                 $.ajax({
                     url: './funciones/fun-ajax.php',
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-                        $('#nombre_h').val($('#nombre').val());
                         $('#mensaje').html(response);
                         $('#mensaje').css('display', 'block');
                         setTimeout(function() {

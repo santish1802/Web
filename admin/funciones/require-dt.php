@@ -1,8 +1,8 @@
 <?php
 require "../../config/config.php";
 require('funciones.php');
-$query = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime JOIN anime_genero ON anime.id = anime_genero.anime_id JOIN genero ON genero.id = anime_genero.genero_id";
-$consulta = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime JOIN anime_genero ON anime.id = anime_genero.anime_id JOIN genero ON genero.id = anime_genero.genero_id GROUP BY anime.id;";
+$query = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime LEFT JOIN  anime_genero ON anime.id = anime_genero.anime_id LEFT JOIN genero ON genero.id = anime_genero.genero_id";
+$consulta = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime LEFT JOIN  anime_genero ON anime.id = anime_genero.anime_id LEFT JOIN genero ON genero.id = anime_genero.genero_id GROUP BY anime.id;";
 $where = " WHERE anime.nombre";
 $query = generarConsulta($query, $where, "1 ASC", "1");
 $stmt = $conn->prepare($query);
@@ -25,7 +25,7 @@ foreach ($resultado_paginado as $fila) {
     $sub_array[] = $fila["proximo"];
     $sub_array[] = '
     <button type="button" class="btn m-1 btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="valor_modal(' . $fila["id"] . ')"> Detalles </button>
-    <a class="btn m-1 btn-secondary" href="editar.php?id=' . $fila["id"] . '">Editar</a>
+    <a class="btn m-1 btn-dark" href="editar.php?id=' . $fila["id"] . '">Editar</a>
     <button type="button" class="btn m-1 btn-danger" onclick="el_anime(' . $fila["id"] . ', `' . $fila["nombre"] . '`)"> Eliminar </button>
     ';
     $datos[] = $sub_array;

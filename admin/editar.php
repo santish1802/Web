@@ -15,8 +15,11 @@ function cargarDatosAnime($conn, $anime_id)
 {
     $sql = "SELECT * FROM anime WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$anime_id]);
-    $anime = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->bind_param("i", $anime_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $anime = $result->fetch_assoc();
+
 
     if (!$anime) {
         die("Anime no encontrado");
@@ -53,6 +56,7 @@ $conn->close();
 </head>
 
 <body>
+<?php include "navbar2.php" ?>
     <div class="container mt-5">
         <h1 class="mb-4">Editar Anime</h1>
         <div id="mensaje" class="alert alert-info" style="display: none;" role="alert"></div>
@@ -67,8 +71,13 @@ $conn->close();
             </div>
 
             <div class="col-md-6">
-                <label for="temporada" class="form-label">Temporada:</label>
-                <input type="text" class="form-control" id="temporada" name="temporada" value="<?php echo htmlspecialchars($anime['temporada']); ?>">
+                <label for="calif" class="form-label">Calificacion:</label>
+                <input type="text" class="form-control" id="calif" name="calif" value="<?php echo $anime['calif'] ?>" required>
+            </div>
+
+            <div class="col-6">
+                <label for="fecha" class="form-label">Fecha:</label>
+                <input class="form-control" type="date" id="fecha" name="fecha" value="<?php echo $anime['fecha']; ?>">
             </div>
 
             <div class="col-12">
@@ -76,34 +85,11 @@ $conn->close();
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="3"><?php echo htmlspecialchars($anime['descripcion']); ?></textarea>
             </div>
 
-            <div class="col-12">
-                <label for="descripcion_breve" class="form-label">Descripción Breve:</label>
-                <textarea class="form-control" id="descripcion_breve" name="descripcion_breve" rows="2"><?php echo htmlspecialchars($anime['descripcion_breve']); ?></textarea>
-            </div>
 
-            <div class="col-md-7">
-                <label for="etiquetas" class="form-label">Etiquetas:</label>
-                <input type="text" class="form-control" id="etiquetas" name="etiquetas" value="<?php echo htmlspecialchars($anime['etiquetas']); ?>">
-            </div>
 
-            <div class="col-md-6">
-                <label for="imagen_portada_vertical" class="form-label">Imagen Portada Vertical:</label>
-                <input type="file" class="form-control" id="imagen_portada_vertical" name="imagen_portada_vertical">
-                <?php if (!empty($anime['imagen_portada_vertical'])): ?>
-                    <img src="../<?php echo htmlspecialchars($anime['imagen_portada_vertical']); ?>" alt="Portada Vertical Actual" class="img-thumbnail mt-2" width="300">
-                <?php endif; ?>
-            </div>
-
-            <div class="col-md-6">
-                <label for="imagen_portada_horizontal" class="form-label">Imagen Portada Horizontal:</label>
-                <input type="file" class="form-control" id="imagen_portada_horizontal" name="imagen_portada_horizontal">
-                <?php if (!empty($anime['imagen_portada_horizontal'])): ?>
-                    <img src="<?php echo htmlspecialchars($anime['imagen_portada_horizontal']); ?>" alt="Portada Horizontal Actual" class="img-thumbnail mt-2" width="100">
-                <?php endif; ?>
-            </div>
 
             <div class="col-12">
-            <label for="Opciones" class="form-label">Opciones:</label><br>
+                <label for="Opciones" class="form-label">Opciones:</label><br>
                 <div class="form-check">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="portada" name="opciones[]" value="portada" <?php echo $anime['portada'] ? 'checked' : ''; ?>>
@@ -123,6 +109,24 @@ $conn->close();
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <label for="imagen_portada_vertical" class="form-label">Imagen Portada Vertical:</label>
+                <input type="file" class="form-control imagen-input" id="imagen_portada_vertical" name="imagen_portada_vertical">
+                <?php if (!empty($anime['imagen_portada_vertical'])): ?>
+                    <img src="../<?php echo htmlspecialchars($anime['imagen_portada_vertical']); ?>" alt="Portada Vertical Actual" class="img-thumbnail mt-2" width="300">
+                <?php endif; ?>
+            </div>
+
+            <div class="col-md-6">
+                <label for="imagen_portada_horizontal" class="form-label">Imagen Portada Horizontal:</label>
+                <input type="file" class="form-control imagen-input" id="imagen_portada_horizontal" name="imagen_portada_horizontal">
+                <?php if (!empty($anime['imagen_portada_horizontal'])): ?>
+                    <img src="<?php echo htmlspecialchars($anime['imagen_portada_horizontal']); ?>" alt="Portada Horizontal Actual" class="img-thumbnail mt-2" width="100">
+                <?php endif; ?>
+            </div>
+
+
 
             <div class="col-12">
                 <label for="generos" class="form-label">Géneros:</label><br>
@@ -144,11 +148,80 @@ $conn->close();
 
 
     <script>
+        document.querySelectorAll('input[type="file"]').forEach(function(input) {
+            input.addEventListener('change', function() {
+                if (this.files.length > 1) {
+                    alert('Solo puedes subir un archivo a la vez.');
+                    this.value = ''; // Elimina el contenido del input
+                }
+            });
+        });
         $(document).ready(function() {
+            let processedImages = {};
+            $('input[type="file"]').on('change', function(event) {
+                const inputFile = this;
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = new Image();
+                        img.src = e.target.result;
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            const maxHeight = 600;
+                            let finalImage;
+
+                            if (img.height > maxHeight) {
+                                // Redimensionar y convertir a WebP si es mayor a 600px
+                                const scaleFactor = maxHeight / img.height;
+                                canvas.height = maxHeight;
+                                canvas.width = img.width * scaleFactor;
+                            } else {
+                                // Mantener dimensiones originales si es menor o igual a 600px
+                                canvas.height = img.height;
+                                canvas.width = img.width;
+                            }
+
+                            // Dibujar la imagen en el canvas
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                            // Convertir la imagen a WebP con calidad 50% en ambos casos
+                            finalImage = canvas.toDataURL('image/webp', 0.5);
+
+                            processedImages[inputFile.name] = finalImage;
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
             $('#editarAnimeForm').on('submit', function(e) {
                 e.preventDefault();
                 var formData = new FormData(this);
                 formData.append('form_edit', 'editar');
+
+                $('.imagen-input').each(function() {
+                    const inputFile = this;
+                    if (processedImages[inputFile.name]) {
+                        const byteString = atob(processedImages[inputFile.name].split(',')[1]);
+                        const mimeString = 'image/webp'; // Siempre será WebP
+                        const buffer = new ArrayBuffer(byteString.length);
+                        const data = new Uint8Array(buffer);
+                        for (let i = 0; i < byteString.length; i++) {
+                            data[i] = byteString.charCodeAt(i);
+                        }
+                        const blob = new Blob([buffer], {
+                            type: mimeString
+                        });
+
+                        const randomName = 'imagen_' + Math.random().toString(36).substring(2, 15) + '.webp';
+
+                        formData.delete(inputFile.name);
+                        formData.append(inputFile.name, blob, randomName);
+                    }
+                });
+
                 $.ajax({
                     url: './funciones/fun-ajax.php',
                     type: 'POST',
@@ -161,13 +234,13 @@ $conn->close();
                             $('#mensaje').css('display', 'none');
                         }, 3000);
                     },
-
                     cache: false,
                     contentType: false,
                     processData: false
                 });
             });
         });
+    </script>
     </script>
 </body>
 

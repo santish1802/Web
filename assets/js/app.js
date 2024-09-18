@@ -4,11 +4,10 @@ $(document).ready(function() {
       $('.banner.banner-slider .banner-block').each(function() {
         var alturaimg = $(this).find('.banner-img').outerHeight(true);
         var altura1 = $(this).find('.anime-nombre').outerHeight(true);
-        var altura2 = $(this).find('.anime-temp').outerHeight(true);
         var altura3 = $(this).find('.etiq').outerHeight(true);
         var altura4 = $(this).find('.anime-play').outerHeight(true);
 
-        var alturamax = alturaimg - altura1 - altura2 - altura3 - altura4;
+        var alturamax = alturaimg - altura1  - altura3 - altura4;
 
         $(this).find('.anime-descrip').css('max-height', alturamax + 'px');
       });
@@ -140,7 +139,7 @@ $(".banner-slider").slick({
           slidesToScroll: 1,
           arrows: true,
           dots: false,
-          autoplay: true,
+          autoplay: false,
           autoplaySpeed: 3000,
           responsive: [
             {
