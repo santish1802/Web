@@ -147,7 +147,7 @@ $(".banner-slider").slick({
               settings: { slidesToShow: 3 },
             },
             {
-              breakpoint: 1199,
+              breakpoint: 992,
               settings: { slidesToShow: 2 },
             },
             {

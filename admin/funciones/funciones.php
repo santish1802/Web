@@ -41,16 +41,16 @@ function generarConsulta($query, $where, $otro_orden, $fila)
             $pattern = '%' . $input_value . '%';
         }
         $query .= $where;
-        $query .= " LIKE '%" . $pattern . "%' OR anime.id LIKE '%" . $pattern . "%' OR anime.nombre LIKE '%" . $pattern . "%' OR genero.nombre LIKE '%" . $pattern . "%' ";
+        $query .= " LIKE '%" . $pattern . "%' OR anime.id LIKE '%" . $pattern . "%' OR anime.nombre LIKE '%" . $pattern . "%' OR anime.gen LIKE '%" . $pattern . "%' ";
     }
     // Ordenar resultados si se especifica
     if (isset($_POST["order"])) {
         $column_index = $_POST['order']['0']['column'];
         // Ajusta el índice de la columna para que coincida con el índice esperado en tu consulta SQL
         $column_index_adjusted = $column_index + $fila;
-        $query .= ' GROUP BY anime.id ORDER BY ' . $column_index_adjusted . ' ' . $_POST["order"][0]['dir'];
+        $query .= ' ORDER BY ' . $column_index_adjusted . ' ' . $_POST["order"][0]['dir'];
     } else {
-        $query .= ' GROUP BY anime.id ORDER BY ' . $otro_orden . ' ';
+        $query .= ' ORDER BY ' . $otro_orden . ' ';
     }
 
     return $query;

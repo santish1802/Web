@@ -18,10 +18,14 @@ date_default_timezone_set('America/Lima');
         gap: 40px;
         flex-wrap: wrap;
     }
+
+    input[type="checkbox"] {
+        accent-color: #f5d049;
+    }
 </style>
 
 <body>
-<?php include "navbar2.php" ?>
+    <?php include "navbar2.php" ?>
     <div class="container mt-5">
         <h1 class="mb-4">Subir Información de Anime</h1>
         <div id="mensaje" class="alert alert-info" style="display: none;" role="alert"></div>
@@ -47,38 +51,40 @@ date_default_timezone_set('America/Lima');
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
             </div>
 
-
+            <div class="col-12">
+                <label for="gen" class="form-label">Gereno input:</label>
+                <input type="text" class="form-control" id="genreInput" name="gen" required>
+            </div>
             <div class="col-12">
                 <label for="generos" class="form-label">Géneros:</label><br>
-                <div class="form-check form-flex">
-                    <?php
-                    require "../config/config.php";
-
-                    $sql = "SELECT id, nombre FROM genero ORDER BY `nombre` ASC";
-                    try {
-                        $stmt = $conn->query($sql);
-                        $generos = $stmt->fetch_all(MYSQLI_ASSOC);
-
-                        if ($generos) {
-                            foreach ($generos as $row) {
-                                echo '<div class="form-check">';
-                                echo '<input class="form-check-input" type="checkbox" name="generos[]" id="' . $row['nombre'] . '" value="' . htmlspecialchars($row['id']) . '">';
-                                echo '<label class="form-check-label" for="' . $row['nombre'] . '">' . htmlspecialchars($row['nombre']) . '</label><br>';
-                                echo '</div>';
-                            }
-                        } else {
-                            echo '<p>No hay géneros disponibles.</p>';
-                        }
-                    } catch (Exception $e) {
-                        echo '<p>Error al obtener géneros: ' . htmlspecialchars($e->getMessage()) . '</p>';
-                    }
-
-                    $conn->close();
-
-                    ?>
+                <div class="form-check form-flex genres-container">
+                    <label class="genre"><input type="checkbox" value="Accion"> Accion</label>
+                    <label class="genre"><input type="checkbox" value="Aventura"> Aventura</label>
+                    <label class="genre"><input type="checkbox" value="Ciencia Ficcion"> Ciencia Ficcion</label>
+                    <label class="genre"><input type="checkbox" value="Fantasia"> Fantasia</label>
+                    <label class="genre"><input type="checkbox" value="Misterio"> Misterio</label>
+                    <label class="genre"><input type="checkbox" value="Psicologico"> Psicologico</label>
+                    <label class="genre"><input type="checkbox" value="Terror"> Terror</label>
+                    <label class="genre"><input type="checkbox" value="Sobrenatural"> Sobrenatural</label>
+                    <label class="genre"><input type="checkbox" value="Drama"> Drama</label>
+                    <label class="genre"><input type="checkbox" value="Comedia"> Comedia</label>
+                    <label class="genre"><input type="checkbox" value="Romance"> Romance</label>
+                    <label class="genre"><input type="checkbox" value="Mecha"> Mecha</label>
+                    <label class="genre"><input type="checkbox" value="Isekai"> Isekai</label>
+                    <label class="genre"><input type="checkbox" value="Gore"> Gore</label>
+                    <label class="genre"><input type="checkbox" value="Ecchi"> Ecchi</label>
+                    <label class="genre"><input type="checkbox" value="Slice of Life"> Slice of Life</label>
+                    <label class="genre"><input type="checkbox" value="Shonen"> Shonen</label>
+                    <label class="genre"><input type="checkbox" value="Seinen"> Seinen</label>
+                    <label class="genre"><input type="checkbox" value="Shojo"> Shojo</label>
+                    <label class="genre"><input type="checkbox" value="Josei"> Josei</label>
+                    <label class="genre"><input type="checkbox" value="Harem"> Harem</label>
+                    <label class="genre"><input type="checkbox" value="Deporte"> Deporte</label>
+                    <label class="genre"><input type="checkbox" value="Yuri"> Yuri</label>
+                    <label class="genre"><input type="checkbox" value="Yaoi"> Yaoi</label>
+                    <label class="genre"><input type="checkbox" value="Musical"> Musical</label>
                 </div>
             </div>
-
 
             <div class="col-md-6">
                 <label for="imagen_portada_vertical" class="form-label">Imagen Portada Vertical:</label>
@@ -117,7 +123,55 @@ date_default_timezone_set('America/Lima');
             </div>
         </form>
     </div>
+    <script>
+        // Referencias a los elementos
+        const genreInput = document.getElementById('genreInput');
+        const checkboxes = document.querySelectorAll('.genre input[type="checkbox"]');
 
+        // Mantener una lista de géneros seleccionados en el orden de selección
+        let selectedGenres = [];
+
+        // Función para actualizar el input basado en los checkboxes marcados
+        function updateInputFromCheckboxes() {
+            // Recorremos los checkboxes para ajustar la lista de géneros seleccionados
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked && !selectedGenres.includes(checkbox.value)) {
+                    // Si está marcado y no está en la lista, lo añadimos
+                    selectedGenres.push(checkbox.value);
+                } else if (!checkbox.checked && selectedGenres.includes(checkbox.value)) {
+                    // Si está desmarcado y está en la lista, lo eliminamos
+                    selectedGenres = selectedGenres.filter(genre => genre !== checkbox.value);
+                }
+            });
+
+            // Actualizamos el valor del input
+            genreInput.value = selectedGenres.join(', ');
+        }
+
+        // Función para actualizar los checkboxes basado en el input
+        function updateCheckboxesFromInput() {
+            const inputGenres = genreInput.value.trim() ? genreInput.value.split(',').map(genre => genre.trim()) : [];
+
+            // Actualizamos los checkboxes según lo que hay en el input
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = inputGenres.includes(checkbox.value);
+            });
+
+            // También actualizamos la lista `selectedGenres` para reflejar el nuevo orden
+            selectedGenres = inputGenres;
+        }
+
+        // Evento para cuando se marcan o desmarcan los checkboxes
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateInputFromCheckboxes);
+        });
+
+        // Evento para cuando se edita el input manualmente
+        genreInput.addEventListener('input', updateCheckboxesFromInput);
+
+        // Inicialización: actualizar checkboxes basado en el valor inicial del input
+        document.addEventListener('DOMContentLoaded', updateCheckboxesFromInput);
+    </script>
     <script>
         document.querySelectorAll('input[type="file"]').forEach(function(input) {
             input.addEventListener('change', function() {

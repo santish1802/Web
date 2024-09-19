@@ -1,8 +1,8 @@
 <?php
 require "../../config/config.php";
 require('funciones.php');
-$query = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime LEFT JOIN  anime_genero ON anime.id = anime_genero.anime_id LEFT JOIN genero ON genero.id = anime_genero.genero_id";
-$consulta = "SELECT anime.id, anime.nombre, GROUP_CONCAT(genero.nombre SEPARATOR ', ') AS generos, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime LEFT JOIN  anime_genero ON anime.id = anime_genero.anime_id LEFT JOIN genero ON genero.id = anime_genero.genero_id GROUP BY anime.id;";
+$query = "SELECT anime.id, anime.nombre, anime.gen, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime";
+$consulta = "SELECT anime.id, anime.nombre, anime.gen, anime.portada, anime.tendencia, anime.reciente, anime.proximo FROM anime";
 $where = " WHERE anime.nombre";
 $query = generarConsulta($query, $where, "1 ASC", "1");
 $stmt = $conn->prepare($query);
@@ -18,7 +18,7 @@ foreach ($resultado_paginado as $fila) {
     $sub_array = array();
     $sub_array[] = $fila["id"];
     $sub_array[] = $fila["nombre"];
-    $sub_array[] = $fila["generos"];
+    $sub_array[] = $fila["gen"];
     $sub_array[] = $fila["portada"];
     $sub_array[] = $fila["tendencia"];
     $sub_array[] = $fila["reciente"];

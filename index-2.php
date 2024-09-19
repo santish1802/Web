@@ -159,12 +159,7 @@
                             return strcmp($a['nombre'], $b['nombre']);
                         });
                         foreach ($animes as $anime) {
-                            $etiquetas = explode(',', $anime['etiquetas']);
 
-                            $genero = isset($etiquetas[0]) ? trim($etiquetas[0]) : '';
-                            $anio = isset($etiquetas[1]) ? trim($etiquetas[1]) : '';
-                            $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
-                            $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
                             if ($anime['tendencia'] == 1) {; ?>
                                 <div class="card st-2">
                                     <div class="img-block mb-20">
@@ -174,13 +169,7 @@
                                     </div>
                                     <div class="content">
                                         <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
-                                        <ul class="tag unstyled">
-                                            <li><?php echo $genero; ?></li>
-                                            <li><?php echo $anio; ?></li>
-                                            <li><?php echo $episodios; ?></li>
-                                            <li class="icon"><i class="fas fa-star"></i></li>
-                                            <li><?php echo $calificacion; ?></li>
-                                        </ul>
+
                                     </div>
                                 </div>
                         <?php }
@@ -210,7 +199,7 @@
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
                         ?>
-                            <div class="col-xxl-2-4 col-lg-4 col-sm-6">
+                            <div class="col-xxl-2-4 col-lg-4 col-sm-6 col-6">
                                 <div class="item mb-40">
                                     <div class="card st-2 m-0">
                                         <div class="img-block mb-20">

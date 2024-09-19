@@ -35,12 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     $anime_id = intval($_POST['anime_id']);
 
-    $campos = ['nombre', 'nombre_h', 'calif', 'descripcion', 'fecha'];
+    $campos = ['nombre', 'nombre_h', 'gen', 'calif', 'descripcion', 'fecha'];
     foreach ($campos as $campo) {
         $$campo = $_POST[$campo] ?? '';
     }
     $opciones = $_POST['opciones'] ?? [];
-    $generos = $_POST['generos'] ?? [];
 
     $campos_opciones = ['portada', 'tendencia', 'reciente', 'proximo'];
     foreach ($campos_opciones as $campo) {
@@ -100,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
         }
     }
 
-    $sql = "UPDATE anime SET nombre = ?, calif = ?, descripcion = ?, fecha = ?, 
+    $sql = "UPDATE anime SET nombre = ?, calif = ?, gen = ?, descripcion = ?, fecha = ?, 
             imagen_portada_vertical = ?, imagen_portada_horizontal = ?, 
             portada = ?, tendencia = ?, reciente = ?, proximo = ? WHERE id = ?";
 
@@ -108,6 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     $stmt->execute([
         $nombre,
         $calif,
+        $gen,
         $descripcion,
         $fecha,
         $rutas_imagenes['vertical'],
@@ -120,15 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     ]);
 
     if ($stmt) {
-        $conn->query("DELETE FROM anime_genero WHERE anime_id = $anime_id");
-
-        $sql_genero = "INSERT INTO anime_genero (anime_id, genero_id) VALUES (?, ?)";
-        $stmt_genero = $conn->prepare($sql_genero);
-
-        foreach ($generos as $genero_id) {
-            $stmt_genero->execute([$anime_id, $genero_id]);
-        }
-
         echo "Anime actualizado exitosamente";
     } else {
         echo "Error al actualizar el anime";
@@ -138,12 +129,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
 }
 // @c-red CREAR ANIME
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
-    $campos = ['nombre', 'calif', 'descripcion', 'fecha'];
+    $campos = ['nombre', 'gen', 'calif', 'descripcion', 'fecha'];
     foreach ($campos as $campo) {
         $$campo = $_POST[$campo] ?? '';
     }
     $opciones = $_POST['opciones'] ?? [];
-    $generos = $_POST['generos'] ?? [];
 
     $campos_opciones = ['portada', 'tendencia', 'reciente', 'proximo'];
     foreach ($campos_opciones as $campo) {
@@ -170,15 +160,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         }
     }
 
-    $sql = "INSERT INTO anime (nombre, calif, descripcion, fecha,
+    $sql = "INSERT INTO anime (nombre, calif, gen, descripcion, fecha,
             imagen_portada_vertical, imagen_portada_horizontal, portada, tendencia, reciente, proximo)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             $nombre,
             $calif,
+            $gen,
             $descripcion,
             $fecha,
             $rutas_imagenes['vertical'],
@@ -192,12 +183,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         $anime_id = $conn->insert_id;
 
         // Insertar los géneros en la tabla anime_genero
-        $sql_genero = "INSERT INTO anime_genero (anime_id, genero_id) VALUES (?, ?)";
-        $stmt_genero = $conn->prepare($sql_genero);
+        // $sql_genero = "INSERT INTO anime_genero (anime_id, genero_id) VALUES (?, ?)";
+        // $stmt_genero = $conn->prepare($sql_genero);
 
-        foreach ($generos as $genero_id) {
-            $stmt_genero->execute([$anime_id, $genero_id]);
-        }
+        // foreach ($generos as $genero_id) {
+        //     $stmt_genero->execute([$anime_id, $genero_id]);
+        // }
 
         echo "Nuevo registro creado exitosamente";
     
