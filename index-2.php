@@ -20,7 +20,7 @@
     <!--Inicio del contenedor principal-->
     <div class="main-wrapper overflow-hidden" id="main-wrapper">
 
-        <!-- @c-blue Inicio del slider-->
+        <!-- @c-red SLIDER-->
         <section class="banner style-1 banner-slider">
             <?php
             require "config/config.php";
@@ -40,13 +40,13 @@
                             <div class="banner-content">
                                 <div class="row mx-xl-4">
                                     <div class="col-lg col-12">
-                                        <h2 class="title anime-nombre mb-4"><?php echo $anime['nombre']; ?></h2>
+                                        <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
                                         <div class="mb-4 etiq">
                                             <?php
-                                            $etiquetas = explode(',', $anime['etiquetas']);
+                                            $etiquetas = explode(',', $anime['gen']);
                                             foreach ($etiquetas as $etiqueta) {
                                                 $etiqueta = trim($etiqueta);
-                                                echo '<a href="streaming-season.html" class="btn bg-primary  fw-bold">' . $etiqueta . '</a> ';
+                                                echo '<a href="streaming-season.html" class="btn btn-primary  fw-bold">' . $etiqueta . '</a> ';
                                             }
                                             ?>
                                         </div>
@@ -64,95 +64,15 @@
             } ?>
         </section>
 
-        <!-- Fin del slider -->
 
-        <!--Contenido principal Inicio-->
         <div class="page-content">
-            <!--Categorías Área Inicio-->
-            <section class="categories p-40">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5 sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-1.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Shonen</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-2.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Acción</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-3.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Fantasía</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-4.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Romántico</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-5.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Comedia</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-6.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Drama</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-7.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Ciencia ficción</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xxl-3 col-sm-6 mb-30">
-                            <a class="categorie-item sdw-5" href="anime-listing.php">
-                                <img alt="" src="assets/media/categories/Img-8.png" />
-                                <div class="content">
-                                    <h2 class="h-36 mb-1 text-white">Aventura</h2>
-                                    <span class="h-20 color-medium-gray">Más de 850 animes</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--Categorías Área Fin-->
+            <!-- @c-red GENEROS -->
+
 
             <!-- @c-red TENDENCIA -->
             <section class="animes p-40">
                 <div class="container-fluid">
-                    <h2 class="h-40 mb-40 bold">Animes en tendencia</h2>
+                    <h2 class="f-28 mb-30 fw-bold">Animes en tendencia</h2>
                     <div class="card-slider">
                         <?php
                         usort($animes, function ($a, $b) {
@@ -162,13 +82,13 @@
 
                             if ($anime['tendencia'] == 1) {; ?>
                                 <div class="card st-2">
-                                    <div class="img-block mb-20">
+                                    <div class="img-block mb-12">
                                         <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
                                         <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                         </a>
                                     </div>
                                     <div class="content">
-                                        <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                        <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
 
                                     </div>
                                 </div>
@@ -183,7 +103,7 @@
             <section class="animes p-40 pb-0">
                 <div class="container-fluid">
                     <div class="heading mb-32">
-                        <h2 class="h-40 bold">Continuar viendo</h2>
+                        <h2 class="f-28 fw-bold">Continuar viendo</h2>
                         <a class="light-btn primary sdw-5" href="anime-listing.php">Ver todo<i class="fa fa-chevron-right"></i></a>
                     </div>
                     <div class="row">
@@ -199,23 +119,16 @@
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
                         ?>
-                            <div class="col-xxl-2-4 col-lg-4 col-sm-6 col-6">
+                            <div class="col-xxl-2-4 col-lg-3 col-sm-4 col-6">
                                 <div class="item mb-40">
                                     <div class="card st-2 m-0">
-                                        <div class="img-block mb-20">
+                                        <div class="img-block mb-12">
                                             <img alt="" src="<?php echo $img_vh ?>" />
                                             <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4 class="h-24 text-white bold"><?php echo $anime['nombre'] ?></h4>
-                                            <ul class="tag unstyled">
-                                                <li><?php echo $genero; ?></li>
-                                                <li><?php echo $anio; ?></li>
-                                                <li><?php echo $episodios; ?></li>
-                                                <li class="icon"><i class="fas fa-star"></i></li>
-                                                <li><?php echo $calificacion; ?></li>
-                                            </ul>
+                                            <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -224,101 +137,7 @@
                     </div>
                 </div>
             </section>
-            <!--Continuar Área Fin-->
-            <!--Área de inicio reciente-->
-            <section class="animes p-40">
-                <div class="container-fluid">
-                    <h2 class="h-40 mb-40 bold">Lanzamiento reciente</h2>
-                    <div class="card-slider">
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-22.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Demon Slayer</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-3.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Hells Paradise</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-8.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Fate Stay Night</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-9.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Steins Gate</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-19.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Arcane</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--Área de inicio reciente-->
+
             <!--Próximamente Área de inicio-->
             <section class="comming-soon p-40">
                 <div class="container-fluid">
@@ -332,7 +151,7 @@
                                 <li>60<small>Mínimo</small></li>
                                 <li>60<small>Segundo</small></li>
                             </ul>
-                            <h2 class="h-40 bold text-white mb-12">Chainsawman</h2>
+                            <h2 class="f-28 fw-bold text-white mb-12">Chainsawman</h2>
                             <p class="color-medium-gray mb-24">El cliente está muy contento de que lo sigan. Un poco más que un ullamcorper<br />almohada Los tintoreros del gato son también dos ollas para gatos. La decoración de la vida en la cama grande.</p>
                             <ul class="tag unstyled mb-24">
                                 <li>Acción</li>
@@ -356,201 +175,12 @@
                     </div>
                 </div>
             </section>
-            <!--Próximamente Área Final-->
 
-            <!--Zona de inicio superior-->
-            <section class="animes st-2 p-40">
-                <div class="container-fluid">
-                    <h2 class="h-40 mb-40 bold">Los mejores animes</h2>
-                    <div class="card-slider">
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-9.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Steins Gate</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-3.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Hells Paradise</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-18.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Demon Slayer</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-19.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Arcane</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-8.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Fate Stay Night</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--Zona de inicio superior-->
-            <!--Área de inicio reciente-->
-            <section class="animes p-40">
-                <div class="container-fluid">
-                    <h2 class="h-40 mb-40">Shounen</h2>
-                    <div class="card-slider">
-                        <div class="card st-2 bold">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-10.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Black Bullet</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-23.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Your Lie in April</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-24.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Your Name</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-25.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">Jujutsu Kaisen</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card st-2">
-                            <div class="img-block mb-20">
-                                <img alt="" src="assets/media/anime-card/img-12.png" />
-                                <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h4 class="h-24 text-white bold">My Hero Academia</h4>
-                                <ul class="tag unstyled">
-                                    <li>Acción</li>
-                                    <li>2021</li>
-                                    <li>EP-24</li>
-                                    <li class="icon"><i class="fas fa-star"></i></li>
-                                    <li>8.5</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--Área de inicio reciente-->
         </div>
-        <!--Contenido principal Fin-->
+
         <!--Área de inicio del pie de página-->
         <?php include "php/footter.php"; ?>
-        <!--Fin del área de pie de página-->
+
         <!--Inicio del área emergente modal-->
         <div aria-hidden="true" class="modal fade" id="videoModal" role="dialog">
             <div class="modal-dialog" role="document">

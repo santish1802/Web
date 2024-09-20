@@ -99,7 +99,7 @@ img {
 	transform: translateX(-50%);
 }
 
-/*@c-red .container, */
+/*@c-blue .container, */
 .container-fluid {
 	padding: 0 1.5rem;
 }
@@ -763,24 +763,17 @@ ELEMENTOS
 }
 .light-btn {
 	display: flex;
-	padding: 14px 28px;
+	padding: .875rem 1.75rem;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
 	font-family: "Open Sans", sans-serif;
-	border-radius: 15px;
-	font-size: 20px;
+	border-radius: .9375rem;
+	font-size: 1.25rem;
 	font-weight: 600;
 	line-height: 120%;
 	transition: all 0.5s ease-in-out;
 	color: #F8F8FF;
-}
-@media (max-width:492px) {
-	.light-btn {
-		font-size: 16px;
-		padding: 12px 24px;
-		border-radius: 12px;
-	}
 }
 .light-btn.primary i {
 	color: var(--main-color);
@@ -1281,7 +1274,7 @@ header nav .navbar-collapse .navbar-nav .menu-item a {
 	font-family: "Open Sans", sans-serif;
 	color: #F8F8FF;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 1.25rem;
 	line-height: 130%;
 	text-transform: capitalize;
 	position: relative;
@@ -1338,20 +1331,20 @@ header nav .navbar-collapse .navbar-nav .has-children .submenu {
 .nav-2 {
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	z-index: 9999999;
-	font-size: 20px;
+	font-size: 1.1rem;
 	font-weight: bold;
 }
 .nav-2 .container-fluid {
 	background-color: #1B1B1B;
 }
 .nav-2 form * {
-	font-size: 18px;
+	font-size: .875rem;
 	font-weight: bold;
 }
 .nav-2 .navbar-brand {
 	display: flex;
 	align-items: center;
-	font-size: 28px;
+	font-size: 1.5rem;
 	padding: 1.31rem 0;
 }
 .nav-link {
@@ -1363,7 +1356,7 @@ header nav .navbar-collapse .navbar-nav .has-children .submenu {
 .dropdown-menu {
 	border-radius: 12px;
 	background: #1B1B1B;
-	font-size: 18px;
+	font-size: 1rem;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.397);
 	border: none;
 	padding: 1.5rem 2rem;
@@ -1785,38 +1778,34 @@ footer .copyright {
 	pointer-events: none;
 }
 .banner.style-1 .banner-content {
+
 	/* display: table-cell; */
+
 	/* height: 700px; */
 	display: block;
-	margin: 3rem 0;
-	/* vertical-align: middle; */
+	margin: 3rem 0;     /* vertical-align: middle; */
 }
+
+/* @c-blue Navbar titulo */
 .banner-block h2.title {
 	font-family: 'Noir Pro' !important;
-	font-size: 4rem;
+	font-size: 2.9rem;
 	font-weight: 600;
 	color: #ffffff;
-	margin-bottom: 0;
+	margin-bottom: 2rem;
 	display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-.banner-block p.text {
-	font-size: 40px;
-	color: #ffffff;
-	text-transform: uppercase;
-	margin-bottom: 1rem;
-}
+
+/* @c-blue Slider Descripcion */
 .anime-descrip {
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+	font-size: 1.1rem;
+	line-height: 1.9rem;
 	overflow-y: auto;
 	padding-right: 20px;
-}
-.banner-block p {
-	color: var(--color-grey-light);
 }
 .play-butn {
 	display: inline-block;
@@ -1826,7 +1815,7 @@ footer .copyright {
 	padding: .5rem;
 	overflow: hidden;
 	position: relative;
-	font-size: 2.5rem;
+	font-size: 1.9rem;
 	line-height: 48px;
 	text-align: center;
 	padding: .5rem 6.25rem;
@@ -1841,50 +1830,34 @@ footer .copyright {
 }
 .banner.style-1 img {
 	height: 500px;
-	/* width: 100%; */
 	aspect-ratio: 8 / 10;
 	margin-left: 5rem;
 	margin-right: .625rem;
 	object-fit: cover;
 	border-radius: 15px;
 }
-
-/* @media only screen and (991px <= width <= 1199px) {
-  .play-butn {
-    font-size: 24px;
-    line-height: 28px;
-    padding: 8px 40px;
-  }
-} */
 @media only screen and (max-width:1250px) {
-	.banner-block h2.title {
-		font-size: 60px;
-		margin-bottom: 20px;
-	}
 	.banner-block p.text {
 		font-size: 34px;
 	}
 }
 @media only screen and (max-width:991px) {
+	.banner-block h2.title {
+		-webkit-line-clamp: 1;
+	}
 	html {
 		font-size: 14px;
 	}
 	.banner.style-1 img {
 		display: none;
 	}
-	.banner-block h2.title {
-
-		/* font-size: 50px; */
-		margin-bottom: 20px;
-	}
 	.anime-descrip {
 		height: 13.125rem !important;
 	}
-	.play-butn{
+	.play-butn {
 		margin: auto;
 		margin-top: 30px;
 		display: block;
-		font-size: 2rem;
 		width: fit-content;
 	}
 }
@@ -1895,23 +1868,6 @@ footer .copyright {
 	.banner.style-1 .banner-content {
 		padding: 0px 10px;
 	}
-	.banner-block h2.title {
-		font-size: 38px;
-	}
-	.banner-block p.text {
-		font-size: 22px;
-		margin-bottom: 15px;
-	}
-	.banner-block p {
-		font-size: 14px;
-		margin-bottom: 20px;
-	}
-
-	/* .play-butn {
-	    font-size: 24px;
-	    line-height: 28px;
-	    padding: 8px 40px;
-	  } */
 }
 .inner-banner .movie-listing {
 	border-radius: 12px;
@@ -2223,15 +2179,14 @@ footer .copyright {
 	margin: 0 -15px;
 }
 .animes .card .img-block {
-	position: relative;
-	border-radius: 20px;
+	position: relative;     /* border-radius: 20px; */
 	overflow: hidden;
 	cursor: pointer;
 }
 .animes .card .img-block img {
 	object-fit: cover;
 	object-position: center;
-	aspect-ratio: 6 / 8;
+	aspect-ratio: 1 / 1.45;
 	width: 100%;
 	transition: all 0.6s linear 0s;
 }

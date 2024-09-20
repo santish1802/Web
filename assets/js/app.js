@@ -144,15 +144,15 @@ $(".banner-slider").slick({
           responsive: [
             {
               breakpoint: 1399,
-              settings: { slidesToShow: 3 },
+              settings: { slidesToShow: 4 },
             },
             {
               breakpoint: 992,
-              settings: { slidesToShow: 2 },
+              settings: { slidesToShow: 3 },
             },
             {
               breakpoint: 575,
-              settings: { slidesToShow: 1 },
+              settings: { slidesToShow: 2 },
             },
           ],
         });

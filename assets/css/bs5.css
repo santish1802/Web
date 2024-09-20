@@ -12100,8 +12100,9 @@ img {
 .cus-btn.light {
   padding: 14px 20px;
   background: rgba(0, 0, 0, 0.66);
+  border-radius: 0;
   color: #F8F8FF;
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 200;
   line-height: 130%;
   font-family: "Noir Pro";
