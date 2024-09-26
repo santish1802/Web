@@ -1,46 +1,98 @@
-$(document).ready(function() {
-  function recalcularAltura() {
-    if ($(window).width() >= 992) {
-      $('.banner.banner-slider .banner-block').each(function() {
-        var alturaimg = $(this).find('.banner-img').outerHeight(true);
-        var altura1 = $(this).find('.anime-nombre').outerHeight(true);
-        var altura3 = $(this).find('.etiq').outerHeight(true);
-        var altura4 = $(this).find('.anime-play').outerHeight(true);
+$(document).ready(function () {
+  function ajustarAlturas() {
+    if ($(window).width() <= 992) {
+      var maxAlturaNombre = 0;
+      var alturaDescripBase = 0;
+      var bloques = $(".banner.banner-slider .banner-block");
 
-        var alturamax = alturaimg - altura1  - altura3 - altura4;
-
-        $(this).find('.anime-descrip').css('max-height', alturamax + 'px');
+      // Primera pasada: encontrar la altura máxima de anime-nombre
+      bloques.each(function () {
+        var alturaNombre = $(this).find(".anime-nombre").outerHeight(true);
+        if (alturaNombre > maxAlturaNombre) {
+          maxAlturaNombre = alturaNombre;
+          // Guardar la altura del anime-descrip correspondiente al anime-nombre más alto
+          alturaDescripBase = $(this).find(".anime-descrip").outerHeight(true);
+        }
       });
+
+      // Segunda pasada: ajustar alturas
+      bloques.each(function () {
+        var $this = $(this);
+        var $nombre = $this.find(".anime-nombre");
+        var $descrip = $this.find(".anime-descrip");
+
+        var alturaNombre = $nombre.outerHeight(true);
+
+        // Solo ajustar si no es el elemento con la altura máxima de anime-nombre
+        if (alturaNombre < maxAlturaNombre) {
+          var diferenciaNombre = maxAlturaNombre - alturaNombre;
+          // Usar calc() con la altura base calculada dinámicamente
+          $descrip.css(
+            "min-height",
+            `calc(${alturaDescripBase}px + ${diferenciaNombre}px)`
+          );
+        } else {
+          // Para el elemento con altura máxima, mantener su altura original
+          $descrip.css("min-height", "");
+        }
+      });
+    } else {
+      // Restablecer estilos para pantallas más grandes
+      $(".banner.banner-slider .banner-block .anime-descrip").css(
+        "min-height",
+        ""
+      );
     }
   }
+  function mostrarAnchoPantalla() {
+    // Obtiene el ancho de la pantalla
+    var anchoPantalla = window.innerWidth;
+
+    // Selecciona el elemento con la clase .size
+    var elemento = document.querySelector('.size');
+
+    // Muestra el ancho de la pantalla en el elemento
+    if (elemento) {
+        elemento.textContent = `Ancho de la pantalla: ${anchoPantalla}px`;
+    }}
+  function recalcularAltura() {
+    if ($(window).width() >= 992) {
+      $(".banner.banner-slider .banner-block").each(function () {
+        var $this = $(this);
+        var alturaTotal = $this.find(".banner-img").outerHeight(true);
+        var alturaOcupada = [
+          ".anime-nombre",
+          ".etiq",
+          ".anime-play"
+        ].reduce((sum, selector) => sum + $this.find(selector).outerHeight(true), 0);
+  
+        var alturaDisponible = Math.max(0, alturaTotal - alturaOcupada);
+  
+        $this.find(".anime-descrip").css("max-height", alturaDisponible + "px");
+      });
+    } else {
+      $(".banner.banner-slider .banner-block .anime-descrip").css("max-height", "");
+    }
+  }
+  ajustarAlturas();
   recalcularAltura();
+  mostrarAnchoPantalla();
+  // Usar ResizeObserver para manejar cambios de tamaño
   const observer = new ResizeObserver(() => {
+    ajustarAlturas();
     recalcularAltura();
+    mostrarAnchoPantalla();
   });
   observer.observe(document.body);
-  $(window).resize(function() {
+
+  // Opcional: manejar orientación en dispositivos móviles
+  $(window).on("orientationchange", function () {
+    ajustarAlturas();
     recalcularAltura();
+    mostrarAnchoPantalla();
   });
 });
 
-
-$(".banner-slider").slick({
-  infinite: true,
-  arrows: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 3000,
-  // fade: true,
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        arrows: false,
-      },
-    },
-  ]
-});
 
 (function () {
   "use strict";
@@ -85,8 +137,6 @@ $(".banner-slider").slick({
           $(".mobile-navar").toggleClass("active");
           return false;
         });
-
-        
       }
     }
     $(document).on("click", function (event) {
@@ -95,7 +145,7 @@ $(".banner-slider").slick({
         $(".icon-arrow").removeClass("open");
       }
     });
-    
+
     $(".has-children").on("click", function (event) {
       event.stopPropagation();
       $(".has-children").not(this).children("ul").hide();
@@ -130,7 +180,7 @@ $(".banner-slider").slick({
         });
       }
     }
-
+    // @c-red ANIME SLIDER
     function initializeSlick() {
       if ($(".card-slider").length) {
         $(".card-slider").slick({
@@ -143,15 +193,15 @@ $(".banner-slider").slick({
           autoplaySpeed: 3000,
           responsive: [
             {
-              breakpoint: 1399,
+              breakpoint: 992,
               settings: { slidesToShow: 4 },
             },
             {
-              breakpoint: 992,
+              breakpoint: 768,
               settings: { slidesToShow: 3 },
             },
             {
-              breakpoint: 575,
+              breakpoint: 576,
               settings: { slidesToShow: 2 },
             },
           ],

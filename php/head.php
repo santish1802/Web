@@ -12,9 +12,9 @@ $css2 = '
 ';
 $cssdt ='
 <link href="/assets/css/bs5.css?v=' . time() . '" rel="stylesheet">
-<link href="/assets/css/style.css?v=' . time() . '" rel="stylesheet">
-<link href="/assets/css/dataTables.bootstrap5.css" rel="stylesheet">
-<link href="/assets/css/responsive.bootstrap5.css" rel="stylesheet">
+<link href="/assets/css/datatable/style.css?v=' . time() . '" rel="stylesheet">
+<link href="/assets/css/datatable/dataTables.bootstrap5.css" rel="stylesheet">
+<link href="/assets/css/datatable/responsive.bootstrap5.css" rel="stylesheet">
 ';
 $js = '
 <script src="/assets/js/jquery-3.7.1.js" type="text/javascript"></script>

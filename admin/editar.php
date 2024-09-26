@@ -151,6 +151,7 @@ $conn->close();
                     <label class="genre"><input type="checkbox" value="Ciencia Ficcion"> Ciencia Ficcion</label>
                     <label class="genre"><input type="checkbox" value="Fantasia"> Fantasia</label>
                     <label class="genre"><input type="checkbox" value="Misterio"> Misterio</label>
+                    <label class="genre"><input type="checkbox" value="Suspenso"> Suspenso</label>
                     <label class="genre"><input type="checkbox" value="Psicologico"> Psicologico</label>
                     <label class="genre"><input type="checkbox" value="Terror"> Terror</label>
                     <label class="genre"><input type="checkbox" value="Sobrenatural"> Sobrenatural</label>
@@ -321,7 +322,6 @@ $conn->close();
                 });
             });
         });
-    </script>
     </script>
 </body>
 

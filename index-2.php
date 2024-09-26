@@ -8,9 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
     <title>Anime web</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <?php echo $css ?>
     <?php echo $css2 ?>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
+<style>
+    .size {
+        position: fixed;
+        display: none;
+        right: 0;
+        background-color: red;
+        z-index: 9999999999999999999;
+        font-size: 3rem;
+    }
+</style>
 
 <body>
     <!--Área de encabezado Inicio-->
@@ -18,50 +30,59 @@
     <!--Fin del área de encabezado-->
 
     <!--Inicio del contenedor principal-->
+    <div class="size"></div>
     <div class="main-wrapper overflow-hidden" id="main-wrapper">
 
         <!-- @c-red SLIDER-->
         <section class="banner style-1 banner-slider">
-            <?php
-            require "config/config.php";
-
-            $sql = "SELECT * FROM anime";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            $animes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-            foreach ($animes as $anime) {
-                $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
-                $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
-                if ($anime['portada'] == 1) {; ?>
-                    <div class="banner-block overflow-hidden style-1 position-relative">
-                        <div class="bg-anime" style="background: url(<?php echo $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
-                        <div class="container">
-                            <div class="banner-content">
-                                <div class="row mx-xl-4">
-                                    <div class="col-lg col-12">
-                                        <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
-                                        <div class="mb-4 etiq">
-                                            <?php
-                                            $etiquetas = explode(',', $anime['gen']);
-                                            foreach ($etiquetas as $etiqueta) {
-                                                $etiqueta = trim($etiqueta);
-                                                echo '<a href="streaming-season.html" class="btn btn-primary  fw-bold">' . $etiqueta . '</a> ';
-                                            }
-                                            ?>
+            <div class="swiper SwiperBanner">
+                <div class="swiper-wrapper">
+                    <?php
+                    require "config/config.php";
+                    $sql = "SELECT * FROM anime";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $animes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+                    foreach ($animes as $anime) {
+                        $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
+                        $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
+                        if ($anime['portada'] == 1) {
+                    ?>
+                            <div class="swiper-slide banner-block overflow-hidden style-1 position-relative">
+                                <div class="bg-anime" style="background: url(<?php echo $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                                <div class="container">
+                                    <div class="banner-content">
+                                        <div class="row mx-xl-4">
+                                            <div class="col-lg col-12">
+                                                <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
+                                                <div class="mb-4 etiq">
+                                                    <?php
+                                                    $etiquetas_all = explode(',', $anime['gen']);
+                                                    $etiquetas = array_slice($etiquetas_all, 0, 4);
+                                                    foreach ($etiquetas as $etiqueta) {
+                                                        $etiqueta = trim($etiqueta);
+                                                        echo '<a href="streaming-season.html" class="btn btn-primary  fw-bold">' . $etiqueta . '</a> ';
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <div class="anime-descrip mt-1"><?php echo $anime['descripcion']; ?></div>
+                                                <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
+                                            </div>
+                                            <div class="col-lg-auto col-12">
+                                                <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
+                                            </div>
                                         </div>
-                                        <div class="anime-descrip mt-1"><?php echo $anime['descripcion']; ?></div>
-                                        <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
-                                    </div>
-                                    <div class="col-lg-auto col-12">
-                                        <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-            <?php }
-            } ?>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="sw-btn swiper-button-p"><i class="fa-solid fa-chevron-left"></i></div>
+                <div class="sw-btn swiper-button-n"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
         </section>
 
 
@@ -70,37 +91,45 @@
 
 
             <!-- @c-red TENDENCIA -->
-            <section class="animes p-40">
+            <section class="cont-tendencia animes p-40">
                 <div class="container-fluid">
-                    <h2 class="f-28 mb-30 fw-bold">Animes en tendencia</h2>
-                    <div class="card-slider">
-                        <?php
-                        usort($animes, function ($a, $b) {
-                            return strcmp($a['nombre'], $b['nombre']);
-                        });
-                        foreach ($animes as $anime) {
-
-                            if ($anime['tendencia'] == 1) {; ?>
-                                <div class="card st-2">
-                                    <div class="img-block mb-12">
-                                        <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
-                                        <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
-                                        </a>
+                    <div class="d-flex justify-content-between mb-30 position-relative">
+                        <h2 class="fw-bold f-28">Animes en tendencia</h2>
+                        <div class="cont-btn">
+                            <div class="sw-btn swiper-button-p"><i class="fa-solid fa-caret-left"></i></div>
+                            <div class="ms-4 sw-btn swiper-button-n"><i class="fa-solid fa-caret-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="swiper tendencia">
+                        <div class="swiper-wrapper">
+                            <?php
+                            usort($animes, function ($a, $b) {
+                                return strcmp($a['nombre'], $b['nombre']);
+                            });
+                            foreach ($animes as $anime) {
+                                if ($anime['tendencia'] == 1) {
+                            ?>
+                                    <div class="swiper-slide card st-2">
+                                        <div class="img-block mb-12">
+                                            <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
+                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i></a>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                        </div>
                                     </div>
-                                    <div class="content">
-                                        <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
-
-                                    </div>
-                                </div>
-                        <?php }
-                        } ?>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </section>
             <!-- TENDECIA FIN -->
 
             <!-- @c-red CONTINUAR VIENDO -->
-            <section class="animes p-40 pb-0">
+            <section class="animes">
                 <div class="container-fluid">
                     <div class="heading mb-32">
                         <h2 class="f-28 fw-bold">Continuar viendo</h2>
@@ -119,9 +148,9 @@
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
                         ?>
-                            <div class="col-xxl-2-4 col-lg-3 col-sm-4 col-6">
+                            <div class="col-lg-2-4 col-md-3 col-sm-4 col-6">
                                 <div class="item mb-40">
-                                    <div class="card st-2 m-0">
+                                    <div class="card st-2 p-0 m-0">
                                         <div class="img-block mb-12">
                                             <img alt="" src="<?php echo $img_vh ?>" />
                                             <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
@@ -181,25 +210,6 @@
         <!--Área de inicio del pie de página-->
         <?php include "php/footter.php"; ?>
 
-        <!--Inicio del área emergente modal-->
-        <div aria-hidden="true" class="modal fade" id="videoModal" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="top_bar">
-                        <h4 class="modal-title">Temporada 4 de Demon Slayer</h4>
-                        <button aria-label="Close" class="close" data-dismiss="modal" id="closeVideoModalButton" type="button">
-                            <span aria-hidden="true"><i class="fas fa-times"></i> <b>Cerca</b></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <video controls="" title="Video">
-                            <source src="assets/media/video/movie-video.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Fin del área emergente modal-->
     </div>
     <!--Jquery JS-->
     <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
@@ -211,6 +221,43 @@
     <script src="assets/js/vendor/aksVideoPlayer.js"></script>
     <!--Guiones del sitio-->
     <script src="assets/js/app.js"></script>
+    <script>
+        var swiper = new Swiper(".SwiperBanner", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".SwiperBanner .swiper-button-n",
+                prevEl: ".SwiperBanner .swiper-button-p",
+            },
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".tendencia", {
+            slidesPerView: 2,
+
+            loop: true,
+            autoplay: false,
+            navigation: {
+                nextEl: ".cont-tendencia .swiper-button-n",
+                prevEl: ".cont-tendencia .swiper-button-p",
+            },
+            breakpoints: {
+                576: {
+                    loop: false,
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                992: {
+                    slidesPerView: 5,
+                }
+            },
+        });
+    </script>
 </body>
 
 
