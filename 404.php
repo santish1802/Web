@@ -30,7 +30,7 @@
                     <div class="content">
                         <img src="assets/media/404.png" class="mb-32" alt="">
                         <h4 class="h-32 font-sec-2 bold mb-32">Página no encontrada</h4>
-                        <a href="index-2.php" class="cus-btn primary mb-5">Volver a inicio</a>
+                        <a href="index.php" class="cus-btn primary mb-5">Volver a inicio</a>
                     </div>
                 </div>
             </section>

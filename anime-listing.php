@@ -42,6 +42,11 @@
                                 <li><label class="dropdown-item"><input type="checkbox" class="genero form-check-input" value="comedia"> Comedia</label></li>
                             </ul>
                         </div>
+                        <?php 
+                        if (isset($_GET['search'])){
+                            echo '<input type="hidden" name="search" id="search" value="'.$_GET['search'].'">';
+                        }
+                        ?>
                         <input type="hidden" name="generos" id="generos">
                     </div>
 
@@ -84,7 +89,7 @@
                 </div>
             </div>
         </section>
-        <section class="p-40 pt-2">
+        <section class="pagination-cont p-40 pt-2">
             <div id="pagination-container"></div>
         </section>
 

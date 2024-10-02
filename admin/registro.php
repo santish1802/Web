@@ -1,6 +1,7 @@
 <?php require "../php/head.php" ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +39,7 @@
                             <th class="not-mobile">ID</th>
                             <th class="">Nombre</th>
                             <th>Genero</th>
+                            <th>Calificacion</th>
                             <th>Portada</th>
                             <th>Tendencia</th>
                             <th>Reciente</th>
@@ -94,57 +96,61 @@
             });
         };
         $(document).ready(function() {
-    var dataTable = $('#tablaUsuarios').DataTable({
-        paging: true,
-        responsive: true,
-        language: {
-            url: '../config/Es.json',
-        },
-        "serverSide": true,
-        autoWidth: false,
-        "order": [
-            [0, "asc"]
-        ],
-        "ajax": {
-            url: "./funciones/require-dt.php",
-            type: "POST",
-        },
-        "lengthMenu": [2, 5, 10],
-        "pageLength": 10,
-        columnDefs: [{
-            type: 'string',
-            targets: '_all'
-        }]
-    });
+            var dataTable = $('#tablaUsuarios').DataTable({
+                paging: true,
+                responsive: true,
+                language: {
+                    url: '../config/Es.json',
+                },
+                "serverSide": true,
+                autoWidth: false,
+                "order": [
+                    [0, "desc"]
+                ],
+                "ajax": {
+                    url: "./funciones/require-dt.php",
+                    type: "POST",
+                },
+                "lengthMenu": [2, 5, 10],
+                "pageLength": 10,
+                columnDefs: [{
+                    type: 'string',
+                    targets: '_all'
+                }]
+            });
 
-    // Evento para controlar el expandir y colapsar las filas
-    $('#tablaUsuarios').on('click', 'tr td.dtr-control', function() {
-        var tr = $(this).closest('tr');
-        var row = dataTable.row(tr);
+            // Evento para controlar el expandir y colapsar las filas
+            $('#tablaUsuarios').on('click', 'tr td.dtr-control', function() {
+                var tr = $(this).closest('tr');
+                var row = dataTable.row(tr);
 
-        // Cerrar todas las filas expandidas
-        dataTable.rows().every(function() {
-            if (this.child.isShown()) {
-                this.child.hide();
-                $(this.node()).removeClass('dtr-expanded');
-            }
+                // Si la fila clickeada está expandida, colapsarla
+                if (!row.child.isShown()) {
+                    row.child.hide();
+                    console.log("xd");
+                    tr.removeClass('dtr-expanded');
+                } else {
+                    // Cerrar todas las filas expandidas
+                    dataTable.rows().every(function() {
+                        if (this.child.isShown()) {
+                            console.log("xd2");
+                            this.child.hide();
+                            $(this.node()).removeClass('dtr-expanded');
+                        }
+                    });
+
+                    // Expandir la fila clickeada
+                    row.child.show();
+                    console.log("xd4");
+                    tr.addClass('dtr-expanded');
+                }
+            });
+
+
+            $(window).on('resize', function() {
+                dataTable.columns.adjust().responsive.recalc();
+            });
         });
-
-        // Si la fila clickeada no está expandida, expandirla
-        if (!row.child.isShown()) {
-            row.child.show();
-            tr.addClass('dtr-expanded');
-        } else {
-            // Si ya está expandida, simplemente ocultarla
-            row.child.hide();
-            tr.removeClass('dtr-expanded');
-        }
-    });
-
-    $(window).on('resize', function() {
-        dataTable.columns.adjust().responsive.recalc();
-    });
-});
 
 
         function el_anime(id, nombre) {

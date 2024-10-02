@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
             echo '<tr><td class="td_gris">Calificacion</td><td>' . $row["calif"] . '</td></tr>';
             echo '<tr><td class="td_gris">Fecha</td><td>' . $row["fecha"] . '</td></tr>';
             echo '<tr><td class="td_gris">Descripción</td><td>' . $row["descripcion"] . '</td></tr>';
-            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="/' . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
-            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="/' . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
+            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="' . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
+            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="' . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
         }
         echo '</table>';
     }
@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
 
     $conn->close();
 }
+
 // @c-red EDITAR ANIME
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     $anime_id = intval($_POST['anime_id']);
@@ -46,9 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
 
-    $upload_dir = '../../uploads/' . str_replace(' ', '-', $nombre_h);
+    // Eliminar caracteres no permitidos de las rutas de carpetas
+    $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre); // Nuevo nombre limpio
+    $nombre_h_d = preg_replace('/[\/:*?"<>|]/', '', $nombre_h); // Nombre antiguo limpio
+
+    // Usar DOCUMENT_ROOT para establecer la carpeta de subida
+    $upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '-', $nombre_h_d);
     if ($nombre !== $nombre_h) {
-        $new_upload_dir = '../../uploads/' . str_replace(' ', '-', $nombre);
+        $new_upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '-', $nombre_d);
 
         if (is_dir($upload_dir)) {
             @rename($upload_dir, $new_upload_dir);
@@ -80,11 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
             $ruta_destino = "$upload_dir/$unique_name";
 
             if (move_uploaded_file($tmp_name, $ruta_destino)) {
-                $rutas_imagenes[$tipo] = $ruta_destino;
+                $rutas_imagenes[$tipo] = '/uploads/' . str_replace(' ', '-', $nombre_d) . "/$unique_name";
 
                 // Eliminar la imagen antigua si existe
-                if (!empty($anime[$campo]) && file_exists($anime[$campo])) {
-                    unlink($anime[$campo]);
+                if (!empty($anime[$campo]) && file_exists($_SERVER['DOCUMENT_ROOT'] . $anime[$campo])) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . $anime[$campo]);
                 }
             }
         } else {
@@ -92,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
             if (!empty($anime[$campo])) {
                 $nombre_archivo = basename($anime[$campo]);
                 $nueva_ruta = "$upload_dir/$nombre_archivo";
-                $rutas_imagenes[$tipo] = $nueva_ruta;
+                $rutas_imagenes[$tipo] = '/uploads/' . str_replace(' ', '-', $nombre_d) . "/$nombre_archivo"; // Cambiado para guardar la ruta correcta
             } else {
                 $rutas_imagenes[$tipo] = $anime[$campo]; // Mantener la imagen actual si no hay cambios
             }
@@ -127,6 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
 
     $conn->close();
 }
+
 // @c-red CREAR ANIME
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
     $campos = ['nombre', 'gen', 'calif', 'descripcion', 'fecha'];
@@ -140,11 +147,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
 
-    $upload_dir = '../../uploads/' . str_replace(' ', '-', $nombre);
+    $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre);
+    $upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '-', $nombre_d);
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }
-
     $imagenes = ['vertical' => 'imagen_portada_vertical', 'horizontal' => 'imagen_portada_horizontal'];
     $rutas_imagenes = ['vertical' => '', 'horizontal' => ''];
 
@@ -155,7 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
             $ruta_destino = "$upload_dir/$name";
 
             if (move_uploaded_file($tmp_name, $ruta_destino)) {
-                $rutas_imagenes[$tipo] = $ruta_destino;
+                // Guardar la ruta relativa para la base de datos
+                $rutas_imagenes[$tipo] = '/uploads/' . str_replace(' ', '-', $nombre_d) . "/$name";
             }
         }
     }
@@ -181,14 +189,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         ]);
 
         $anime_id = $conn->insert_id;
-
-        // Insertar los géneros en la tabla anime_genero
-        // $sql_genero = "INSERT INTO anime_genero (anime_id, genero_id) VALUES (?, ?)";
-        // $stmt_genero = $conn->prepare($sql_genero);
-
-        // foreach ($generos as $genero_id) {
-        //     $stmt_genero->execute([$anime_id, $genero_id]);
-        // }
 
         echo "Nuevo registro creado exitosamente";
     } finally {
@@ -229,9 +229,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_el'])) {
         $conn->close();
     }
 }
+
 // @c-red ANIME PAGINACION
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
-    $limit = 20; // Siempre mostrará 5 registros
+    $limit = 20;
     $page = isset($_POST['page']) ? max(1, (int)$_POST['page']) : 1;
     $start = ($page - 1) * $limit;
 
@@ -247,6 +248,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
     }
 
     // Filtro de fecha
+    if (isset($_POST['search']) && !empty($_POST['search'])) {
+        $whereClauses[] = "nombre LIKE '%{$_POST['search']}%'";
+    }
     if (isset($_POST['fecha']) && !empty($_POST['fecha'])) {
         $whereClauses[] = "fecha LIKE '%{$_POST['fecha']}%'";
     }
@@ -306,7 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
 
     // Generar HTML para la paginación
     $paginationHtml = '
-<nav aria-label="Navegación de páginas">
+    <nav aria-label="Navegación de páginas">
     <ul class="pagination justify-content-center">';
 
     if ($startPage > 1) {
@@ -333,7 +337,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
 
     $paginationHtml .= '
     </ul>
-</nav>';
+    </nav>';
 
     // Devolver los datos en formato JSON
     echo json_encode([
@@ -342,4 +346,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
         'consulta' => $consulta,
 
     ]);
+}
+
+// @c-red GUARDAR EPISODIOS
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subircap'])) {
+    $anime_id = isset($_POST['anime_id']) ? intval($_POST['anime_id']) : 0;
+    if ($anime_id <= 0) {
+        die(json_encode(['success' => false, 'message' => "ID de anime inválido"]));
+    }
+    // Iniciar transacción
+    $conn->begin_transaction();
+    try {
+        // Obtener los episodios existentes
+        $stmt = $conn->prepare("SELECT id FROM episodios WHERE anime_id = ?");
+        $stmt->bind_param("i", $anime_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $episodios_existentes = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        $ids_existentes = array_column($episodios_existentes, 'id');
+        $ids_actualizados = [];
+        // Procesar los episodios enviados
+        foreach ($_POST['capitulo'] as $id => $episodio) {
+            $numero = intval($episodio['numero']);
+            $iframe = $conn->real_escape_string($episodio['iframe']);
+
+            if (strpos($id, 'nuevo_') === 0) {
+                // Insertar nuevo episodio
+                $stmt = $conn->prepare("INSERT INTO episodios (anime_id, numero_episodio, iframe) VALUES (?, ?, ?)");
+                $stmt->bind_param("iis", $anime_id, $numero, $iframe);
+            } else {
+                // Actualizar episodio existente
+                $id = intval($id);
+                $stmt = $conn->prepare("UPDATE episodios SET numero_episodio = ?, iframe = ? WHERE id = ? AND anime_id = ?");
+                $stmt->bind_param("isii", $numero, $iframe, $id, $anime_id);
+                $ids_actualizados[] = $id;
+            }
+            $stmt->execute();
+            $stmt->close();
+        }
+        // Eliminar episodios que ya no existen
+        $ids_a_eliminar = array_diff($ids_existentes, $ids_actualizados);
+        if (!empty($ids_a_eliminar)) {
+            $ids_string = implode(',', $ids_a_eliminar);
+            $conn->query("DELETE FROM episodios WHERE id IN ($ids_string) AND anime_id = $anime_id");
+        }
+        // Commit de la transacción
+        $conn->commit();
+        echo json_encode(['success' => true, 'message' => "Episodios guardados correctamente"]);
+    } catch (Exception $e) {
+        // Rollback en caso de error
+        $conn->rollback();
+        echo json_encode(['success' => false, 'message' => "Error al guardar los episodios: " . $e->getMessage()]);
+    }
+
+    // Cerrar la conexión
+    $conn->close();
 }

@@ -5,17 +5,17 @@
     // $username = 'uptn6lzuw8z2ofp6';
     // $password = 'PdvrUhKqEUZXF6oMLJeE';
     
-    // $host = 'localhost';
-    // $port = '3306';
-    // $dbname = 'anime_db';
-    // $username = 'root';
-    // $password = '';
-
-    $host = 'autorack.proxy.rlwy.net';
-    $port = '22439';
-    $dbname = 'railway';
+    $host = 'localhost';
+    $port = '3306';
+    $dbname = 'anime_db';
     $username = 'root';
-    $password = 'KCsgbSvvqIYrbLbPeLYpmoULtmMoonIy';
+    $password = '';
+
+    // $host = 'junction.proxy.rlwy.net';
+    // $port = '10848';
+    // $dbname = 'railway';
+    // $username = 'root';
+    // $password = 'iChUyHhupzleykMnYbmAuOudrQDGWMIb';
 
     $conn = new mysqli($host, $username, $password, $dbname, $port);
     

@@ -33,17 +33,17 @@ date_default_timezone_set('America/Lima');
         <form id="subirAnimeForm" enctype="multipart/form-data" class="row g-3">
             <div class="col-md-6">
                 <label for="nombre" class="form-label">Nombre del Anime:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="off" required>
             </div>
 
             <div class="col-md-6">
                 <label for="calif" class="form-label">Calificacion:</label>
-                <input type="text" class="form-control" id="calif" name="calif" required>
+                <input type="text" class="form-control" id="calif" name="calif" autocomplete="off" required>
             </div>
 
             <div class="col-6">
                 <label for="fecha" class="form-label">Fecha:</label>
-                <input class="form-control" type="date" id="fecha" name="fecha" value="<?php echo $fecha_actual = date('Y-m-d'); ?>">
+                <input class="form-control" type="date" id="fecha" name="fecha" autocomplete="off" required>
             </div>
 
             <div class="col-12">
@@ -53,7 +53,7 @@ date_default_timezone_set('America/Lima');
 
             <div class="col-12">
                 <label for="gen" class="form-label">Gereno input:</label>
-                <input type="text" class="form-control" id="genreInput" name="gen" required>
+                <input type="text" class="form-control" id="genreInput" name="gen" autocomplete="off" required>
             </div>
             <div class="col-12">
                 <label for="generos" class="form-label">Géneros:</label><br>
