@@ -141,8 +141,6 @@
                             $img_hv = !empty($anime['imagen_portada_horizontal']) ? $anime['imagen_portada_horizontal'] : $anime['imagen_portada_vertical'];
                             $img_vh = !empty($anime['imagen_portada_vertical']) ? $anime['imagen_portada_vertical'] : $anime['imagen_portada_horizontal'];
 
-                            $etiquetas = explode(',', $anime['etiquetas']);
-
                             $genero = isset($etiquetas[0]) ? trim($etiquetas[0]) : '';
                             $anio = isset($etiquetas[1]) ? trim($etiquetas[1]) : '';
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
