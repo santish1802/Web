@@ -14,7 +14,6 @@
     </style>
     <style id='customStyle'></style>
 </head>
-
 <body class="body">
     <?php include "navbar2.php" ?>
     <div class="container-sm py-4 ">
