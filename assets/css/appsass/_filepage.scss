@@ -12,18 +12,20 @@
 
 		> * {
 			scroll-snap-align: start;
+			scroll-snap-stop: always;
 		}
 	}
 	.cont-filter {
 		// padding: 0 1rem;
-		font-size: .875rem;
+		// font-size: 1rem;
+		font-size: 1rem;
 		font-weight: bold;
 	}
 	.dropdown-toggle, #subir {
 		background-color: $gray2;
 		border: none;
 		color: #9EA2A8;
-		font-size: .875rem;
+		font-size: 1rem;
 		font-weight: bold;
 		padding: .5rem .875rem;
 
@@ -62,7 +64,7 @@
 			align-items: center;
 			gap: 0.8rem;
 			padding: 0.5rem 0;
-			font-size: .875rem;
+			font-size: 1rem;
 			cursor: pointer;
 			color: #9EA2A8;
 			.form-check-input{

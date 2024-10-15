@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
-    <title>Anime web</title>
+    <title>AnimaLoop</title>
     <?php echo $css ?>
     <?php echo $css2 ?>
     

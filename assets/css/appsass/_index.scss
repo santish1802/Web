@@ -1,38 +1,4 @@
-@charset "UTF-8";
 
-/*-------------------------
-    Fuentes
--------------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Jost:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700;800&amp;display=swap");
-
-@font-face {
-	font-family: 'Noir Pro';
-	src: url('/assets/css/fonts/NoirPro-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Noir Pro';
-	src: url('/assets/css/fonts/NoirPro-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Noir Pro';
-	src: url('/assets/css/fonts/NoirPro-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Noir Pro Semi';
-	src: url('/assets/css/fonts/NoirPro-SemiBold.ttf') format('truetype');
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
 
 #mensaje {
 	position: fixed;
@@ -56,10 +22,10 @@
 	margin-left: -15px;
 	margin-right: -15px;
 }
-.row > [class*=col] {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-}
+// .row > [class*=col] {
+// 	padding-left: 1.5rem;
+// 	padding-right: 1.5rem;
+// }
 
 /*-------------------------
 		Tipografía
@@ -132,55 +98,6 @@ b {
 	font-family: "Jost", sans-serif;
 }
 
-/* @c-red RESPONSIVE HTML */
-@media (min-width: 1500px) {
-	html {
-		font-size: calc(100vw / 90); /* El ancho se divide entre 75 */
-	}
-	
-}
-
-@media (max-width: 1200px) {
-	html {
-		font-size: calc(100vw / 90); /* El ancho se divide entre 75 */
-	}
-}
-@media (max-width: 991px) {
-    html {
-		font-size: 14.3px; /* Tablets */
-		font-size: calc(100vw / 71);
-    }
-}
-@media (max-width: 768px) {
-    html {
-        font-size: 13px; /* Dispositivos medianos */
-		font-size: calc(100vw / 58);
-    }
-}
-@media (max-width: 576px) {
-    html {
-        font-size: 12.8px; /* Pantallas pequeñas */
-		font-size: calc(100vw / 45);
-    }
-}
-@media (max-width: 492px) {
-    html {
-        font-size: 12.4px; /* Teléfonos pequeños */
-		font-size: calc(100vw / 35);
-    }
-}
-@media (max-width: 360px) {
-    html {
-        font-size: 12px; /* Teléfonos más pequeños */
-		font-size: calc(100vw / 30);
-    }
-}
-@media (max-width: 320px) {
-    html {
-        font-size: 11.6px; /* Teléfonos muy pequeños */
-		font-size: calc(100vw / 27);
-    }
-}
 .social-icons {
 	display: flex;
 	gap: 32px;
@@ -856,12 +773,12 @@ footer .copyright {
 	object-fit: cover;
 	border-radius: 15px;
 }
-@media (min-width: 1400px) {
-    .banner .container {
-        max-width: none;
-		padding: 0 5rem;
-    }
-}
+// @media (min-width: 1400px) {
+//     .banner .container {
+//         max-width: none;
+// 		padding: 0 5rem;
+//     }
+// }
 
 @media only screen and (max-width:991px) {
 	.banner.style-1 img {
@@ -1149,10 +1066,10 @@ footer .copyright {
 	margin-left: -15px;
     margin-right: -15px;
 }
-.animes .row > [class*=col]{
-	padding-left: .9375rem;
-    padding-right: .9375rem;
-}
+// .animes .row > [class*=col]{
+// 	padding-left: .9375rem;
+//     padding-right: .9375rem;
+// }
 .animes .card-slider {
 	margin: 0 -15px;
 }

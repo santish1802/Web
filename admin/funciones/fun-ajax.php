@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_modal'])) {
             echo '<tr><td class="td_gris">Calificacion</td><td>' . $row["calif"] . '</td></tr>';
             echo '<tr><td class="td_gris">Fecha</td><td>' . $row["fecha"] . '</td></tr>';
             echo '<tr><td class="td_gris">Descripción</td><td>' . $row["descripcion"] . '</td></tr>';
-            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="' . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
-            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="' . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
+            echo '<tr><td class="td_gris">Img. Vertical</td><td><img src="' . $webhost . $row["imagen_portada_vertical"] . '" alt=""></td></tr>';
+            echo '<tr><td class="td_gris">Img. Horizontal</td><td><img src="' . $webhost . $row["imagen_portada_horizontal"] . '" alt=""></td></tr>';
         }
         echo '</table>';
     }
@@ -46,7 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     foreach ($campos_opciones as $campo) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
-
+    $nombre = str_replace('-', ' ', $nombre);
+    $nombre = preg_replace('/[^\w\s]/', '', $nombre);
     // Eliminar caracteres no permitidos de las rutas de carpetas
     $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre); // Nuevo nombre limpio
     $nombre_h_d = preg_replace('/[\/:*?"<>|]/', '', $nombre_h); // Nombre antiguo limpio
@@ -146,6 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
     foreach ($campos_opciones as $campo) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
+    $nombre = str_replace('-', ' ', $nombre);
+    $nombre = preg_replace('/[^\w\s]/', '', $nombre);
 
     $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre);
     $upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '-', $nombre_d);
@@ -370,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subircap'])) {
         // Procesar los episodios enviados
         foreach ($_POST['capitulo'] as $id => $episodio) {
             $numero = intval($episodio['numero']);
-            $iframe = $conn->real_escape_string($episodio['iframe']);
+            $iframe = $episodio['iframe'];
 
             if (strpos($id, 'nuevo_') === 0) {
                 // Insertar nuevo episodio

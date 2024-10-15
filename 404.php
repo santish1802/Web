@@ -10,7 +10,7 @@
     <meta name="description" content="Anime web">
     <?php echo $css ?>
     <?php echo $css2 ?>
-    <title>Anime web</title>
+    <title>AnimaLoop</title>
 
     
     

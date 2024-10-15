@@ -53,7 +53,7 @@ if ($anime_id > 0) {
 <body>
     <?php include "navbar2.php" ?>
     <div class="container mt-5">
-        <h2 class="mb-4"><?php echo htmlspecialchars($nombre_anime) . " - " . $año_anime;?></h1> <!-- Título de la página -->
+        <h2 class="mb-4"><?php echo htmlspecialchars($nombre_anime) . " - " . $año_anime; ?></h1> <!-- Título de la página -->
             <div id="mensaje" class="alert" style="display: none;" role="alert"></div>
             <form id="editarAnimeForm" class="row g-3">
                 <input type="hidden" id="anime_id" value="<?php echo $anime_id; ?>">
@@ -62,8 +62,8 @@ if ($anime_id > 0) {
                         <div class="col-12 mb-3 capitulo-container">
                             <label>Capítulo <?php echo htmlspecialchars($episodio['numero_episodio']); ?></label>
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control me-2 iframe-input" name="capitulo[<?php echo $episodio['id']; ?>][iframe]" value="<?php echo htmlspecialchars($episodio['iframe']); ?>" autocomplete="off">
-                                <input type="hidden" name="capitulo[<?php echo $episodio['id']; ?>][numero]" value="<?php echo $episodio['numero_episodio']; ?>" class="numero-capitulo">
+                                <input type="text" class="form-control me-2 iframe-input" name="capitulo[<?php echo $episodio['id']; ?>][iframe]" value='<?php echo $episodio['iframe']; ?>' autocomplete="off">
+                                <input type="hidden" name="capitulo[<?php echo $episodio['id']; ?>][numero]" value='<?php echo $episodio['numero_episodio']; ?>' class="numero-capitulo">
                                 <button type="button" class="btn btn-danger eliminar-capitulo">Eliminar</button>
                             </div>
                         </div>
@@ -96,12 +96,16 @@ if ($anime_id > 0) {
                         <label>Capítulo ${contadorCapitulos}</label>
                         <div class="d-flex align-items-center">
                             <input type="text" class="form-control me-2 iframe-input" name="capitulo[nuevo_${contadorCapitulos}][iframe]" autocomplete="off">
-                            <input type="hidden" name="capitulo[nuevo_${contadorCapitulos}][numero]" value="${contadorCapitulos}" class="numero-capitulo">
+                            <input type="hidden" name="capitulo[nuevo_${contadorCapitulos}][numero]" value='${contadorCapitulos}' class="numero-capitulo">
                             <button type="button" class="btn btn-danger eliminar-capitulo">Eliminar</button>
                         </div>
                     </div>
                 `;
                 $('#capitulos').append(nuevoCapitulo);
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
             });
 
             $(document).on('click', '.eliminar-capitulo', function() {

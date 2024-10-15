@@ -5,7 +5,7 @@ $css = '
 ';
 $css2 = '
 <link rel="shortcut icon" type="image/x-icon" href="/assets/media/favicon.png">
-<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
 <link rel="stylesheet" href="/assets/css/vendor/aksVideoPlayer.css">
 <link rel="stylesheet" href="/assets/css/vendor/slick.css">
 <link rel="stylesheet" href="/assets/css/vendor/slick-theme.css">

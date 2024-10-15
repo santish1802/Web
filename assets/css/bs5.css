@@ -12453,6 +12453,7 @@ img {
   font-size: 2rem;
   margin: 0 1rem;
   color: #bdbfc2;
+  opacity: 0;
 }
 @media (max-width: 600px) {
   .banner-slider .sw-btn {
@@ -12475,6 +12476,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.custom-select-selected {
   min-width: 100px;
 }
 
@@ -12497,7 +12502,7 @@ img {
 .custom-select-option {
   padding: 0.5rem 0;
   min-width: 6.875rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;

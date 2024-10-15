@@ -12,7 +12,7 @@
     <?php echo $css ?>
     <?php echo $css2 ?>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <title>Anime web</title>
+    <title>AnimaLoop</title>
 
 
 </head>
@@ -26,7 +26,7 @@
 
         <!-- @c-red Filtros -->
         <section class="listing-filter p-40">
-            <div class="container-fluid">
+            <div class="container">
                 <form id="GEN" method="get" class="d-flex align-items-center">
 
                     <!-- Dropdown para géneros -->
@@ -83,7 +83,7 @@
             </div>
         </section>
         <section class="animes pb-0">
-            <div class="container-fluid">
+            <div class="container">
                 <div id="content-container" class="row">
 
                 </div>

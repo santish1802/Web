@@ -51,6 +51,7 @@ img {
 		font-size: 2rem;
     	margin: 0 1rem;
 		color: mix(white, $graytxt, 50%);
+		opacity: 0;
 		@media (max-width: 600px) {
 			display: none;
 		}

@@ -133,7 +133,7 @@ $conn->close();
                 <label for="imagen_portada_horizontal" class="form-label">Imagen Portada Horizontal:</label>
                 <input type="file" class="form-control imagen-input" id="imagen_portada_horizontal" name="imagen_portada_horizontal">
                 <?php if (!empty($anime['imagen_portada_horizontal'])): ?>
-                    <img src="<?php echo htmlspecialchars($anime['imagen_portada_horizontal']); ?>" alt="Portada Horizontal Actual" class="img-thumbnail mt-2" width="100">
+                    <img src="<?php echo $webhost . htmlspecialchars($anime['imagen_portada_horizontal']); ?>" alt="Portada Horizontal Actual" class="img-thumbnail mt-2" width="100">
                 <?php endif; ?>
             </div>
 

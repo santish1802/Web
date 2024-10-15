@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Anime web">
-    <title>Anime web</title>
+    <title>AnimaLoop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <?php echo $css ?>
     <?php echo $css2 ?>
@@ -49,10 +49,10 @@
                         if ($anime['portada'] == 1) {
                     ?>
                             <div class="swiper-slide banner-block overflow-hidden style-1 position-relative">
-                                <div class="bg-anime" style="background: url(<?php echo $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
+                                <div class="bg-anime" style="background: url(<?php echo $webhost . $img_hv ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                                 <div class="container">
                                     <div class="banner-content">
-                                        <div class="row mx-xl-4">
+                                        <div class="row">
                                             <div class="col-lg col-12">
                                                 <h2 class="title anime-nombre"><?php echo $anime['nombre']; ?></h2>
                                                 <div class="mb-4 etiq">
@@ -69,7 +69,7 @@
                                                 <a class="anime-play play-butn sdw-5" href="#">VER AHORA</a>
                                             </div>
                                             <div class="col-lg-auto col-12">
-                                                <img class="banner-img" src="<?php echo $img_vh ?>" class="d-block w-100" alt="">
+                                                <img class="banner-img" src="<?php echo $webhost . $img_vh ?>" class="d-block w-100" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
 
             <!-- @c-red TENDENCIA -->
             <section class="cont-tendencia animes p-40">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="d-flex justify-content-between mb-30 position-relative">
                         <h2 class="fw-bold f-28">Animes en tendencia</h2>
                         <div class="cont-btn">
@@ -111,8 +111,8 @@
                             ?>
                                     <div class="swiper-slide card st-2">
                                         <div class="img-block mb-12">
-                                            <img alt="" src="<?php echo $anime['imagen_portada_vertical']; ?>" />
-                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i></a>
+                                            <img alt="" src="<?php echo $webhost . $anime['imagen_portada_vertical']; ?>" />
+                                            <a class="cus-btn light" href="detalle.php?anime=<?php echo $anime['nombre'] ?>">Ver ahora<i class="fa fa-play"></i></a>
                                         </div>
                                         <div class="content">
                                             <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
@@ -130,9 +130,9 @@
 
             <!-- @c-red CONTINUAR VIENDO -->
             <section class="animes">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="heading mb-32">
-                        <h2 class="f-28 fw-bold">Continuar viendo</h2>
+                        <h2 class="f-28 fw-bold">Lista de Animes</h2>
                         <a class="light-btn primary sdw-5" href="anime-listing.php">Ver todo<i class="fa fa-chevron-right"></i></a>
                     </div>
                     <div class="row">
@@ -150,8 +150,8 @@
                                 <div class="item mb-40">
                                     <div class="card st-2 p-0 m-0">
                                         <div class="img-block mb-12">
-                                            <img alt="" src="<?php echo $img_vh ?>" />
-                                            <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i>
+                                            <img alt="" src="<?php echo $webhost . $img_vh ?>" />
+                                            <a class="cus-btn light" href="detalle.php?anime=<?php echo $anime['nombre'] ?>">Ver ahora<i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                         <div class="content">
@@ -167,7 +167,7 @@
 
             <!--Próximamente Área de inicio-->
             <section class="comming-soon p-40">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="content">
                         <img alt="" src="assets/media/comming-soon/image.png" />
                         <div class="details">
@@ -187,7 +187,7 @@
                                 <li class="icon"><i class="fas fa-star"></i></li>
                                 <li>8.5</li>
                             </ul>
-                            <h4 class="h-20 bold text-white mb-16">Personajes</h4>
+                            <h4 class="h-20 bold text-white mb-16 mt-4">Personajes</h4>
                             <ul class="name unstyled mb-40">
                                 <li>huyendo</li>
                                 <li>Valioso</li>
@@ -196,7 +196,7 @@
                                 <li>himen</li>
                                 <li>Aki Hayakawa</li>
                             </ul>
-                            <a class="cus-btn primary" data-bs-target="#videoModal" data-bs-toggle="modal" href="#"><i class="fa fa-play"></i>Ver tráiler</a>
+                            <a class="cus-btn primary mt-4" data-bs-target="#videoModal" data-bs-toggle="modal" href="#"><i class="fa fa-play"></i>Ver tráiler</a>
                             <!-- <button class="btn btn-primary  br-12 btn-p px-4 py-2 f-24 sdw-5" data-bs-target="#videoModal" data-bs-toggle="modal"><i class="fa fa-play"></i>Ver tráiler</button> -->
                         </div>
                     </div>
@@ -221,6 +221,7 @@
     <script src="assets/js/app.js"></script>
     <script>
         var swiper = new Swiper(".SwiperBanner", {
+            autoplay: true,
             loop: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -237,14 +238,14 @@
             slidesPerView: 2,
 
             loop: true,
-            autoplay: false,
+            autoplay: true,
             navigation: {
                 nextEl: ".cont-tendencia .swiper-button-n",
                 prevEl: ".cont-tendencia .swiper-button-p",
             },
             breakpoints: {
                 576: {
-                    loop: false,
+                    loop: true,
                     slidesPerView: 3,
                 },
                 768: {
