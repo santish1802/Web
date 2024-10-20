@@ -46,8 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_edit'])) {
     foreach ($campos_opciones as $campo) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
-    $nombre = str_replace('-', ' ', $nombre);
-    $nombre = preg_replace('/[^\w\s]/', '', $nombre);
+    $nombre = str_replace('_', ' ', $nombre);
     // Eliminar caracteres no permitidos de las rutas de carpetas
     $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre); // Nuevo nombre limpio
     $nombre_h_d = preg_replace('/[\/:*?"<>|]/', '', $nombre_h); // Nombre antiguo limpio
@@ -148,8 +147,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_crear'])) {
         $$campo = in_array($campo, $opciones) ? 1 : 0;
     }
     $nombre = str_replace('-', ' ', $nombre);
-    $nombre = preg_replace('/[^\w\s]/', '', $nombre);
-
     $nombre_d = preg_replace('/[\/:*?"<>|]/', '', $nombre);
     $upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '-', $nombre_d);
     if (!is_dir($upload_dir)) {
@@ -299,7 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['page'])) {
                 <div class="card st-2 m-0 p-0">
                     <div class="img-block mb-12">
                         <img alt="" src="' . htmlspecialchars($anime['imagen_portada_vertical']) . '" loading="lazy"/>
-                        <a class="cus-btn light" href="anime-detail.php">Ver ahora<i class="fa fa-play"></i></a>
+                        <a class="cus-btn light" href="/detalle.php?anime='. $anime['nombre'] .'">Ver ahora<i class="fa fa-play"></i></a>
                     </div>
                     <div class="content">
                         <h4 class="f-18 text-white bold">' . htmlspecialchars($anime['nombre']) . '</h4>

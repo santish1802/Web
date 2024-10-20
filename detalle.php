@@ -2,7 +2,7 @@
 require 'php/head.php';
 require 'config/config.php';
 $nombre_anime = isset($_GET['anime']) ? $_GET['anime'] : '';
-$nombre_anime = str_replace('-', ' ', $nombre_anime);
+$nombre_anime = str_replace('_', ' ', $nombre_anime);
 if (!empty($nombre_anime)) {
     // Paso 1: Obtener el ID del anime basado en el nombre
     $stmt = $conn->prepare("SELECT * FROM anime WHERE nombre = ?");
@@ -138,6 +138,7 @@ if (!empty($nombre_anime)) {
             </div>
 
         </section>
+        <?php include "php/footter.php"; ?>
     </div>
 
     <script src="/assets/js/vendor/jquery-3.6.3.min.js"></script>

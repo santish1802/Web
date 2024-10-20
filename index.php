@@ -94,7 +94,7 @@
             <section class="cont-tendencia animes p-40">
                 <div class="container">
                     <div class="d-flex justify-content-between mb-30 position-relative">
-                        <h2 class="fw-bold f-28">Animes en tendencia</h2>
+                        <h2 class="fw-bold f-24">Animes en tendencia</h2>
                         <div class="cont-btn">
                             <div class="sw-btn swiper-button-p"><i class="fa-solid fa-caret-left"></i></div>
                             <div class="ms-4 sw-btn swiper-button-n"><i class="fa-solid fa-caret-right"></i></div>
@@ -103,19 +103,38 @@
                     <div class="swiper tendencia">
                         <div class="swiper-wrapper">
                             <?php
+                            // ordena por nombre
                             usort($animes, function ($a, $b) {
                                 return strcmp($a['nombre'], $b['nombre']);
                             });
                             foreach ($animes as $anime) {
                                 if ($anime['tendencia'] == 1) {
+                                    $fecha = $anime['fecha'];
+                                    $year = (new DateTime($fecha))->format('Y');
                             ?>
                                     <div class="swiper-slide card st-2">
-                                        <div class="img-block mb-12">
-                                            <img alt="" src="<?php echo $webhost . $anime['imagen_portada_vertical']; ?>" />
-                                            <a class="cus-btn light" href="detalle.php?anime=<?php echo $anime['nombre'] ?>">Ver ahora<i class="fa fa-play"></i></a>
+                                        <div class="tarjeta-contenedor mb-12">
+                                            <div class="tarjeta">
+                                                <div class="cara frente">
+                                                    <img src="<?php echo $webhost . $anime['imagen_portada_vertical']; ?>" alt="">
+                                                </div>
+                                                <div class="cara atras">
+                                                    <div>
+                                                        <h3><?php echo $anime['nombre']; ?></h3>
+                                                        <div class="fecha-calif">
+                                                            <div><?php echo $year; ?></div>
+                                                            <div><i class="fa-solid fa-star"></i><?php echo $anime['calif']; ?></div>
+                                                        </div>
+                                                        <div class="generos">
+                                                            <?php echo  $anime['gen']; ?>
+                                                        </div>
+                                                    </div>
+                                                    <a class="btn btn-primary play" href="/detalle.php?anime=<?php echo $anime['nombre'] ?>"><i class="fa-solid fa-play"></i> Ver ahora</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="content">
-                                            <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                            <h4 class="animeName text-white bold"><?php echo $anime['nombre'] ?></h4>
                                         </div>
                                     </div>
                             <?php
@@ -131,7 +150,7 @@
             <!-- @c-red CONTINUAR VIENDO -->
             <section class="animes">
                 <div class="container">
-                    <div class="heading mb-32">
+                    <div class="heading mb-30">
                         <h2 class="f-28 fw-bold">Lista de Animes</h2>
                         <a class="light-btn primary sdw-5" href="anime-listing.php">Ver todo<i class="fa fa-chevron-right"></i></a>
                     </div>
@@ -145,17 +164,34 @@
                             $anio = isset($etiquetas[1]) ? trim($etiquetas[1]) : '';
                             $episodios = isset($etiquetas[2]) ? 'EP - ' . trim($etiquetas[2]) : '';
                             $calificacion = isset($etiquetas[3]) ? trim($etiquetas[3]) : '';
+                            $fecha = $anime['fecha'];
+                            $year = (new DateTime($fecha))->format('Y');
                         ?>
                             <div class="col-lg-2-4 col-md-3 col-sm-4 col-6">
                                 <div class="item mb-40">
                                     <div class="card st-2 p-0 m-0">
-                                        <div class="img-block mb-12">
-                                            <img alt="" src="<?php echo $webhost . $img_vh ?>" />
-                                            <a class="cus-btn light" href="detalle.php?anime=<?php echo $anime['nombre'] ?>">Ver ahora<i class="fa fa-play"></i>
-                                            </a>
+                                        <div class="tarjeta-contenedor mb-12">
+                                            <div class="tarjeta">
+                                                <div class="cara frente">
+                                                    <img src="<?php echo $webhost . $anime['imagen_portada_vertical']; ?>" alt="">
+                                                </div>
+                                                <div class="cara atras">
+                                                    <div>
+                                                        <h3><?php echo $anime['nombre']; ?></h3>
+                                                        <div class="fecha-calif">
+                                                            <div><?php echo $year; ?></div>
+                                                            <div><i class="fa-solid fa-star"></i><?php echo $anime['calif']; ?></div>
+                                                        </div>
+                                                        <div class="generos">
+                                                            <?php echo  $anime['gen']; ?>
+                                                        </div>
+                                                    </div>
+                                                    <a class="btn btn-primary play" href="/detalle.php?anime=<?php echo $anime['nombre'] ?>"><i class="fa-solid fa-play"></i> Ver ahora</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="content">
-                                            <h4 class="f-18 text-white bold"><?php echo $anime['nombre'] ?></h4>
+                                            <h4 class="animeName text-white bold"><?php echo $anime['nombre'] ?></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +202,7 @@
             </section>
 
             <!--Próximamente Área de inicio-->
-            <section class="comming-soon p-40">
+            <section class="comming-soon mt-4">
                 <div class="container">
                     <div class="content">
                         <img alt="" src="assets/media/comming-soon/image.png" />
@@ -204,7 +240,6 @@
             </section>
 
         </div>
-
         <!--Área de inicio del pie de página-->
         <?php include "php/footter.php"; ?>
 
@@ -220,8 +255,11 @@
     <!--Guiones del sitio-->
     <script src="assets/js/app.js"></script>
     <script>
-        var swiper = new Swiper(".SwiperBanner", {
-            autoplay: true,
+        var swiper1 = new Swiper(".SwiperBanner", {
+            autoplay: {
+                delay: 5000,
+                pauseOnMouseEnter: true,
+            },
             loop: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -238,7 +276,10 @@
             slidesPerView: 2,
 
             loop: true,
-            autoplay: true,
+            autoplay: {
+                delay: 7000,
+                pauseOnMouseEnter: true,
+            },
             navigation: {
                 nextEl: ".cont-tendencia .swiper-button-n",
                 prevEl: ".cont-tendencia .swiper-button-p",
@@ -255,6 +296,12 @@
                     slidesPerView: 5,
                 }
             },
+        });
+        swiper.el.addEventListener('mouseenter', function() {
+            swiper.autoplay.stop();
+        });
+        swiper.el.addEventListener('mouseleave', function() {
+            swiper.autoplay.start();
         });
     </script>
 </body>

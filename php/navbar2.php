@@ -70,13 +70,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item py-4 py-lg-3 px-4">
+                <li class="nav-item my-3 my-lg-3 mx-4">
                     <a class="nav-link active" aria-current="page" href="/index.php">Inicio</a>
                 </li>
-                <li class="nav-item py-4 py-lg-3 px-4">
+                <li class="nav-item my-3 my-lg-3 mx-4">
                     <a class="nav-link" href="/anime-listing.php">Listado</a>
                 </li>
-                <li class="nav-item py-4 py-lg-3 px-4 dropdown has-children">
+                <li class="nav-item my-3 my-lg-3 mx-4 dropdown has-children">
                     <a class="nav-link dropdown-toggle" href="#" role="button">
                         Paginas
                     </a>
@@ -94,7 +94,7 @@
             </form>
 
             <ul class="navbar-nav">
-                <li class="nav-item py-4 py-lg-3 px-4 dropdown has-children">
+                <li class="nav-item my-3 my-lg-3 mx-4 dropdown has-children">
                     <a class="nav-link dropdown-toggle" href="#" role="button">
                         <img src="assets/media/author/profile.png" alt="">
                     </a>

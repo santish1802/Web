@@ -99,7 +99,7 @@ if (!empty($nombre_anime) && !empty($n_episodio)) {
             </div>
         </section>
     </div>
-
+    <?php include "php/footter.php"; ?>
     <script src="/assets/js/vendor/jquery-3.6.3.min.js"></script>
     <script src="/assets/js/vendor/bootstrap.min.js"></script>
     <script src="/assets/js/app.js"></script>
