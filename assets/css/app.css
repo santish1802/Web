@@ -2204,6 +2204,7 @@ footer ul i:hover {
   margin: 0;
   height: 18.75rem;
   overflow-y: auto;
+  line-height: 140%;
 }
 #chatbox #messages .message {
   padding: 0.625rem 1rem;

@@ -124,3 +124,57 @@ function addMessage(message, className) {
     messagesContainer.appendChild(messageElement);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
+
+
+
+document.getElementById('user-input').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
+const md = window.markdownit({
+    linkify: true
+});
+
+function convertirMarkdown() {
+    const botMessages = document.querySelectorAll('.message.bot-message:not([data-rendered])');
+
+    botMessages.forEach(function (message) {
+        const content = message.innerHTML;
+        const renderedContent = md.render(content);
+        message.innerHTML = renderedContent;
+        message.dataset.rendered = 'true';
+        console.log('Rendered new message:', message.textContent.substring(0, 50) + '...');
+    });
+}
+
+// Ejecutar la renderización inicial
+convertirMarkdown();
+
+// Configurar un MutationObserver para detectar nuevos mensajes
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            const addedNodes = mutation.addedNodes;
+            for (let node of addedNodes) {
+                if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('message') && node.classList.contains('bot-message')) {
+                    console.log('New bot message detected'); // Log para verificar
+                    convertirMarkdown(); // Renderizar Markdown en el nuevo mensaje
+                    break; // Solo necesitamos llamar a convertirMarkdown una vez por mutación
+                }
+            }
+        }
+    });
+});
+
+// Iniciar la observación del contenedor de mensajes
+const messagesContainer = document.querySelector('#messages'); // Asegúrate de que este selector sea correcto
+if (messagesContainer) {
+    observer.observe(messagesContainer, {
+        childList: true,
+        subtree: true
+    });
+    console.log('MutationObserver started'); // Log para verificar
+} else {
+    console.error('Messages container not found'); // Log de error si no se encuentra el contenedor
+}
