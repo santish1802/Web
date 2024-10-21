@@ -1,9 +1,11 @@
 #chatbox {
 	width: 100%;
 	max-width: 37.5rem;
-	margin: 0 auto;
 	background-color: #000000;
-	border-radius: .5rem;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	border-radius: 1.25rem;
     * {
         font-size: 0.9rem !important;
     }
@@ -13,7 +15,8 @@
         margin: 0 1.5rem;
     }
     #messages, #input-container, #nombre-chatbot{
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.5rem;
+		line-height: 1;
     }
 	#messages {
 		list-style-type: none;

@@ -2181,9 +2181,11 @@ footer ul i:hover {
 #chatbox {
   width: 100%;
   max-width: 37.5rem;
-  margin: 0 auto;
   background-color: #000000;
-  border-radius: 0.5rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 1.25rem;
 }
 #chatbox * {
   font-size: 0.9rem !important;
@@ -2194,7 +2196,8 @@ footer ul i:hover {
   margin: 0 1.5rem;
 }
 #chatbox #messages, #chatbox #input-container, #chatbox #nombre-chatbot {
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 1.5rem;
+  line-height: 1;
 }
 #chatbox #messages {
   list-style-type: none;
